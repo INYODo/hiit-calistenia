@@ -19,93 +19,96 @@
             background-size: cover; 
             background-position: center; 
         }
-        .chart-container { position: relative; width: 100%; max-width: 500px; margin: auto; height: 350px; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin: auto; height: 380px; }
         .accent-red { color: #ef4444; }
         .bg-accent-red { background-color: #ef4444; }
+        details summary { list-style: none; }
+        details summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="bg-black/90 text-white sticky top-0 z-50 border-b border-stone-800 backdrop-blur-md">
+    <nav class="bg-black/95 text-white sticky top-0 z-50 border-b border-white/5 backdrop-blur-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="brand-font text-2xl tracking-tighter">ESPACIO <span class="accent-red font-bold">INYO</span> ☯️</div>
-            <div class="hidden md:flex gap-6 text-xs uppercase tracking-widest font-bold">
-                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-500 transition">Masajes</a>
-                <a href="https://inyodo.github.io/masaje-japones-/#programa" class="hover:text-red-500 transition">Maestría</a>
+            <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-500 transition">Masaje Japonés</a>
+                <a href="#formula" class="hover:text-red-500 transition">El Método</a>
+                <a href="#pricing" class="hover:text-red-500 transition">Planes</a>
             </div>
-            <a href="https://wa.me/541176194825" class="bg-red-600 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition">Inscribirme</a>
+            <a href="https://wa.me/541176194825" class="bg-red-600 px-5 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-red-700 transition shadow-lg shadow-red-600/20">Reservar</a>
         </div>
     </nav>
 
     <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 hero-bg">
-        <p class="text-red-500 text-sm tracking-[0.5em] mb-4 font-bold">ENERO 2026</p>
+        <p class="text-red-500 text-[10px] tracking-[0.6em] mb-4 font-bold bg-red-600/10 px-4 py-1 rounded-full border border-red-600/20">ENERO 2026</p>
         <h1 class="text-6xl md:text-9xl font-bold leading-none mb-4 tracking-tighter">HIIT +<br>CALISTENIA</h1>
         <div class="w-24 h-1 bg-red-600 mb-8"></div>
-        <p class="text-xl md:text-2xl text-stone-400 max-w-2xl mb-12 font-light italic">"Construye fuerza funcional y potencia metabólica bajo la guía de Gastón Burgos."</p>
-        <div class="flex flex-col md:flex-row gap-4">
-            <button onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" class="bg-red-600 text-white px-10 py-4 uppercase font-bold text-xs tracking-widest hover:bg-red-700 transition shadow-2xl">Ver Planes</button>
-            <button onclick="document.getElementById('formula').scrollIntoView({behavior:'smooth'})" class="border border-white/20 px-10 py-4 uppercase font-bold text-xs tracking-widest hover:bg-white hover:text-black transition">El Método</button>
+        <p class="text-xl md:text-2xl text-slate-300 max-w-2xl mb-12 font-light italic">"Transforma tu potencia y fuerza funcional con el método de Gastón Burgos."</p>
+        <div class="flex flex-col md:flex-row gap-5">
+            <button onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" class="bg-red-600 text-white px-10 py-4 uppercase font-bold text-xs tracking-[0.2em] hover:bg-red-700 transition shadow-2xl">Ver Planes y Precios</button>
+            <button onclick="document.getElementById('formula').scrollIntoView({behavior:'smooth'})" class="border border-white/10 px-10 py-4 uppercase font-bold text-xs tracking-[0.2em] hover:bg-white hover:text-black transition">Descubrir Método</button>
         </div>
     </header>
 
-    <section id="formula" class="py-24 px-6 bg-slate-900">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section id="formula" class="py-24 px-6 bg-slate-900 border-y border-white/5">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="text-4xl mb-8 accent-red">¿Por qué esta fórmula?</h2>
-                <p class="text-stone-400 text-lg mb-8 font-light leading-relaxed">Analizamos por qué la combinación de HIIT y Calistenia genera resultados superiores comparados con métodos tradicionales. Una sinergia diseñada para eficiencia y potencia.</p>
+                <h2 class="text-5xl mb-8 accent-red italic">Sinergia Superior</h2>
+                <p class="text-slate-400 text-lg mb-10 font-light leading-relaxed">¿Por qué elegir HIIT + Calistenia? Mientras el gimnasio tradicional se enfoca en movimientos aislados, nuestro método integra **quema metabólica extrema** con **control corporal absoluto**.</p>
                 <div class="space-y-6">
-                    <div class="flex items-start gap-4 p-4 bg-slate-800/50 rounded-lg border-l-4 border-red-500">
-                        <i class="fa-solid fa-fire text-red-500 text-2xl"></i>
-                        <p><strong class="block text-white">HIIT:</strong> Máxima quema de grasa y aceleración metabólica en tiempo récord.</p>
+                    <div class="flex items-start gap-4 p-5 bg-slate-800/40 rounded-sm border-l-4 border-red-600">
+                        <i class="fa-solid fa-bolt text-red-500 text-2xl"></i>
+                        <p class="text-sm leading-relaxed"><strong class="block text-white uppercase tracking-widest text-xs mb-1">Impacto HIIT</strong> Acelera tu metabolismo hasta 48hs después del entrenamiento (Efecto EPOC).</p>
                     </div>
-                    <div class="flex items-start gap-4 p-4 bg-slate-800/50 rounded-lg border-l-4 border-white">
-                        <i class="fa-solid fa-person-running text-white text-2xl"></i>
-                        <p><strong class="block text-white">CALISTENIA:</strong> Construye fuerza funcional y control corporal sin pesas.</p>
+                    <div class="flex items-start gap-4 p-5 bg-slate-800/40 rounded-sm border-l-4 border-slate-500">
+                        <i class="fa-solid fa-hand-fist text-slate-400 text-2xl"></i>
+                        <p class="text-sm leading-relaxed"><strong class="block text-white uppercase tracking-widest text-xs mb-1">Fuerza Calistenia</strong> Gana fuerza real y funcional utilizando únicamente tu propio peso corporal.</p>
                     </div>
                 </div>
             </div>
-            <div class="bg-slate-800/30 p-8 rounded-2xl border border-white/5">
+            <div class="bg-slate-950/50 p-8 rounded-sm border border-white/5 shadow-inner">
                 <div class="chart-container">
                     <canvas id="formulaChart"></canvas>
                 </div>
-                <p class="text-center text-[10px] text-stone-500 mt-4 uppercase tracking-widest italic">Impacto Físico Estimado</p>
+                <p class="text-center text-[9px] text-slate-500 mt-6 uppercase tracking-[0.3em] italic">Comparativa de Impacto: Espacio INYO vs Gimnasio Tradicional</p>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6 bg-slate-950">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl mb-4">Asistente de Rutina Express ✨</h2>
-            <p class="text-stone-500 mb-12 font-light">Prueba el nivel de personalización de Espacio INYO</p>
-            <div class="bg-slate-900 p-8 rounded-2xl border border-white/5 text-left shadow-2xl">
+            <h2 class="text-4xl mb-4 italic">Asistente de Rutina Express ✨</h2>
+            <p class="text-slate-500 mb-12 font-light">Experimenta la personalización de nuestros entrenamientos</p>
+            <div class="bg-slate-900 p-8 rounded-sm border border-white/10 text-left shadow-2xl">
                 <div class="grid md:grid-cols-3 gap-6 mb-8">
                     <div class="flex flex-col">
-                        <label class="text-[10px] uppercase tracking-widest text-red-500 font-bold mb-2">Tiempo</label>
-                        <select id="input-time" class="bg-slate-800 border-none rounded p-3 text-sm focus:ring-2 focus:ring-red-500">
+                        <label class="text-[10px] uppercase tracking-widest text-red-500 font-bold mb-2 italic">Tiempo Disponible</label>
+                        <select id="input-time" class="bg-slate-800 border-none rounded-sm p-3 text-sm focus:ring-1 focus:ring-red-600 outline-none">
                             <option value="15 min">15 minutos</option>
                             <option value="30 min" selected>30 minutos</option>
                             <option value="45 min">45+ minutos</option>
                         </select>
                     </div>
                     <div class="flex flex-col">
-                        <label class="text-[10px] uppercase tracking-widest text-red-500 font-bold mb-2">Equipo</label>
-                        <select id="input-equipment" class="bg-slate-800 border-none rounded p-3 text-sm focus:ring-2 focus:ring-red-500">
-                            <option value="Sin equipo">Peso Corporal</option>
-                            <option value="Con bastón">Con Bastón/Roller</option>
-                            <option value="Mancuernas">Mancuernas Ligeras</option>
+                        <label class="text-[10px] uppercase tracking-widest text-red-500 font-bold mb-2 italic">Equipo / Lugar</label>
+                        <select id="input-equipment" class="bg-slate-800 border-none rounded-sm p-3 text-sm focus:ring-1 focus:ring-red-600 outline-none">
+                            <option value="Peso Corporal">Solo Peso Corporal</option>
+                            <option value="Con Elementos">Con Bastón / Mancuernas</option>
+                            <option value="Espacio Reducido">Espacio Reducido (2x2)</option>
                         </select>
                     </div>
                     <div class="flex flex-col">
-                        <label class="text-[10px] uppercase tracking-widest text-red-500 font-bold mb-2">Enfoque</label>
-                        <select id="input-focus" class="bg-slate-800 border-none rounded p-3 text-sm focus:ring-2 focus:ring-red-500">
-                            <option value="HIIT">Alta Intensidad</option>
-                            <option value="Fuerza">Fuerza Calistenia</option>
-                            <option value="Recuperación">Estiramiento</option>
+                        <label class="text-[10px] uppercase tracking-widest text-red-500 font-bold mb-2 italic">Enfoque Hoy</label>
+                        <select id="input-focus" class="bg-slate-800 border-none rounded-sm p-3 text-sm focus:ring-1 focus:ring-red-600 outline-none">
+                            <option value="Alta Intensidad">Quema de Grasa (HIIT)</option>
+                            <option value="Técnica">Fuerza Técnica</option>
+                            <option value="Recuperación">Recuperación Activa</option>
                         </select>
                     </div>
                 </div>
-                <button onclick="generateRoutine()" id="btn-generate" class="w-full bg-red-600 py-4 font-bold uppercase text-xs tracking-[0.2em] hover:bg-red-700 transition">Generar Rutina de Muestra</button>
-                <div id="routine-output" class="mt-8"></div>
+                <button onclick="generateRoutine()" id="btn-generate" class="w-full bg-red-600 py-4 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-red-700 transition shadow-lg shadow-red-600/10">Generar Mi Sesión de Muestra</button>
+                <div id="routine-output" class="mt-8 transition-all duration-500"></div>
             </div>
         </div>
     </section>
@@ -113,136 +116,173 @@
     <section id="pricing" class="py-24 px-6 bg-slate-900">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-5xl mb-2 italic">Elige tu Plan</h2>
-                <p class="text-red-500 font-bold tracking-widest text-sm underline underline-offset-8">ENERO 2026</p>
+                <h2 class="text-5xl mb-2 italic">Inversión en tu Salud</h2>
+                <p class="text-red-500 font-bold tracking-[0.4em] text-xs uppercase">Planes Enero 2026</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8 items-center">
-                <div class="bg-slate-800 p-10 border border-white/5 rounded-sm hover:border-red-500 transition">
-                    <h3 class="text-2xl mb-2">Inicial</h3>
+                <div class="bg-slate-800 p-10 border border-white/5 rounded-sm hover:border-red-600 transition duration-500">
+                    <h3 class="text-2xl mb-1">Inicial</h3>
                     <div class="text-5xl font-bold mb-4">$43.000</div>
-                    <p class="text-stone-500 text-xs mb-8 uppercase tracking-widest italic">2 Veces x Semana</p>
-                    <ul class="space-y-4 text-sm text-stone-400 mb-10">
-                        <li><i class="fas fa-check mr-2 text-red-500"></i> 8 Clases Mensuales</li>
-                        <li><i class="fas fa-check mr-2 text-red-500"></i> Seguimiento Semanal</li>
-                        <li><i class="fas fa-check mr-2 text-red-500"></i> Acceso Online</li>
+                    <p class="text-slate-500 text-[10px] mb-8 uppercase tracking-widest font-bold italic">2 Veces x Semana</p>
+                    <ul class="space-y-4 text-xs text-slate-400 mb-10 tracking-wider">
+                        <li><i class="fas fa-check mr-2 text-red-600"></i> 8 Clases Mensuales</li>
+                        <li><i class="fas fa-check mr-2 text-red-600"></i> Seguimiento Semanal</li>
+                        <li><i class="fas fa-check mr-2 text-red-600"></i> Acceso a Rutinas Online</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block text-center border border-white/20 py-3 font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">Elegir</a>
+                    <a href="https://wa.me/541176194825" class="block text-center border border-white/10 py-3 font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition">Elegir Plan</a>
                 </div>
-                <div class="bg-black p-12 border-2 border-red-600 rounded-sm relative transform scale-105 shadow-2xl">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] px-3 py-1 font-bold uppercase">Más Popular</span>
-                    <h3 class="text-2xl mb-2 text-red-500">Pro</h3>
+                <div class="bg-black p-12 border-2 border-red-600 rounded-sm relative transform scale-105 shadow-[0_0_50px_rgba(239,68,68,0.15)]">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest">Recomendado</span>
+                    <h3 class="text-2xl mb-1 text-red-500">Pro</h3>
                     <div class="text-6xl font-bold mb-4 text-white">$47.500</div>
-                    <p class="text-stone-500 text-xs mb-8 uppercase tracking-widest italic font-bold">3 Veces x Semana</p>
-                    <ul class="space-y-4 text-sm text-stone-300 mb-10">
+                    <p class="text-slate-400 text-[10px] mb-8 uppercase tracking-widest font-bold italic">3 Veces x Semana</p>
+                    <ul class="space-y-4 text-xs text-slate-300 mb-10 tracking-wider">
                         <li><i class="fas fa-star mr-2 text-red-600"></i> 12 Clases Mensuales</li>
-                        <li><i class="fas fa-star mr-2 text-red-600"></i> Seguimiento VIP</li>
-                        <li><i class="fas fa-star mr-2 text-red-600"></i> Rutinas de Recuperación</li>
+                        <li><i class="fas fa-star mr-2 text-red-600"></i> Seguimiento Personalizado</li>
+                        <li><i class="fas fa-star mr-2 text-red-600"></i> Sesiones de Recuperación</li>
+                        <li><i class="fas fa-star mr-2 text-red-600"></i> Máximo Progreso</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block text-center bg-red-600 py-4 font-bold text-xs uppercase tracking-widest hover:bg-red-700 transition shadow-lg">Elegir PRO</a>
+                    <a href="https://wa.me/541176194825" class="block text-center bg-red-600 py-4 font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-red-700 transition">Elegir PRO</a>
                 </div>
-                <div class="bg-slate-800 p-10 border border-white/5 rounded-sm hover:border-red-500 transition">
-                    <h3 class="text-2xl mb-2">Full</h3>
+                <div class="bg-slate-800 p-10 border border-white/5 rounded-sm hover:border-red-600 transition duration-500">
+                    <h3 class="text-2xl mb-1">Full</h3>
                     <div class="text-5xl font-bold mb-4">$66.000</div>
-                    <p class="text-stone-500 text-xs mb-8 uppercase tracking-widest italic">5 Días (Híbrido)</p>
-                    <ul class="space-y-4 text-sm text-stone-400 mb-10">
-                        <li><i class="fas fa-check mr-2 text-red-500"></i> Pase Libre</li>
-                        <li><i class="fas fa-check mr-2 text-red-500"></i> Personalización Total</li>
-                        <li><i class="fas fa-check mr-2 text-red-500"></i> Presencial + Online</li>
+                    <p class="text-slate-500 text-[10px] mb-8 uppercase tracking-widest font-bold italic">Pase Libre (5 Días)</p>
+                    <ul class="space-y-4 text-xs text-slate-400 mb-10 tracking-wider">
+                        <li><i class="fas fa-check mr-2 text-red-600"></i> Entrenamiento Diario</li>
+                        <li><i class="fas fa-check mr-2 text-red-600"></i> Modalidad Híbrida</li>
+                        <li><i class="fas fa-check mr-2 text-red-600"></i> Plan Nutricional Guía</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block text-center border border-white/20 py-3 font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">Elegir Full</a>
+                    <a href="https://wa.me/541176194825" class="block text-center border border-white/10 py-3 font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition">Elegir Full</a>
                 </div>
-            </div>
-            <div class="mt-16 p-8 bg-red-600/10 border border-red-600/20 text-center rounded-sm">
-                <h4 class="text-2xl font-bold uppercase italic tracking-tighter">Clase de Prueba: $17.000</h4>
-                <p class="text-stone-400 text-sm mt-2">Valor descontable del total si te inscribes al mes completo.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-slate-950">
+    <section class="py-24 px-6 bg-slate-950 border-t border-white/5">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl mb-12 text-center italic">Horarios Espacio INYO</h2>
-            <div class="overflow-x-auto bg-slate-900 border border-white/5 p-6 rounded-sm">
+            <h2 class="text-4xl mb-12 text-center italic">Grilla de Horarios</h2>
+            <div class="bg-slate-900 border border-white/10 p-8 rounded-sm shadow-xl">
                 <table class="w-full text-left">
-                    <tr class="border-b border-white/10 text-red-500 text-[10px] uppercase font-bold tracking-widest">
-                        <th class="py-4">Días</th>
-                        <th class="py-4 text-right">Horario</th>
+                    <tr class="border-b border-white/10 text-red-500 text-[10px] uppercase font-bold tracking-[0.3em]">
+                        <th class="py-4">Días de Práctica</th>
+                        <th class="py-4 text-right">Turno</th>
                     </tr>
-                    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-                        <td class="py-4 font-bold text-sm">Lunes - Miércoles - Viernes</td>
-                        <td class="py-4 text-right font-bold text-red-500">8:30 HS</td>
+                    <tr class="border-b border-white/5 hover:bg-white/5 transition duration-300">
+                        <td class="py-5 font-bold text-sm">Lunes - Miércoles - Viernes</td>
+                        <td class="py-5 text-right font-bold text-red-500">08:30 HS</td>
                     </tr>
-                    <tr class="border-b border-white/5 hover:bg-white/5 transition">
-                        <td class="py-4 font-bold text-sm">Lunes - Martes - Jueves</td>
-                        <td class="py-4 text-right font-bold text-red-500">18:00 HS</td>
+                    <tr class="border-b border-white/5 hover:bg-white/5 transition duration-300">
+                        <td class="py-5 font-bold text-sm">Lunes - Martes - Jueves</td>
+                        <td class="py-5 text-right font-bold text-red-500">18:00 HS</td>
                     </tr>
-                    <tr class="hover:bg-white/5 transition">
-                        <td class="py-4 font-bold text-sm">Miércoles - Viernes</td>
-                        <td class="py-4 text-right font-bold text-red-500">19:00 HS</td>
+                    <tr class="hover:bg-white/5 transition duration-300">
+                        <td class="py-5 font-bold text-sm">Miércoles - Viernes</td>
+                        <td class="py-5 text-right font-bold text-red-500">19:00 HS</td>
                     </tr>
                 </table>
             </div>
 
             <div class="mt-16 space-y-4">
-                <details class="group bg-slate-900 p-6 border border-white/5 rounded-sm">
-                    <summary class="flex justify-between items-center cursor-pointer font-bold uppercase text-[10px] tracking-widest text-stone-300 list-none">
-                        Pagos y Recargos
-                        <i class="fas fa-chevron-down text-red-500 transition-transform group-open:rotate-180"></i>
+                <details class="group bg-slate-900/50 p-6 border border-white/5 rounded-sm">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold uppercase text-[10px] tracking-widest text-slate-400 list-none">
+                        Políticas de Pago y Recargos
+                        <i class="fas fa-chevron-down text-red-600 transition-transform group-open:rotate-180"></i>
                     </summary>
-                    <p class="mt-6 text-sm text-stone-500 font-light leading-relaxed">La cuota se abona del 1 al 5 de cada mes. Se aplica un <strong>recargo del 20%</strong> fuera de término y el cupo queda sujeto a disponibilidad.</p>
+                    <p class="mt-6 text-xs text-slate-500 leading-relaxed italic">La cuota se abona del 1 al 5 de cada mes. Pagos fuera de término conllevan un **20% de recargo** y el cupo queda sujeto a disponibilidad inmediata.</p>
                 </details>
-                <details class="group bg-slate-900 p-6 border border-white/5 rounded-sm">
-                    <summary class="flex justify-between items-center cursor-pointer font-bold uppercase text-[10px] tracking-widest text-stone-300 list-none">
-                        Ausencias y Recuperaciones
-                        <i class="fas fa-chevron-down text-red-500 transition-transform group-open:rotate-180"></i>
+                <details class="group bg-slate-900/50 p-6 border border-white/5 rounded-sm">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold uppercase text-[10px] tracking-widest text-slate-400 list-none">
+                        Ausencias y Clases Pendientes
+                        <i class="fas fa-chevron-down text-red-600 transition-transform group-open:rotate-180"></i>
                     </summary>
-                    <p class="mt-6 text-sm text-stone-500 font-light leading-relaxed">Puedes recuperar las clases faltantes únicamente <strong>dentro del mes abonado</strong>. No son transferibles al siguiente período.</p>
+                    <p class="mt-6 text-xs text-slate-500 leading-relaxed italic">Las recuperaciones se realizan **dentro del mes abonado**. No se acreditan clases para meses siguientes bajo ningún concepto.</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <footer class="py-24 px-6 bg-black text-center">
+    <footer class="py-24 px-6 bg-black text-center border-t border-white/10">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl mb-12 italic tracking-tighter">Espacio INYO ☯️</h2>
-            <div class="grid md:grid-cols-2 gap-12 mb-16">
-                <div class="text-center">
-                    <i class="fas fa-location-dot text-red-600 mb-4 text-3xl"></i>
-                    <p class="text-white text-sm uppercase tracking-widest font-bold">Lanús Oeste Centro</p>
-                    <p class="text-stone-500 text-xs mt-2 italic font-light">Carlos Tejedor 335</p>
+            <p class="text-red-600 font-bold tracking-[0.6em] text-[10px] mb-8 uppercase">Entrenar • Transformar • Sanar</p>
+            <h2 class="text-5xl mb-16 italic tracking-tighter">Espacio INYO ☯️</h2>
+            <div class="grid md:grid-cols-2 gap-12 mb-20 text-center">
+                <div>
+                    <i class="fas fa-location-dot text-red-600 mb-4 text-3xl opacity-50"></i>
+                    <p class="text-white text-[11px] uppercase tracking-widest font-bold">Lanús Oeste Centro</p>
+                    <p class="text-slate-500 text-xs mt-2 italic font-light tracking-wide">Carlos Tejedor 335</p>
                 </div>
-                <div class="text-center">
-                    <i class="fab fa-whatsapp text-red-600 mb-4 text-3xl"></i>
-                    <p class="text-white text-sm uppercase tracking-widest font-bold">+54 11 7619-4825</p>
-                    <p class="text-stone-500 text-xs mt-2 italic font-light">gastburgos@hotmail.com</p>
+                <div>
+                    <i class="fab fa-whatsapp text-red-600 mb-4 text-3xl opacity-50"></i>
+                    <p class="text-white text-[11px] uppercase tracking-widest font-bold">+54 11 7619-4825</p>
+                    <p class="text-slate-500 text-xs mt-2 italic font-light tracking-wide">gastburgos@hotmail.com</p>
                 </div>
             </div>
             
-            <p class="text-[10px] uppercase tracking-[0.5em] text-stone-800 border-t border-white/5 pt-12">© 2026 Gastón Burgos - Shihan & Coach</p>
+            <p class="text-[9px] uppercase tracking-[0.5em] text-slate-800 border-t border-white/5 pt-12">© 2026 Gastón Burgos | Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Gráfico de Radar
+        // Gráfico de Radar Comparativo (Actualizado con las dos capas solicitadas)
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('formulaChart').getContext('2d');
+            
+            Chart.defaults.font.family = "'Lato', sans-serif";
+            Chart.defaults.color = '#64748b';
+
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Fuerza', 'Cardio', 'Flexibilidad', 'Mental', 'Tiempo'],
-                    datasets: [{
-                        label: 'HIIT + Calistenia',
-                        data: [90, 95, 80, 90, 100],
-                        backgroundColor: 'rgba(239, 68, 68, 0.4)',
-                        borderColor: '#ef4444',
-                        pointBackgroundColor: '#ef4444'
-                    }]
+                    labels: ['Fuerza', 'Resistencia', 'Flexibilidad', 'Salud Mental', 'Tiempo Eficiente'],
+                    datasets: [
+                        {
+                            label: 'ESPACIO INYO (HIIT+Calistenia)',
+                            data: [95, 98, 85, 92, 100],
+                            backgroundColor: 'rgba(239, 68, 68, 0.4)',
+                            borderColor: '#ef4444',
+                            pointBackgroundColor: '#ef4444',
+                            borderWidth: 2,
+                            fill: true
+                        },
+                        {
+                            label: 'GIMNASIO TRADICIONAL',
+                            data: [80, 50, 40, 60, 45],
+                            backgroundColor: 'rgba(71, 85, 105, 0.2)',
+                            borderColor: '#475569',
+                            pointBackgroundColor: '#475569',
+                            borderWidth: 2,
+                            fill: true
+                        }
+                    ]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
-                        r: { grid: { color: 'rgba(255,255,255,0.1)' }, angleLines: { color: 'rgba(255,255,255,0.1)' }, ticks: { display: false }, pointLabels: { color: '#94a3b8' } }
+                        r: {
+                            angleLines: { color: 'rgba(255,255,255,0.05)' },
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            pointLabels: {
+                                font: { size: 11, weight: 'bold' },
+                                color: '#94a3b8'
+                            },
+                            ticks: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
                     },
-                    plugins: { legend: { display: false } }
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                color: '#475569',
+                                padding: 20,
+                                font: { size: 9, weight: 'bold' }
+                            }
+                        }
+                    }
                 }
             });
         });
@@ -252,22 +292,27 @@
             const out = document.getElementById('routine-output');
             const btn = document.getElementById('btn-generate');
             const time = document.getElementById('input-time').value;
+            const equip = document.getElementById('input-equipment').value;
             const focus = document.getElementById('input-focus').value;
 
-            btn.innerHTML = "PROCESANDO...";
+            btn.innerHTML = "SINCRONIZANDO CON IA...";
+            btn.disabled = true;
+
             setTimeout(() => {
                 out.innerHTML = `
-                <div class="p-6 bg-slate-800 border-l-4 border-red-600 animate-pulse">
-                    <h4 class="text-red-500 font-bold uppercase text-xs mb-2">Plan Sugerido (${time})</h4>
-                    <p class="text-white text-sm mb-4">Enfoque: <strong>${focus}</strong></p>
-                    <ul class="text-stone-400 text-xs space-y-2 italic">
-                        <li>• 5 min Movilidad Dinámica</li>
-                        <li>• 3 Rondas: Burpees + Plancha + Squats</li>
-                        <li>• Trabajo 40s / Descanso 20s</li>
+                <div class="p-8 bg-slate-800 border-l-4 border-red-600 animate-fade-in shadow-xl">
+                    <h4 class="text-red-500 font-bold uppercase text-[10px] tracking-widest mb-3 italic">Sesión Sugerida (${time})</h4>
+                    <p class="text-white text-sm mb-5 font-light leading-relaxed">Enfoque: <span class="font-bold underline">${focus}</span> con <span class="font-bold underline">${equip}</span>.</p>
+                    <ul class="text-slate-400 text-[11px] space-y-3 italic font-light border-t border-white/5 pt-4">
+                        <li>• 05 min Calentamiento: Movilidad articular dinámica + Planchas.</li>
+                        <li>• Bloque Central: Intervalos 45" de esfuerzo / 15" de recuperación.</li>
+                        <li>• Técnica: Ejercicios progresivos de Calistenia (Push ups / Squats / Core).</li>
+                        <li>• Cierre: Estiramiento asistido y normalización de ritmo cardíaco.</li>
                     </ul>
-                    <p class="mt-4 text-[10px] text-white/50 uppercase">Esto es solo una muestra. En Espacio INYO personalizamos cada sesión.</p>
+                    <p class="mt-6 text-[8px] text-slate-600 uppercase tracking-tighter">Esta es una propuesta automatizada. Las clases en Espacio INYO son personalizadas según tu capacidad real.</p>
                 </div>`;
-                btn.innerHTML = "GENERAR OTRA MUESTRA";
+                btn.innerHTML = "GENERAR NUEVA MUESTRA";
+                btn.disabled = false;
             }, 1000);
         }
     </script>
