@@ -18,6 +18,7 @@
         }
         .chart-container { position: relative; width: 100%; max-width: 450px; margin: auto; height: 350px; }
         #menu-toggle:checked ~ #side-menu { transform: translateX(0); }
+        .btn-toggle-active { border-color: #ea580c; background-color: rgba(234, 88, 12, 0.1); color: white; }
     </style>
 </head>
 <body class="antialiased">
@@ -50,24 +51,22 @@
     <section class="py-24 px-6 bg-[#0c0a09]">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="text-4xl mb-8 text-orange-600 italic">El Método INYO</h2>
-                <div class="space-y-8">
-                    <div class="border-l-2 border-orange-900 pl-6">
-                        <h3 class="text-white text-lg font-bold mb-2">1. FASE INICIAL</h3>
-                        <p class="text-stone-400 text-sm">Entrada en calor vigorosa con enfoque en movilidad articular y estiramientos dinámicos para preparar el sistema neuro-muscular.</p>
-                    </div>
-                    <div class="border-l-2 border-orange-600 pl-6">
-                        <h3 class="text-white text-lg font-bold mb-2">2. FASE INTERMEDIA</h3>
-                        <p class="text-stone-400 text-sm">Mejora técnica de ejercicios de calistenia combinada con intervalos HIIT de alta intensidad y descansos estratégicos.</p>
-                    </div>
-                    <div class="border-l-2 border-orange-900 pl-6">
-                        <h3 class="text-white text-lg font-bold mb-2">3. FASE FINAL</h3>
-                        <p class="text-stone-400 text-sm">Stretching estático profundo y recuperación muscular asistida con elementos para optimizar la vuelta a la calma.</p>
+                <h2 class="text-4xl mb-8 text-orange-600 italic">Comparativa de Impacto</h2>
+                <p class="text-stone-400 mb-10 text-sm leading-relaxed">Hacé clic en los selectores para comparar el alcance de mejora entre nuestro método integral y el entrenamiento convencional de gimnasio.</p>
+                
+                <div class="flex gap-4 mb-8">
+                    <button onclick="toggleDataset(0)" id="btn-ds0" class="btn-toggle-active border border-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition">HIIT INYO</button>
+                    <button onclick="toggleDataset(1)" id="btn-ds1" class="btn-toggle-active border border-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition">Gimnasio Tradicional</button>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-stone-900/40 p-5 border-l-4 border-orange-600">
+                        <h4 class="text-white text-xs font-bold mb-1 uppercase tracking-widest">¿Por qué HIIT + Calistenia?</h4>
+                        <p class="text-stone-500 text-xs">A diferencia de las máquinas, aquí trabajás el cuerpo como una unidad. No solo ganás músculo, ganás control, flexibilidad y una quema calórica que el gimnasio tradicional no alcanza en el mismo tiempo.</p>
                     </div>
                 </div>
             </div>
             <div class="bg-black/40 p-10 border border-white/5 rounded-sm">
-                <h3 class="text-center text-stone-500 text-xs mb-8 tracking-widest uppercase font-bold italic">Comparativa de Rendimiento</h3>
                 <div class="chart-container">
                     <canvas id="hiitChart"></canvas>
                 </div>
@@ -77,18 +76,37 @@
 
     <section class="py-24 px-6 bg-stone-900">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl mb-12 italic">Grilla de Horarios</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-black p-8 border border-white/5">
-                    <h3 class="text-orange-600 font-bold mb-4 italic uppercase">Turno Mañana</h3>
-                    <p class="text-white text-2xl font-bold">08:30 HS</p>
-                    <p class="text-stone-500 text-xs mt-2 uppercase tracking-widest italic">Lunes, Miércoles y Viernes</p>
+            <h2 class="text-4xl mb-4 italic uppercase">Generador de Rutina Express ✨</h2>
+            <p class="text-stone-500 mb-12 font-light italic text-sm">Simulá una sesión adaptada a tu disponibilidad hoy mismo.</p>
+            
+            <div class="bg-black p-8 rounded-sm border border-white/10 text-left shadow-2xl">
+                <div class="grid md:grid-cols-3 gap-6 mb-8 text-slate-100">
+                    <div class="flex flex-col">
+                        <label class="text-[10px] uppercase tracking-widest text-orange-600 font-bold mb-2 italic">Tiempo</label>
+                        <select id="input-time" class="bg-stone-900 border-none rounded-sm p-3 text-sm focus:ring-1 focus:ring-orange-600">
+                            <option value="15 min">15 minutos</option>
+                            <option value="30 min" selected>30 minutos</option>
+                            <option value="45 min">45 minutos</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-[10px] uppercase tracking-widest text-orange-600 font-bold mb-2 italic">Elementos</label>
+                        <select id="input-equip" class="bg-stone-900 border-none rounded-sm p-3 text-sm focus:ring-1 focus:ring-orange-600">
+                            <option value="Peso Corporal">Solo Peso Corporal</option>
+                            <option value="Mancuernas/Bandas">Con Elementos (Manc/Bandas)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-[10px] uppercase tracking-widest text-orange-600 font-bold mb-2 italic">Enfoque</label>
+                        <select id="input-focus" class="bg-stone-900 border-none rounded-sm p-3 text-sm focus:ring-1 focus:ring-orange-600">
+                            <option value="Metabólico">Quema Grasa (HIIT)</option>
+                            <option value="Fuerza">Fuerza Calisténica</option>
+                            <option value="Resistencia">Cardio / Resistencia</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="bg-black p-8 border border-white/5">
-                    <h3 class="text-orange-600 font-bold mb-4 italic uppercase">Turno Tarde</h3>
-                    <p class="text-white text-2xl font-bold">18:00 / 19:00 HS</p>
-                    <p class="text-stone-500 text-xs mt-2 uppercase tracking-widest italic">Lunes a Jueves (según día)</p>
-                </div>
+                <button onclick="generateRoutine()" id="btn-routine" class="w-full bg-orange-700 py-4 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-orange-800 transition">Generar Mi Sesión</button>
+                <div id="routine-output" class="mt-8"></div>
             </div>
         </div>
     </section>
@@ -96,45 +114,41 @@
     <section id="pricing" class="py-24 px-6 bg-black">
         <div class="max-w-6xl mx-auto text-center">
             <h2 class="text-5xl mb-16 italic font-bold">Membresía HIIT 2026</h2>
-            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+            <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-stone-900 p-10 border border-white/5">
-                    <h3 class="text-stone-400 font-bold mb-6">2 VECES X SEMANA</h3>
-                    <div class="text-5xl font-bold mb-8 italic">$43.000</div>
-                    <ul class="text-xs text-stone-500 space-y-3 mb-10 text-left">
-                        <li><i class="fas fa-check text-orange-600 mr-2"></i> 8 clases mensuales</li>
-                        <li><i class="fas fa-check text-orange-600 mr-2"></i> Seguimiento de progreso</li>
-                    </ul>
+                    <h3 class="text-stone-400 font-bold mb-6 italic">INICIAL</h3>
+                    <div class="text-4xl font-bold mb-4 italic">$43.000</div>
+                    <p class="text-[10px] text-stone-500 font-bold uppercase mb-8 italic">2 veces x semana</p>
                     <a href="https://wa.me/541176194825" class="block border border-white/10 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition italic">Solicitar</a>
                 </div>
                 <div class="bg-orange-900/10 p-12 border-2 border-orange-700 relative transform scale-105 shadow-2xl">
                     <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-700 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest">Recomendado</span>
-                    <h3 class="text-orange-600 font-bold mb-6 uppercase">3 veces x semana</h3>
+                    <h3 class="text-orange-600 font-bold mb-6 italic">PRO ELITE</h3>
                     <div class="text-6xl font-bold mb-8 italic text-white">$47.500</div>
-                    <ul class="text-xs text-stone-300 space-y-3 mb-10 text-left font-bold italic">
-                        <li><i class="fas fa-fire text-orange-600 mr-2"></i> 12 clases mensuales</li>
-                        <li><i class="fas fa-fire text-orange-600 mr-2"></i> Acceso a rutinas online</li>
-                    </ul>
-                    <a href="https://wa.me/541176194825" class="block bg-orange-700 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-800 transition">Inscribirme</a>
+                    <p class="text-[10px] text-orange-500 font-bold uppercase mb-8 italic">3 veces x semana</p>
+                    <a href="https://wa.me/541176194825" class="block bg-orange-700 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-800 transition shadow-lg">Inscribirme</a>
                 </div>
                 <div class="bg-stone-900 p-10 border border-white/5">
-                    <h3 class="text-stone-400 font-bold mb-6 italic">PLAN FULL / ONLINE</h3>
-                    <div class="text-5xl font-bold mb-8 italic">$66.000</div>
-                    <ul class="text-xs text-stone-500 space-y-3 mb-10 text-left">
-                        <li><i class="fas fa-infinity text-orange-600 mr-2"></i> Acceso total (5 días)</li>
-                        <li><i class="fas fa-infinity text-orange-600 mr-2"></i> Seguimiento diario personalizado</li>
-                    </ul>
+                    <h3 class="text-stone-400 font-bold mb-6 italic">ZENITH FULL</h3>
+                    <div class="text-4xl font-bold mb-8 italic">$66.000</div>
+                    <p class="text-[10px] text-stone-500 font-bold uppercase mb-8 italic">Pase Libre 5 Días</p>
                     <a href="https://wa.me/541176194825" class="block border border-white/10 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition italic">Elegir Full</a>
                 </div>
             </div>
-            
-            <p class="mt-12 text-stone-500 text-sm italic">Clase suelta: $17.000 (Si continuás el mes, se descuenta del total).</p>
+            <p class="mt-12 text-stone-500 text-sm italic italic">Clase suelta: $17.000 (Si continuás el mes, se descuenta del total).</p>
         </div>
     </section>
 
-    <footer class="py-24 px-6 bg-[#0c0a09] text-center border-t border-white/5">
-        <h2 class="text-4xl mb-8 italic italic uppercase tracking-tighter">Espacio INYO ☯️</h2>
-        <p class="text-stone-500 text-[10px] tracking-[0.4em] uppercase mb-4">Instructor Gastón Burgos</p>
-        <p class="text-xs italic text-stone-600">Carlos Tejedor 335, Lanús Oeste Centro</p>
+    <footer class="py-24 px-6 bg-black text-center border-t border-white/5">
+        <h2 class="text-4xl mb-16 italic tracking-tighter uppercase">Espacio INYO ☯️</h2>
+        <div class="border-t border-white/5 pt-16 mt-16">
+            <h3 class="text-[10px] uppercase tracking-[0.6em] text-stone-500 mb-10 font-bold">ECOSISTEMA INYO</h3>
+            <div class="flex flex-wrap justify-center gap-10 italic text-stone-500 text-[10px] font-bold tracking-widest">
+                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-orange-500 transition underline underline-offset-8">Masaje Japonés</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-orange-500 transition underline underline-offset-8">Clases de Yoga</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-orange-500 transition underline underline-offset-8">Artes Marciales</a>
+            </div>
+        </div>
     </footer>
 
     <a href="https://wa.me/541176194825" class="fixed bottom-8 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-transform z-50">
@@ -142,31 +156,65 @@
     </a>
 
     <script>
+        let myChart;
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('hiitChart').getContext('2d');
-            new Chart(ctx, {
+            myChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Fuerza Funcional', 'Resistencia Cardio', 'Flexibilidad', 'Salud Mental', 'Tiempo Eficiente'],
+                    labels: ['Fuerza Funcional', 'Resistencia', 'Flexibilidad', 'Salud Mental', 'Tiempo Eficiente'],
                     datasets: [
                         {
-                            label: 'HIIT + CALISTENIA INYO',
+                            label: 'HIIT INYO',
                             data: [100, 95, 85, 90, 100],
-                            backgroundColor: 'rgba(234, 88, 12, 0.4)', borderColor: '#ea580c', borderWidth: 2, pointBackgroundColor: '#ea580c'
+                            backgroundColor: 'rgba(234, 88, 12, 0.4)', borderColor: '#ea580c', borderWidth: 2, pointBackgroundColor: '#ea580c', hidden: false
                         },
                         {
                             label: 'GIMNASIO TRADICIONAL',
                             data: [60, 50, 40, 60, 30],
-                            backgroundColor: 'rgba(255, 255, 255, 0.05)', borderColor: 'rgba(255, 255, 255, 0.2)', borderWidth: 1
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)', borderColor: 'rgba(255, 255, 255, 0.3)', borderWidth: 1, hidden: false
                         }
                     ]
                 },
                 options: {
+                    responsive: true, maintainAspectRatio: false,
                     scales: { r: { grid: { color: 'rgba(255,255,255,0.05)' }, angleLines: { color: 'rgba(255,255,255,0.05)' }, ticks: { display: false }, pointLabels: { font: { size: 10, family: 'Oswald' }, color: '#78716c' } } },
                     plugins: { legend: { display: false } }
                 }
             });
         });
+
+        function toggleDataset(index) {
+            const meta = myChart.getDatasetMeta(index);
+            meta.hidden = meta.hidden === null ? !myChart.data.datasets[index].hidden : null;
+            document.getElementById(`btn-ds${index}`).classList.toggle('btn-toggle-active');
+            myChart.update();
+        }
+
+        function generateRoutine() {
+            const out = document.getElementById('routine-output');
+            const btn = document.getElementById('btn-routine');
+            const time = document.getElementById('input-time').value;
+            const focus = document.getElementById('input-focus').value;
+            const equip = document.getElementById('input-equip').value;
+
+            btn.innerHTML = "SINCRONIZANDO MÉTODO...";
+            
+            setTimeout(() => {
+                out.innerHTML = `
+                <div class="bg-stone-900 p-6 border-l-4 border-orange-600 animate-pulse">
+                    <h4 class="text-orange-500 font-bold uppercase text-[10px] mb-2 italic">Muestra Express: ${focus} (${time})</h4>
+                    <p class="text-white text-xs mb-4 italic">Equipamiento: ${equip}</p>
+                    <ul class="text-stone-400 text-[11px] space-y-2 border-t border-white/5 pt-4">
+                        <li>• <strong>Movilidad:</strong> 5' de rotaciones y activación dinámica.</li>
+                        <li>• <strong>Bloque Central:</strong> 40" de esfuerzo máximo / 20" de recuperación técnica.</li>
+                        <li>• <strong>Cierre:</strong> Stretching focalizado en tren inferior.</li>
+                    </ul>
+                    <p class="mt-4 text-[8px] text-stone-600 uppercase italic tracking-tighter">Esto es una simulación. En Espacio INYO personalizamos cada segundo de tu entrenamiento real.</p>
+                </div>`;
+                btn.innerHTML = "GENERAR NUEVA SESIÓN";
+            }, 1000);
+        }
     </script>
 </body>
 </html>
