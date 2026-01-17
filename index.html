@@ -25,44 +25,58 @@
 <body class="antialiased">
 
     <input type="checkbox" id="menu-toggle" class="hidden">
-    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-orange-600 transition">
-        <div class="w-6 h-0.5 bg-white mb-1.5"></div>
-        <div class="w-6 h-0.5 bg-white mb-1.5"></div>
-        <div class="w-6 h-0.5 bg-white"></div>
+    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-orange-600 transition duration-300">
+        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-white transition"></div>
     </label>
 
-    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#0c0a09] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 p-12 flex flex-col border-r border-white/5">
-        <p class="text-[10px] uppercase tracking-[0.3em] text-orange-600 mb-8 font-bold border-b border-white/5 pb-2">Espacio INYO ☯️</p>
-        <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold">
-            <li><a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-orange-500 text-stone-400">Masaje Japonés</a></li>
-            <li><a href="#" class="text-orange-600 font-bold underline underline-offset-8">HIIT Calistenia</a></li>
-            <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-orange-500 text-stone-400">Clases de Yoga</a></li>
-            <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-orange-500 text-stone-400">Artes Marciales</a></li>
-        </ul>
+    <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></label>
+
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#0c0a09] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-white/5">
+        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-500 text-xl"><i class="fas fa-times"></i></label>
+        <div class="mt-12">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-orange-600 mb-8 font-bold border-b border-white/5 pb-2 italic">Espacio INYO ☯️</p>
+            <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold">
+                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-orange-500 transition">Masaje Japonés</a></li>
+                <li><a href="#" class="block text-orange-600 font-bold underline underline-offset-8">HIIT Calistenia</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-orange-500 transition">Clases de Yoga</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-orange-500 transition">Artes Marciales</a></li>
+            </ul>
+        </div>
     </nav>
 
     <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 hero-hiit">
         <p class="text-orange-600 text-sm tracking-[0.5em] mb-4 font-bold">FUERZA FUNCIONAL & METABÓLICA</p>
         <h1 class="text-6xl md:text-9xl font-bold mb-4 tracking-tighter italic">HIIT + CALISTENIA</h1>
         <div class="w-24 h-1 bg-orange-600 mb-8"></div>
-        <p class="text-xl text-stone-400 max-w-2xl mb-12 italic">Bajo la dirección del Instructor Gastón Burgos.</p>
+        <p class="text-xl text-stone-400 max-w-2xl mb-12 font-light italic">"Transformá tu potencia física bajo la dirección del Instructor Gastón Burgos."</p>
         <div class="flex flex-col md:flex-row gap-4">
             <button onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" class="bg-orange-700 text-white px-10 py-4 uppercase font-bold text-xs tracking-widest hover:bg-orange-800 transition shadow-xl italic">Ver Planes 2026</button>
             <button onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})" class="bg-transparent border border-white/20 text-white px-10 py-4 uppercase font-bold text-xs tracking-widest hover:bg-white hover:text-black transition italic">Cómo Llegar</button>
         </div>
     </header>
 
-    <section class="py-24 px-6 bg-[#0c0a09]">
+    <section id="formula" class="py-24 px-6 bg-[#0c0a09]">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="text-4xl mb-8 text-orange-600 italic">Comparativa de Impacto</h2>
-                <p class="text-stone-400 mb-10 text-sm leading-relaxed">Encendé o apagá los selectores para visualizar el volumen de mejora entre nuestro método integral y el entrenamiento convencional.</p>
+                <h2 class="text-4xl mb-8 text-orange-600 italic">El Método INYO</h2>
+                <p class="text-stone-400 mb-10 text-sm leading-relaxed">Combinamos la calistenia técnica con intervalos de alta intensidad para un cuerpo funcional y estético. Hacé clic para comparar el impacto:</p>
                 
                 <div class="flex gap-4 mb-8">
                     <button onclick="toggleDataset(0)" id="btn-ds0" class="btn-toggle-active border border-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition">HIIT INYO</button>
                     <button onclick="toggleDataset(1)" id="btn-ds1" class="btn-toggle-active border border-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition">Gimnasio Tradicional</button>
                 </div>
-                <p class="text-stone-500 text-xs italic font-bold">En Espacio INYO optimizamos cada ángulo de tu rendimiento físico y mental.</p>
+
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4 p-5 bg-stone-900/40 border-l-4 border-orange-600">
+                        <i class="fa-solid fa-bolt text-orange-600 text-2xl"></i>
+                        <div>
+                            <h4 class="text-white text-xs font-bold uppercase mb-1">Impacto Metabólico</h4>
+                            <p class="text-stone-500 text-xs italic">Quema calórica extendida hasta 48hs después de la sesión.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="bg-black/40 p-10 border border-white/5 rounded-sm">
                 <div class="chart-container">
@@ -100,32 +114,55 @@
                         </select>
                     </div>
                 </div>
-                <button onclick="generateRoutine()" id="btn-routine" class="w-full bg-orange-700 py-4 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-orange-800 transition">Generar Sesión</button>
+                <button onclick="generateRoutine()" id="btn-routine" class="w-full bg-orange-700 py-4 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-orange-800 transition">Generar Sesión de Muestra</button>
                 <div id="routine-output" class="mt-8"></div>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="py-24 px-6 bg-black">
+    <section id="schedule" class="py-24 px-6 bg-black">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl mb-12 text-center italic uppercase font-bold tracking-tighter">Horarios Disponibles</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-stone-900 p-8 border border-white/5 text-center">
+                    <h3 class="text-orange-600 font-bold mb-2 italic">Turno Mañana</h3>
+                    <p class="text-3xl font-bold mb-2">08:30 HS</p>
+                    <p class="text-stone-500 text-xs uppercase italic tracking-widest">Lunes, Miércoles y Viernes</p>
+                </div>
+                <div class="bg-stone-900 p-8 border border-white/5 text-center">
+                    <h3 class="text-orange-600 font-bold mb-2 italic">Turno Tarde</h3>
+                    <p class="text-3xl font-bold mb-2">18:00 / 19:00 HS</p>
+                    <p class="text-stone-500 text-xs uppercase italic tracking-widest">Lunes a Jueves</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 px-6 bg-[#0c0a09]">
         <div class="max-w-6xl mx-auto text-center">
             <h2 class="text-5xl mb-16 italic font-bold uppercase tracking-tighter">Membresía HIIT 2026</h2>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
                 <div class="bg-stone-900 p-10 border border-white/5">
-                    <h3 class="text-stone-400 font-bold mb-6 italic">2X SEMANA</h3>
-                    <div class="text-4xl font-bold mb-8 italic">$43.000</div>
+                    <h3 class="text-stone-400 font-bold mb-4 italic italic">Inicial</h3>
+                    <div class="text-5xl font-bold mb-4 italic text-white">$43.000</div>
+                    <p class="text-[10px] text-stone-500 font-bold uppercase mb-8 italic">2 veces x semana</p>
                     <a href="https://wa.me/541176194825" class="block border border-white/10 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition italic">Solicitar</a>
                 </div>
                 <div class="bg-orange-900/10 p-12 border-2 border-orange-700 relative transform scale-105 shadow-2xl">
-                    <h3 class="text-orange-600 font-bold mb-6 italic">3X SEMANA</h3>
-                    <div class="text-6xl font-bold mb-8 italic text-white">$47.500</div>
-                    <a href="https://wa.me/541176194825" class="block bg-orange-700 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-800 transition">Inscribirme</a>
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-700 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest">Recomendado</span>
+                    <h3 class="text-orange-600 font-bold mb-4 italic italic uppercase">Pro Elite</h3>
+                    <div class="text-6xl font-bold mb-4 italic text-white">$47.500</div>
+                    <p class="text-[10px] text-orange-500 font-bold uppercase mb-8 italic">3 veces x semana</p>
+                    <a href="https://wa.me/541176194825" class="block bg-orange-700 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-800 transition shadow-lg">Inscribirme</a>
                 </div>
                 <div class="bg-stone-900 p-10 border border-white/5">
-                    <h3 class="text-stone-400 font-bold mb-6 italic">PASE LIBRE</h3>
-                    <div class="text-4xl font-bold mb-8 italic">$66.000</div>
+                    <h3 class="text-stone-400 font-bold mb-4 italic italic">Zenith Full</h3>
+                    <div class="text-5xl font-bold mb-4 italic text-white">$66.000</div>
+                    <p class="text-[10px] text-stone-500 font-bold uppercase mb-8 italic">Pase Libre Total</p>
                     <a href="https://wa.me/541176194825" class="block border border-white/10 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition italic">Elegir Full</a>
                 </div>
             </div>
+            <p class="mt-12 text-stone-500 text-xs italic italic">Clase suelta/prueba: $17.000 (Se descuenta del plan si te anotás).</p>
         </div>
     </section>
 
@@ -133,27 +170,36 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="order-2 md:order-1">
-                    <h2 class="text-3xl mb-6 italic font-bold uppercase text-orange-600">Nuestra Sede</h2>
-                    <p class="text-white text-lg mb-2 font-bold italic">Espacio INYO ☯️</p>
-                    <p class="text-stone-400 mb-8 italic text-sm">Gdor. Carlos Tejedor 335, B1824 <br>Lanús Oeste Centro, Buenos Aires.</p>
-                    <div class="aspect-video w-full grayscale contrast-125 opacity-70 hover:opacity-100 transition-opacity rounded-sm overflow-hidden border border-white/10">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.2238495033785!2d-58.399063024255!3d-34.70240297292044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccda3b8c96ae9%3A0x9817906e2b0459b8!2sEspacio%20INYO!5e0!3m2!1ses-419!2sar!4v1705490000000!5m2!1ses-419!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <h2 class="text-3xl mb-6 italic font-bold uppercase text-orange-600 tracking-tighter">Nuestra Sede</h2>
+                    <p class="text-white text-lg mb-2 font-bold italic tracking-tighter underline underline-offset-4">Espacio INYO ☯️</p>
+                    <p class="text-stone-400 mb-8 italic text-sm italic">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
+                    <div class="aspect-video w-full grayscale contrast-125 opacity-70 hover:opacity-100 transition duration-700 rounded-sm overflow-hidden border border-white/10">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.167823903175!2d-58.3976352!3d-34.7011111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccdd9b8c96aa9%3A0x9817906e2b0459b8!2sEspacio%20INYO!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 qr-gradient p-12 border border-white/10 text-center rounded-sm shadow-inner">
-                    <h3 class="text-xs uppercase tracking-[0.4em] text-orange-600 font-bold mb-8 italic">Contacto Instantáneo</h3>
-                    <div class="bg-white p-4 inline-block mb-8 rounded-lg shadow-2xl">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://wa.me/541176194825" alt="WhatsApp QR Espacio INYO" class="w-36 h-36">
+                <div class="order-1 md:order-2 qr-gradient p-12 border border-white/10 text-center rounded-sm">
+                    <h3 class="text-[10px] uppercase tracking-[0.4em] text-orange-600 font-bold mb-8 italic">Contacto Directo</h3>
+                    <div class="bg-white p-4 inline-block mb-8 rounded-lg">
+                        <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR WhatsApp" class="w-40 h-40 object-contain">
                     </div>
-                    <p class="text-stone-300 text-xs italic mb-4 font-bold">Escaneá para chatear directamente <br>con el Instructor Burgos.</p>
-                    <p class="text-stone-600 text-[9px] uppercase tracking-widest">+54 11 7619-4825</p>
+                    <p class="text-stone-300 text-[10px] italic mb-4 font-bold uppercase tracking-widest">Escaneá para chatear con el Instructor</p>
+                    <p class="text-stone-600 text-[9px] uppercase tracking-widest italic font-bold tracking-[0.3em]">+54 11 7619-4825</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-16 px-6 bg-black text-center border-t border-white/5">
-        <p class="text-stone-600 text-[10px] tracking-[0.5em] uppercase italic">Espacio INYO ☯️ Todos los derechos reservados 2026</p>
+    <footer class="py-24 px-6 bg-black text-center border-t border-white/5">
+        <h2 class="text-5xl mb-16 italic tracking-tighter uppercase font-bold text-white">Espacio INYO ☯️</h2>
+        <div class="border-t border-white/5 pt-16 mt-16">
+            <h3 class="text-[10px] uppercase tracking-[0.6em] text-stone-500 mb-10 font-bold">ECOSISTEMA INYO</h3>
+            <div class="flex flex-wrap justify-center gap-10 italic text-stone-500 text-[10px] font-bold tracking-widest">
+                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-orange-500 transition underline underline-offset-8">Masaje Japonés</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-orange-500 transition underline underline-offset-8">Clases de Yoga</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-orange-500 transition underline underline-offset-8">Artes Marciales</a>
+            </div>
+            <p class="mt-20 text-[9px] text-stone-700 tracking-[0.5em] uppercase font-bold">&copy; 2026 Espacio INYO</p>
+        </div>
     </footer>
 
     <a href="https://wa.me/541176194825" class="fixed bottom-8 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-transform z-50">
@@ -169,8 +215,8 @@
                 data: {
                     labels: ['Fuerza Funcional', 'Resistencia', 'Flexibilidad', 'Salud Mental', 'Tiempo Eficiente'],
                     datasets: [
-                        { label: 'HIIT INYO', data: [100, 95, 85, 90, 100], backgroundColor: 'rgba(234, 88, 12, 0.4)', borderColor: '#ea580c', borderWidth: 2, pointBackgroundColor: '#ea580c', hidden: false },
-                        { label: 'GIMNASIO TRADICIONAL', data: [60, 50, 40, 60, 30], backgroundColor: 'rgba(255, 255, 255, 0.1)', borderColor: 'rgba(255, 255, 255, 0.3)', borderWidth: 1, hidden: false }
+                        { label: 'HIIT INYO', data: [100, 95, 85, 90, 100], backgroundColor: 'rgba(234, 88, 12, 0.4)', borderColor: '#ea580c', borderWidth: 2, pointBackgroundColor: '#ea580c' },
+                        { label: 'GIMNASIO TRAD.', data: [60, 50, 40, 60, 30], backgroundColor: 'rgba(255, 255, 255, 0.1)', borderColor: 'rgba(255, 255, 255, 0.2)', borderWidth: 1 }
                     ]
                 },
                 options: { responsive: true, maintainAspectRatio: false, scales: { r: { grid: { color: 'rgba(255,255,255,0.05)' }, angleLines: { color: 'rgba(255,255,255,0.05)' }, ticks: { display: false }, pointLabels: { font: { size: 10, family: 'Oswald' }, color: '#78716c' } } }, plugins: { legend: { display: false } } }
@@ -187,14 +233,9 @@
         function generateRoutine() {
             const out = document.getElementById('routine-output');
             const btn = document.getElementById('btn-routine');
-            btn.innerHTML = "PROCESANDO MÉTODO...";
+            btn.innerHTML = "SINCRO MÉTODO...";
             setTimeout(() => {
-                out.innerHTML = `
-                <div class="bg-stone-900 p-6 border-l-4 border-orange-600">
-                    <h4 class="text-orange-500 font-bold uppercase text-[10px] mb-2 italic underline decoration-orange-900">Muestra de Entrenamiento</h4>
-                    <p class="text-white text-[11px] mb-4 font-bold italic">• AMRAP 12': 10 Pull-ups, 15 Push-ups, 20 Squats.</p>
-                    <p class="text-stone-500 text-[9px] italic uppercase tracking-tighter">En clase, el Instructor Burgos ajustará la intensidad según tu nivel actual.</p>
-                </div>`;
+                out.innerHTML = `<div class="bg-stone-900 p-6 border-l-4 border-orange-600"><p class="text-white text-xs italic font-bold mb-2 uppercase tracking-widest">• AMRAP 12': 10 Flexiones, 15 Sentadillas, 20 Abdominales.</p><p class="text-stone-600 text-[9px] uppercase italic tracking-tighter">En Espacio INYO, el Instructor ajustará la intensidad según tu nivel.</p></div>`;
                 btn.innerHTML = "GENERAR OTRA SESIÓN";
             }, 800);
         }
