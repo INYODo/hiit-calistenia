@@ -24,13 +24,22 @@
         .feature-card { 
             background: rgba(255,255,255,0.02); 
             border: 1px solid rgba(255,255,255,0.05); 
-            padding: 3rem;
+            padding: 2.5rem;
             transition: all 0.4s ease;
         }
-        .feature-card:hover { 
-            border-color: #ef4444; 
-            background: rgba(255,255,255,0.04); 
-            transform: translateY(-5px);
+
+        .price-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .price-card.featured {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+            transform: scale(1.05);
+            z-index: 10;
         }
 
         .modalidad-box {
@@ -44,9 +53,6 @@
             border: 1px solid rgba(255,255,255,0.1);
             padding: 0.75rem;
             text-align: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-            letter-spacing: 0.1em;
         }
 
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
@@ -55,7 +61,6 @@
         .generator-container {
             background: linear-gradient(145deg, #1a1716, #0c0a09);
             border: 1px solid rgba(239, 68, 68, 0.2);
-            border-radius: 4px;
         }
 
         select, button {
@@ -65,7 +70,6 @@
             padding: 1rem;
             text-transform: uppercase;
             font-size: 0.75rem;
-            letter-spacing: 0.1em;
             font-weight: bold;
             font-style: italic;
         }
@@ -73,14 +77,14 @@
         .result-box {
             background: rgba(0,0,0,0.5);
             border: 1px dashed rgba(239, 68, 68, 0.3);
-            padding: 2.5rem;
+            padding: 2rem;
         }
     </style>
 </head>
 <body class="antialiased">
 
     <input type="checkbox" id="menu-toggle" class="hidden">
-    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-red-600 transition duration-300">
+    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-red-600 transition">
         <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
         <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
         <div class="w-6 h-0.5 bg-white transition"></div>
@@ -88,9 +92,9 @@
 
     <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></label>
 
-    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#0c0a09] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-white/5">
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#0c0a09] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-white/5 italic">
         <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-500 text-xl"><i class="fas fa-times"></i></label>
-        <div class="mt-12 italic">
+        <div class="mt-12">
             <p class="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-8 font-bold border-b border-white/5 pb-2">Espacio INYO ☯️</p>
             <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold">
                 <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-red-500 transition">Masaje Japonés</a></li>
@@ -107,107 +111,107 @@
             <p class="text-red-600 text-sm tracking-[0.5em] mb-4 font-bold uppercase italic">High Intensity Interval Training</p>
             <h1 class="text-6xl md:text-9xl font-bold mb-4 tracking-tighter italic uppercase leading-none text-white">HIIT +<br>CALISTENIA</h1>
             <div class="w-32 h-1 bg-red-600 mx-auto my-8"></div>
-            <p class="text-xl md:text-2xl text-stone-300 max-w-3xl mx-auto font-light italic leading-relaxed">
-                "Ciencia y Biomecánica aplicadas al entrenamiento de alta intensidad. Domina tu cuerpo, transforma tu vida."
+            <p class="text-xl md:text-2xl text-stone-300 max-w-3xl mx-auto font-light italic leading-relaxed italic">
+                Domina tu peso corporal. Optimiza tu metabolismo. Alcanza tu máximo rendimiento físico y mental.
             </p>
-            <button onclick="document.getElementById('metodo').scrollIntoView({behavior:'smooth'})" class="mt-12 bg-red-600 text-white px-12 py-5 uppercase font-bold text-[10px] tracking-widest hover:bg-red-700 transition shadow-2xl italic">Ver Metodología</button>
+            <button onclick="document.getElementById('packs').scrollIntoView({behavior:'smooth'})" class="mt-12 bg-red-600 text-white px-12 py-5 uppercase font-bold text-[10px] tracking-widest hover:bg-red-700 transition shadow-2xl italic">Elegir mi Plan</button>
         </div>
     </header>
 
-    <section id="metodo" class="py-32 px-6 bg-[#0c0a09] italic">
+    <section class="py-24 px-6 bg-[#0c0a09] border-b border-white/5 italic">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-center text-4xl md:text-5xl mb-24 font-bold uppercase italic tracking-tighter italic">Filosofía de Entrenamiento</h2>
-            <div class="grid md:grid-cols-2 gap-16">
-                <div class="feature-card fade-in visible">
-                    <h3 class="text-red-600 font-bold mb-6 uppercase text-lg italic">Fuerza Real y Funcional</h3>
-                    <p class="text-stone-400 text-base leading-relaxed mb-6 italic">
-                        Utilizamos el peso corporal como herramienta principal. No buscamos solo estética, sino el reordenamiento de tus patrones de movimiento y el fortalecimiento de tu estructura ósea y muscular a través de la calistenia avanzada.
-                    </p>
-                    <p class="text-stone-500 text-sm italic italic">
-                        La supervisión técnica de Gastón Burgos garantiza que cada intervalo se realice con la biomecánica exacta, maximizando resultados y anulando riesgos.
-                    </p>
-                </div>
-                <div class="feature-card fade-in visible">
-                    <h3 class="text-red-600 font-bold mb-6 uppercase text-lg italic">Impacto Metabólico</h3>
-                    <p class="text-stone-400 text-base leading-relaxed mb-6 italic">
-                        Protocolos diseñados para disparar el efecto EPOC. Tu metabolismo se mantiene elevado hasta 48hs después de la sesión, optimizando la quema de grasa y la recuperación celular profunda.
-                    </p>
-                    <p class="text-stone-500 text-sm italic italic">
-                        Eficiencia total: resultados reales en sesiones concentradas donde cada segundo cuenta.
-                    </p>
-                </div>
+            <h2 class="text-center text-4xl mb-16 font-bold uppercase italic tracking-tighter italic">Grilla Horaria Presencial</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-red-600">
+                <div class="horario-tag">Lunes, Miércoles y Viernes<br><span class="text-white text-lg">08:30 HS</span></div>
+                <div class="horario-tag">Lunes, Martes y Jueves<br><span class="text-white text-lg">18:00 HS</span></div>
+                <div class="horario-tag">Miércoles y Viernes<br><span class="text-white text-lg">19:00 HS</span></div>
             </div>
         </div>
     </section>
 
-    <section id="modalidades" class="py-32 px-6 bg-stone-900/40 border-y border-white/5 italic">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-center text-4xl mb-24 font-bold uppercase italic tracking-tighter italic">Modalidades y Grilla Horaria</h2>
-            
-            <div class="modalidad-box fade-in visible">
-                <h3 class="text-3xl font-bold mb-6 uppercase italic text-white">Entrenamiento Presencial</h3>
-                <p class="text-stone-400 text-lg mb-10 leading-relaxed italic">
-                    Entrenamiento directo en **Espacio INYO (Lanús Oeste Centro)**. La corrección biomecánica en vivo es el pilar de nuestra maestría.
-                </p>
+    <section id="packs" class="py-32 px-6 bg-[#0c0a09] italic">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-center text-5xl mb-24 font-bold uppercase italic tracking-tighter italic italic">Planes de Entrenamiento</h2>
+            <div class="grid md:grid-cols-3 gap-8 items-stretch italic">
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-red-600 mb-12">
-                    <div class="horario-tag">Lunes, Miércoles y Viernes<br><span class="text-white text-lg">08:30 HS</span></div>
-                    <div class="horario-tag">Lunes, Martes y Jueves<br><span class="text-white text-lg">18:00 HS</span></div>
-                    <div class="horario-tag">Miércoles y Viernes<br><span class="text-white text-lg">19:00 HS</span></div>
+                <div class="price-card p-10 flex flex-col italic">
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Plan Core (2X)</h3>
+                    <div class="text-5xl font-bold text-white mb-2 italic">$43.000</div>
+                    <p class="text-red-600 text-[10px] font-bold uppercase mb-8 italic">2 veces por semana</p>
+                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic">
+                        <li>• Entrenamiento Presencial supervisado</li>
+                        <li>• Foco en Biomecánica y Postura</li>
+                        <li>• <strong>BONIFICACIÓN:</strong> 1 Clase Mensual Zen Stretching (Recuperación)</li>
+                    </ul>
+                    <a href="https://wa.me/541176194825" class="block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition">Consultar</a>
                 </div>
-                <p class="text-[10px] text-stone-500 uppercase tracking-widest text-center italic">Sede: Gdor. Carlos Tejedor 335, Lanús Oeste.</p>
-            </div>
 
-            <div class="modalidad-box fade-in visible" style="border-color: #3b82f6;">
-                <h3 class="text-3xl font-bold mb-6 uppercase italic text-white">Sistema Híbrido / Remoto</h3>
-                <p class="text-stone-400 text-lg mb-8 leading-relaxed italic">
-                    Flexibilidad absoluta para quienes no pueden asistir a todas las sesiones presenciales. Combinamos el rigor técnico con soporte digital vía WhatsApp y rutinas personalizadas en PDF.
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-500">
-                    <div class="bg-black/40 p-4 border border-white/5 text-center italic">Soporte Digital Personalizado</div>
-                    <div class="bg-black/40 p-4 border border-white/5 text-center italic">Rutinas Adaptativas</div>
+                <div class="price-card featured p-10 flex flex-col italic shadow-2xl">
+                    <div class="text-center bg-red-600 text-white text-[9px] py-1 font-bold uppercase tracking-widest mb-6 italic">Máximo Rendimiento</div>
+                    <h3 class="text-white font-bold mb-4 uppercase text-xs italic">Plan Pro Elite (3X)</h3>
+                    <div class="text-6xl font-bold text-white mb-2 italic">$66.000</div>
+                    <p class="text-red-500 text-[10px] font-bold uppercase mb-8 italic italic">3 veces por semana + Seguimiento</p>
+                    <ul class="text-[11px] text-white space-y-4 mb-10 flex-grow font-semibold">
+                        <li>• <strong>MÉTODO HÍBRIDO:</strong> Seguimiento Online 24/7</li>
+                        <li>• <strong>ASPIRINAS DEL CUERPO:</strong> Ejercicios de activación y recuperación semanal</li>
+                        <li>• <strong>BONIFICACIÓN:</strong> 2 Clases Mensuales Zen Stretching</li>
+                        <li>• Planificación nutricional básica</li>
+                    </ul>
+                    <a href="https://wa.me/541176194825" class="block bg-red-600 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-700 transition">Elegir Plan Élite</a>
+                </div>
+
+                <div class="price-card p-10 flex flex-col italic">
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Plan Power (3X)</h3>
+                    <div class="text-5xl font-bold text-white mb-2 italic">$54.000</div>
+                    <p class="text-red-600 text-[10px] font-bold uppercase mb-8 italic">3 veces por semana</p>
+                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic">
+                        <li>• Entrenamiento Presencial Dinámico</li>
+                        <li>• Rutinas de Calistenia Avanzada</li>
+                        <li>• <strong>BONIFICACIÓN:</strong> 1 Clase Mensual Zen Stretching</li>
+                    </ul>
+                    <a href="https://wa.me/541176194825" class="block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition">Consultar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="generador" class="py-32 px-6 bg-[#0c0a09] italic">
-        <div class="max-w-4xl mx-auto generator-container p-12 shadow-2xl">
-            <h2 class="text-center text-3xl mb-4 font-bold uppercase italic text-white">Generador de HIIT Express</h2>
-            <p class="text-center text-stone-500 text-[10px] uppercase tracking-widest mb-12 italic">Herramienta de soporte para días de entrenamiento autónomo</p>
+    <section id="generador" class="py-32 px-6 bg-[#0c0a09] italic border-y border-white/5">
+        <div class="max-w-4xl mx-auto generator-container p-12 shadow-2xl italic">
+            <h2 class="text-center text-3xl mb-4 font-bold uppercase italic text-white italic">Generador de HIIT Express</h2>
+            <p class="text-center text-stone-500 text-[10px] uppercase tracking-widest mb-12 italic">Herramienta exclusiva de soporte para días de entrenamiento autónomo</p>
             
-            <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <div class="grid md:grid-cols-2 gap-6 mb-12 italic">
                 <div class="flex flex-col">
-                    <label class="text-[9px] uppercase font-bold text-stone-500 mb-2">Duración Total</label>
+                    <label class="text-[9px] uppercase font-bold text-stone-500 mb-2">Duración de Sesión</label>
                     <select id="duration" class="w-full">
-                        <option value="15">15 Minutos (Mantenimiento)</option>
+                        <option value="15">15 Minutos (Express)</option>
                         <option value="30" selected>30 Minutos (Estándar)</option>
-                        <option value="45">45 Minutos (Maestría)</option>
+                        <option value="45">45 Minutos (Completo)</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label class="text-[9px] uppercase font-bold text-stone-500 mb-2">Equipamiento Disponible</label>
+                    <label class="text-[9px] uppercase font-bold text-stone-500 mb-2">Equipamiento</label>
                     <select id="equipment" class="w-full">
-                        <option value="none" selected>Sin elementos (Calistenia)</option>
-                        <option value="basic">Con elementos (Barra/Kettlebell)</option>
+                        <option value="none" selected>Sin elementos (Bodyweight)</option>
+                        <option value="basic">Con elementos (Barra / Pesa)</option>
                     </select>
                 </div>
             </div>
 
-            <button onclick="generateFullWorkout()" class="w-full bg-red-600 text-white py-5 uppercase font-bold text-[11px] tracking-[0.3em] hover:bg-red-700 transition shadow-xl mb-12 italic">Configurar Sesión</button>
+            <button onclick="generateFullWorkout()" class="w-full bg-red-600 text-white py-5 uppercase font-bold text-[11px] tracking-[0.3em] hover:bg-red-700 transition shadow-xl mb-12 italic">Generar Entrenamiento</button>
 
             <div id="workout-result" class="result-box hidden">
-                <div class="mb-10 border-b border-white/10 pb-8">
-                    <h4 class="text-red-600 font-bold uppercase text-xs mb-4 italic tracking-widest">A. Warm-up Dinámico (5 min)</h4>
-                    <p id="warmup-text" class="text-stone-400 text-sm leading-relaxed italic"></p>
+                <div class="mb-10 border-b border-white/10 pb-8 italic">
+                    <h4 class="text-red-600 font-bold uppercase text-xs mb-4 italic tracking-widest">A. Warm-up Dinámico</h4>
+                    <p id="warmup-text" class="text-stone-400 text-sm italic italic"></p>
                 </div>
-                <div class="mb-10 border-b border-white/10 pb-8">
-                    <h4 class="text-white font-bold uppercase text-xs mb-4 italic tracking-widest">B. Bloque Principal (Intervalos HIIT)</h4>
+                <div class="mb-10 border-b border-white/10 pb-8 italic">
+                    <h4 class="text-white font-bold uppercase text-xs mb-4 italic tracking-widest">B. Bloque Principal (Intervalos)</h4>
                     <div id="main-block" class="space-y-4"></div>
                 </div>
-                <div>
-                    <h4 class="text-blue-600 font-bold uppercase text-xs mb-4 italic tracking-widest">C. Cooldown y Flexibilidad (5 min)</h4>
-                    <p id="cooldown-text" class="text-stone-400 text-sm leading-relaxed italic"></p>
+                <div class="italic">
+                    <h4 class="text-blue-600 font-bold uppercase text-xs mb-4 italic tracking-widest">C. Cooldown y Movilidad</h4>
+                    <p id="cooldown-text" class="text-stone-400 text-sm italic italic"></p>
                 </div>
             </div>
         </div>
@@ -215,27 +219,25 @@
 
     <footer class="py-32 px-6 bg-black text-center border-t border-white/5 italic">
         <h2 class="text-5xl mb-20 italic tracking-tighter uppercase font-bold text-white italic">Espacio INYO ☯️</h2>
-        
         <div class="grid md:grid-cols-2 gap-20 mb-24 max-w-5xl mx-auto italic">
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center italic">
                 <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-40 h-40 mb-6 object-contain grayscale invert opacity-50">
                 <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] underline underline-offset-8 decoration-red-600 italic">WhatsApp: 11 7619-4825</p>
             </div>
-            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left border-l border-white/5 md:pl-20">
-                <p class="text-sm font-bold uppercase tracking-widest text-red-600 mb-4 italic">Sede Lanús Oeste Centro</p>
+            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left border-l border-white/5 md:pl-20 italic">
+                <p class="text-sm font-bold uppercase tracking-widest text-red-600 mb-4 italic italic">Sede Lanús Oeste Centro</p>
                 <p class="text-stone-500 text-sm leading-relaxed italic italic">Gdor. Carlos Tejedor 335.<br>Lanús, Buenos Aires.</p>
             </div>
         </div>
-
-        <div class="border-t border-white/5 pt-20 mt-20">
-            <h3 class="text-[10px] uppercase tracking-[0.8em] text-stone-600 mb-12 font-bold italic">ECOSISTEMA INYO</h3>
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 text-stone-500 text-[10px] font-bold tracking-[0.2em] italic">
-                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Masaje Japonés</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Clases de Yoga</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Zen Stretching</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Artes Marciales</a>
+        <div class="border-t border-white/5 pt-20 mt-20 italic">
+            <h3 class="text-[10px] uppercase tracking-[0.8em] text-stone-600 mb-12 font-bold italic italic">ECOSISTEMA INYO</h3>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 text-stone-500 text-[10px] font-bold tracking-[0.2em] italic italic">
+                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 italic">Masaje Japonés</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 italic">Clases de Yoga</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 italic">Zen Stretching</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 italic">Artes Marciales</a>
             </div>
-            <p class="mt-24 text-[9px] text-stone-800 uppercase tracking-[0.5em] font-bold italic">© 2026 Espacio INYO | High Performance Division</p>
+            <p class="mt-24 text-[9px] text-stone-800 uppercase tracking-[0.5em] font-bold italic italic italic">© 2026 Espacio INYO | High Performance Division</p>
         </div>
     </footer>
 
@@ -245,51 +247,31 @@
 
     <script>
         const workoutData = {
-            none: [
-                "Burpees explosivos", "Flexiones de brazos", "Sentadillas profundas", 
-                "Mountain Climbers", "Plancha abdominal", "Zancadas alternas",
-                "Hollow body", "Dips en banco", "Jump Squats", "Superman hold", "Crunches"
-            ],
-            basic: [
-                "Dominadas", "Dips en paralelas", "Peso muerto con Kettlebell", 
-                "Thrusters", "Swing de pesa rusa", "Remo invertido", 
-                "Flexiones con peso", "Goblet Squats", "Toes to bar", "Push press"
-            ]
+            none: ["Burpees", "Flexiones", "Sentadillas", "Mountain Climbers", "Plancha", "Hollow Body", "Lunge", "Jump Squat"],
+            basic: ["Dominadas", "Dips", "Peso Muerto", "Thrusters", "Swings", "Remo Invertido", "Goblet Squats", "Toes to Bar"]
         };
 
         function generateFullWorkout() {
             const duration = document.getElementById('duration').value;
             const equip = document.getElementById('equipment').value;
             const resultBox = document.getElementById('workout-result');
-            
             resultBox.classList.remove('hidden');
             
-            // Calentamiento - Basado en movilidad activa
-            document.getElementById('warmup-text').innerText = 
-                "Rotaciones articulares, saltos de tijera (Jumping Jacks), y activación de core (Hollow Body). Realizar 3 rondas sin descanso para preparar el sistema cardiovascular.";
+            document.getElementById('warmup-text').innerText = "3 rondas: 10 Jumping Jacks, 10 Movilidad de cadera, 30s Plancha.";
             
-            // Bloque Principal - Lógica de intervalos de alta gama
             const mainBlock = document.getElementById('main-block');
             mainBlock.innerHTML = "";
-            const selectedEx = [...workoutData[equip]].sort(() => 0.5 - Math.random());
+            const numEx = duration === "15" ? 4 : duration === "30" ? 8 : 12;
+            const selected = [...workoutData[equip]].sort(() => 0.5 - Math.random());
             
-            // Definir cantidad de ejercicios según duración
-            const numExercises = duration === "15" ? 4 : duration === "30" ? 8 : 12;
-            
-            for(let i=0; i < numExercises; i++) {
-                const ex = selectedEx[i % selectedEx.length];
-                mainBlock.innerHTML += `<p class="text-stone-300 text-sm italic">• 45 segundos de **${ex}** + 15 segundos de Descanso Activo</p>`;
+            for(let i=0; i<numEx; i++) {
+                mainBlock.innerHTML += `<p class="text-stone-300 text-sm italic">• 45s de **${selected[i % selected.length]}** + 15s de Descanso Activo</p>`;
             }
 
-            // Enfriamiento - Basado en estiramiento funcional
-            document.getElementById('cooldown-text').innerText = 
-                "Estiramiento estático de cadenas musculares largas, enfoque en flexores de cadera y cadena posterior. 5 minutos de respiración diafragmática para bajar pulsaciones.";
-
-            // Scroll suave al resultado
+            document.getElementById('cooldown-text').innerText = "5 min de estiramiento estático focalizado en psoas y cadena posterior.";
             window.scrollTo({ top: document.getElementById('generador').offsetTop + 200, behavior: 'smooth' });
         }
 
-        // Animaciones de visibilidad
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
