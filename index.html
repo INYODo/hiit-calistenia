@@ -82,10 +82,10 @@
 <body class="antialiased">
 
     <input type="checkbox" id="menu-toggle" class="hidden">
-    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-red-600 transition duration-300">
-        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
-        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
-        <div class="w-6 h-0.5 bg-white transition"></div>
+    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-red-600 transition duration-300 text-white">
+        <div class="w-6 h-0.5 bg-current mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-current mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-current transition"></div>
     </label>
 
     <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></label>
@@ -95,22 +95,23 @@
         <div class="mt-12 italic">
             <p class="text-[10px] uppercase tracking-[0.3em] text-red-600 mb-8 font-bold border-b border-white/5 pb-2">Espacio INYO ☯️</p>
             <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold">
-                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-red-500 transition">Masaje Japonés</a></li>
+                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-red-500 transition text-white">Masaje Japonés</a></li>
                 <li><a href="#" class="block text-red-600 font-bold underline underline-offset-8">HIIT Calistenia</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-red-500 transition">Clases de Yoga</a></li>
-                <li><a href="https://www.holayoga.com.ar/" target="_blank" class="block hover:text-red-500 transition">Coaching Online</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-red-500 transition">Zen Stretching</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-red-500 transition">Artes Marciales</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-red-500 transition text-white">Clases de Yoga</a></li>
+                <li><a href="https://www.holayoga.com.ar/" target="_blank" class="block hover:text-red-500 transition text-white">Coaching Online</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-red-500 transition text-white">Zen Stretching</a></li>
+                <li><a href="https://inyodo.github.io/chamanismo/" class="block hover:text-red-500 transition text-white">Chamanismo</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-red-500 transition text-white">Artes Marciales</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 hero-hiit relative overflow-hidden">
+    <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 hero-hiit relative overflow-hidden text-white">
         <div class="z-10 fade-in visible">
-            <p class="text-red-600 text-sm tracking-[0.5em] mb-4 font-bold uppercase italic">High Intensity Interval Training</p>
-            <h1 class="text-6xl md:text-9xl font-bold mb-4 tracking-tighter italic uppercase leading-none text-white">HIIT +<br>CALISTENIA</h1>
+            <p class="text-red-600 text-sm tracking-[0.5em] mb-4 font-bold uppercase italic text-white">High Intensity Interval Training</p>
+            <h1 class="text-6xl md:text-9xl font-bold mb-4 tracking-tighter italic uppercase leading-none text-white text-white">HIIT +<br>CALISTENIA</h1>
             <div class="w-32 h-1 bg-red-600 mx-auto my-8"></div>
-            <p class="text-xl md:text-2xl text-stone-300 max-w-3xl mx-auto font-light italic leading-relaxed">
+            <p class="text-xl md:text-2xl text-stone-300 max-w-3xl mx-auto font-light italic leading-relaxed text-white">
                 "Ciencia, Biomecánica y Máximo Rendimiento. Domina tu cuerpo, transforma tu vida."
             </p>
             <button onclick="document.getElementById('metodo').scrollIntoView({behavior:'smooth'})" class="mt-12 bg-red-600 text-white px-12 py-5 uppercase font-bold text-[10px] tracking-widest hover:bg-red-700 transition shadow-2xl italic">Descubrir Método</button>
@@ -119,23 +120,23 @@
 
     <section id="metodo" class="py-32 px-6 bg-[#0c0a09] italic">
         <div class="max-w-5xl mx-auto text-white">
-            <h2 class="text-center text-4xl md:text-5xl mb-24 font-bold uppercase italic tracking-tighter">Filosofía de Entrenamiento</h2>
+            <h2 class="text-center text-4xl md:text-5xl mb-24 font-bold uppercase italic tracking-tighter text-white">Filosofía de Entrenamiento</h2>
             <div class="grid md:grid-cols-2 gap-16">
-                <div class="feature-card fade-in visible">
-                    <h3 class="text-red-600 font-bold mb-6 uppercase text-lg italic italic">Dominio del Cuerpo</h3>
+                <div class="feature-card fade-in visible text-white">
+                    <h3 class="text-red-600 font-bold mb-6 uppercase text-lg italic text-white text-white">Dominio del Cuerpo</h3>
                     <p class="text-stone-400 text-base leading-relaxed mb-6 italic text-white">
                         La Calistenia es la base de nuestra fuerza. A través del control total del peso corporal, reordenamos tus patrones de movimiento y fortalecemos tu estructura ósea y muscular.
                     </p>
-                    <p class="text-stone-500 text-sm italic italic italic text-white">
+                    <p class="text-stone-500 text-sm italic text-white">
                         Bajo mi supervisión directa, cada intervalo se realiza con la técnica exacta, optimizando cada segundo de tu esfuerzo.
                     </p>
                 </div>
-                <div class="feature-card fade-in visible">
-                    <h3 class="text-red-600 font-bold mb-6 uppercase text-lg italic italic text-white">Alcance Metabólico</h3>
+                <div class="feature-card fade-in visible text-white">
+                    <h3 class="text-red-600 font-bold mb-6 uppercase text-lg italic text-white text-white">Alcance Metabólico</h3>
                     <p class="text-stone-400 text-base leading-relaxed mb-6 italic text-white">
                         Utilizamos protocolos HIIT para disparar el efecto EPOC. Tu metabolismo se mantiene elevado hasta 48hs después de la sesión, acelerando la quema de grasa y la recuperación celular.
                     </p>
-                    <p class="text-stone-500 text-sm italic italic italic text-white">
+                    <p class="text-stone-500 text-sm italic text-white">
                         Resultados reales para quienes buscan eficiencia técnica y rendimiento físico de élite.
                     </p>
                 </div>
@@ -145,51 +146,51 @@
 
     <section id="modalidades" class="py-32 px-6 bg-stone-900/40 border-y border-white/5 italic">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-center text-4xl mb-24 font-bold uppercase italic tracking-tighter">Modalidades y Grilla</h2>
+            <h2 class="text-center text-4xl mb-24 font-bold uppercase italic tracking-tighter text-white text-white">Modalidades y Grilla</h2>
             
             <div class="modalidad-box fade-in visible">
                 <h3 class="text-3xl font-bold mb-6 uppercase italic text-white">Entrenamiento Presencial</h3>
-                <p class="text-stone-400 text-lg mb-10 leading-relaxed italic">
+                <p class="text-stone-400 text-lg mb-10 leading-relaxed italic text-white">
                     La esencia de Espacio INYO. Entrenamiento directo en **Lanús Oeste Centro**. La corrección biomecánica en vivo garantiza la efectividad de cada movimiento.
                 </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-red-600 mb-12 italic">
-                    <div class="horario-tag">Lunes, Miércoles y Viernes<br><span class="text-white text-lg">08:30 HS</span></div>
-                    <div class="horario-tag">Lunes, Martes y Jueves<br><span class="text-white text-lg">18:00 HS</span></div>
-                    <div class="horario-tag">Miércoles y Viernes<br><span class="text-white text-lg">19:00 HS</span></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-red-600 mb-12 italic text-white">
+                    <div class="horario-tag text-white">Lunes, Miércoles y Viernes<br><span class="text-white text-lg">08:30 HS</span></div>
+                    <div class="horario-tag text-white">Lunes, Martes y Jueves<br><span class="text-white text-lg">18:00 HS</span></div>
+                    <div class="horario-tag text-white">Miércoles y Viernes<br><span class="text-white text-lg">19:00 HS</span></div>
                 </div>
             </div>
 
-            <div class="modalidad-box fade-in visible" style="border-color: #3b82f6;">
-                <h3 class="text-3xl font-bold mb-6 uppercase italic text-white">Modalidad Híbrida / Remota</h3>
-                <p class="text-stone-400 text-lg mb-8 leading-relaxed italic">
+            <div class="modalidad-box fade-in visible text-white" style="border-color: #3b82f6;">
+                <h3 class="text-3xl font-bold mb-6 uppercase italic text-white text-white">Modalidad Híbrida / Remota</h3>
+                <p class="text-stone-400 text-lg mb-8 leading-relaxed italic text-white">
                     Flexibilidad absoluta. Combinamos la presencialidad con soporte digital vía WhatsApp y rutinas en PDF para que nunca pierdas el nivel, sin importar tus horarios o viajes.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="packs" class="py-32 px-6 bg-[#0c0a09] italic">
+    <section id="packs" class="py-32 px-6 bg-[#0c0a09] italic text-white">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-center text-5xl mb-24 font-bold uppercase italic tracking-tighter text-white">Planes Febrero</h2>
-            <div class="grid md:grid-cols-3 gap-8 items-stretch italic">
+            <h2 class="text-center text-5xl mb-24 font-bold uppercase italic tracking-tighter text-white text-white">Planes Febrero</h2>
+            <div class="grid md:grid-cols-3 gap-8 items-stretch italic text-white">
                 
-                <div class="price-card p-10 flex flex-col italic">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic text-white">Plan Core (2X)</h3>
-                    <div class="text-5xl font-bold text-white mb-2 italic">$50.000</div>
-                    <p class="text-red-600 text-[10px] font-bold uppercase mb-8 italic text-white">2 veces por semana</p>
-                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic text-white">
+                <div class="price-card p-10 flex flex-col italic text-white">
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic text-white text-white">Plan Core (2X)</h3>
+                    <div class="text-5xl font-bold text-white mb-2 italic text-white">$50.000</div>
+                    <p class="text-red-600 text-[10px] font-bold uppercase mb-8 italic text-white text-white">2 veces por semana</p>
+                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic text-white text-white">
                         <li>• Entrenamiento Presencial Supervisado</li>
                         <li>• <strong>BONO:</strong> 1 Clase Mensual Zen Stretching</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic text-white">Inscribirme</a>
+                    <a href="https://wa.me/541176194825" class="block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic text-white text-white">Inscribirme</a>
                 </div>
 
-                <div class="price-card featured p-10 flex flex-col italic shadow-2xl">
+                <div class="price-card featured p-10 flex flex-col italic shadow-2xl text-white">
                     <div class="text-center bg-red-600 text-white text-[9px] py-1 font-bold uppercase tracking-widest mb-6 italic">Máximo Rendimiento</div>
-                    <h3 class="text-white font-bold mb-4 uppercase text-xs italic">Plan Pro Elite (5X)</h3>
-                    <div class="text-6xl font-bold text-white mb-2 italic">$75.000</div>
-                    <p class="text-red-500 text-[10px] font-bold uppercase mb-8 italic text-white">5 veces por semana + Seguimiento</p>
-                    <ul class="text-[11px] text-white space-y-4 mb-10 flex-grow font-semibold italic text-white">
+                    <h3 class="text-white font-bold mb-4 uppercase text-xs italic text-white text-white">Plan Pro Elite (5X)</h3>
+                    <div class="text-6xl font-bold text-white mb-2 italic text-white">$75.000</div>
+                    <p class="text-red-500 text-[10px] font-bold uppercase mb-8 italic text-white text-white">5 veces por semana + Seguimiento</p>
+                    <ul class="text-[11px] text-white space-y-4 mb-10 flex-grow font-semibold italic text-white text-white">
                         <li>• <strong>HÍBRIDO:</strong> Seguimiento Online 24/7</li>
                         <li>• <strong>ASPIRINAS DEL CUERPO:</strong> Rutinas de activación semanal</li>
                         <li>• <strong>BONO:</strong> 2 Clases Mensuales Zen Stretching</li>
@@ -198,10 +199,10 @@
                 </div>
 
                 <div class="price-card p-10 flex flex-col italic text-white">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Plan Power (3X)</h3>
-                    <div class="text-5xl font-bold text-white mb-2 italic">$55.000</div>
-                    <p class="text-red-600 text-[10px] font-bold uppercase mb-8 italic text-white">3 veces por semana</p>
-                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic text-white">
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic text-white text-white text-white">Plan Power (3X)</h3>
+                    <div class="text-5xl font-bold text-white mb-2 italic text-white text-white">$55.000</div>
+                    <p class="text-red-600 text-[10px] font-bold uppercase mb-8 italic text-white text-white text-white">3 veces por semana</p>
+                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic text-white text-white text-white">
                         <li>• Entrenamiento de Alta Intensidad</li>
                         <li>• <strong>BONO:</strong> 1 Clase Mensual Zen Stretching</li>
                     </ul>
@@ -214,57 +215,57 @@
     <section id="generador" class="py-32 px-6 bg-[#0c0a09] border-t border-white/5 italic">
         <div class="max-w-4xl mx-auto generator-container p-12 shadow-2xl italic">
             <h2 class="text-center text-3xl mb-4 font-bold uppercase italic text-white italic">Generador HIIT Express</h2>
-            <div class="grid md:grid-cols-2 gap-6 mb-12 italic">
-                <select id="duration" class="w-full">
+            <div class="grid md:grid-cols-2 gap-6 mb-12 italic text-white">
+                <select id="duration" class="w-full text-white">
                     <option value="15">15 Minutos</option>
                     <option value="30" selected>30 Minutos</option>
                     <option value="45">45 Minutos</option>
                 </select>
-                <select id="equipment" class="w-full">
+                <select id="equipment" class="w-full text-white">
                     <option value="none" selected>Sin elementos</option>
                     <option value="basic">Con elementos</option>
                 </select>
             </div>
-            <button onclick="generateFullWorkout()" class="w-full bg-red-600 text-white py-5 uppercase font-bold text-[11px] tracking-[0.3em] hover:bg-red-700 transition italic">Configurar Sesión</button>
+            <button onclick="generateFullWorkout()" class="w-full bg-red-600 text-white py-5 uppercase font-bold text-[11px] tracking-[0.3em] hover:bg-red-700 transition italic text-white">Configurar Sesión</button>
             <div id="workout-result" class="result-box hidden mt-12 italic">
-                <div class="mb-10 border-b border-white/10 pb-8 italic">
-                    <h4 class="text-red-600 font-bold uppercase text-xs mb-4 italic italic">A. Calentamiento Dinámico</h4>
-                    <p id="warmup-text" class="text-stone-400 text-sm italic italic text-white"></p>
+                <div class="mb-10 border-b border-white/10 pb-8 italic text-white">
+                    <h4 class="text-red-600 font-bold uppercase text-xs mb-4 italic italic text-white text-white text-white">A. Calentamiento Dinámico</h4>
+                    <p id="warmup-text" class="text-stone-400 text-sm italic italic text-white text-white"></p>
                 </div>
-                <div class="mb-10 border-b border-white/10 pb-8 italic">
-                    <h4 class="text-white font-bold uppercase text-xs mb-4 italic italic text-white">B. Bloque Principal</h4>
-                    <div id="main-block" class="space-y-4 italic"></div>
+                <div class="mb-10 border-b border-white/10 pb-8 italic text-white">
+                    <h4 class="text-white font-bold uppercase text-xs mb-4 italic italic text-white text-white text-white">B. Bloque Principal</h4>
+                    <div id="main-block" class="space-y-4 italic text-white"></div>
                 </div>
-                <div class="italic">
-                    <h4 class="text-blue-600 font-bold uppercase text-xs mb-4 italic italic text-white">C. Enfriamiento</h4>
-                    <p id="cooldown-text" class="text-stone-400 text-sm italic italic text-white"></p>
+                <div class="italic text-white">
+                    <h4 class="text-blue-600 font-bold uppercase text-xs mb-4 italic italic text-white text-white text-white">C. Enfriamiento</h4>
+                    <p id="cooldown-text" class="text-stone-400 text-sm italic italic text-white text-white"></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-32 px-6 bg-black text-center border-t border-white/5 italic">
-        <h2 class="text-5xl mb-20 italic tracking-tighter uppercase font-bold text-white italic">Espacio INYO ☯️</h2>
+    <footer class="py-32 px-6 bg-black text-center border-t border-white/5 italic text-white">
+        <h2 class="text-5xl mb-20 italic tracking-tighter uppercase font-bold text-white text-white">Espacio INYO ☯️</h2>
         <div class="grid md:grid-cols-2 gap-20 mb-24 max-w-5xl mx-auto italic">
             <div class="flex flex-col items-center italic text-white">
                 <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-40 h-40 mb-6 object-contain grayscale invert opacity-50">
-                <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] underline underline-offset-8 decoration-red-600 italic text-white">WhatsApp: 11 7619-4825</p>
-                <p class="mt-4 text-[10px] text-stone-400 font-bold uppercase tracking-widest italic text-white">Clase suelta o de prueba: $17.000</p>
+                <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] underline underline-offset-8 decoration-red-600 italic text-white text-white">WhatsApp: 11 7619-4825</p>
+                <p class="mt-4 text-[10px] text-stone-400 font-bold uppercase tracking-widest italic text-white text-white text-white">Clase suelta o de prueba: $17.000</p>
             </div>
             <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left border-l border-white/5 md:pl-20 italic text-white">
-                <p class="text-sm font-bold uppercase tracking-widest text-red-600 mb-4 italic italic text-white">Sede Lanús Oeste Centro</p>
-                <p class="text-stone-500 text-sm leading-relaxed italic italic text-white">Gdor. Carlos Tejedor 335, Lanús.</p>
+                <p class="text-sm font-bold uppercase tracking-widest text-red-600 mb-4 italic text-white text-white text-white">Sede Lanús Oeste Centro</p>
+                <p class="text-stone-500 text-sm leading-relaxed italic text-white text-white">Gdor. Carlos Tejedor 335, Lanús.</p>
             </div>
         </div>
-        <div class="border-t border-white/5 pt-20 mt-20 italic italic">
-            <h3 class="text-[10px] uppercase tracking-[0.8em] text-stone-600 mb-12 font-bold italic">ECOSISTEMA INYO</h3>
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 text-stone-500 text-[10px] font-bold tracking-[0.2em] italic">
-                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Masaje Japonés</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Clases de Yoga</a>
-                <a href="https://www.holayoga.com.ar/" target="_blank" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Coaching Online</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Zen Stretching</a>
-                <a href="https://inyodo.github.io/chamanismo/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Chamanismo</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Artes Marciales</a>
+        <div class="border-t border-white/5 pt-20 mt-20 italic italic text-white">
+            <h3 class="text-[10px] uppercase tracking-[0.8em] text-stone-600 mb-12 font-bold italic text-white">ECOSISTEMA INYO</h3>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 text-stone-500 text-[10px] font-bold tracking-[0.2em] italic text-white">
+                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 text-white">Masaje Japonés</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 text-white">Clases de Yoga</a>
+                <a href="https://www.holayoga.com.ar/" target="_blank" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 text-white">Coaching Online</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 text-white">Zen Stretching</a>
+                <a href="https://inyodo.github.io/chamanismo/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 text-white">Chamanismo</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5 text-white">Artes Marciales</a>
             </div>
         </div>
     </footer>
