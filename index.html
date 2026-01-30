@@ -80,7 +80,9 @@
     </style>
 </head>
 <body class="antialiased">
-
+<audio id="bgMusic" loop>
+        <source src="audio/introthexx.mp3" type="audio/mpeg">
+    </audio>
     <input type="checkbox" id="menu-toggle" class="hidden">
     <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-red-600 transition duration-300 text-white">
         <div class="w-6 h-0.5 bg-current mb-1.5 transition"></div>
@@ -269,11 +271,26 @@
             </div>
         </div>
     </footer>
-
+<button onclick="toggleMusic()" id="musicBtn" class="fixed bottom-32 right-10 bg-stone-900 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-xl hover:scale-110 transition-all duration-300 z-50 border border-red-600">
+        <i id="musicIcon" class="fas fa-volume-mute"></i>
+    </button>
     <a href="https://wa.me/541176194825" class="fixed bottom-10 right-10 bg-[#25d366]/20 backdrop-blur-sm text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:bg-[#25d366] hover:scale-110 transition-all duration-300 z-50 border border-white/10">
         <i class="fab fa-whatsapp"></i>
     </a>
+const music = document.getElementById('bgMusic');
+        const icon = document.getElementById('musicIcon');
 
+        function toggleMusic() {
+            if (music.paused) {
+                music.play().catch(e => console.log("Audio Error:", e));
+                icon.classList.replace('fa-volume-mute', 'fa-volume-up');
+                icon.classList.add('text-red-500');
+            } else {
+                music.pause();
+                icon.classList.replace('fa-volume-up', 'fa-volume-mute');
+                icon.classList.remove('text-red-500');
+            }
+        }
     <script>
         const workoutData = {
             none: ["Burpees explosivos", "Flexiones de brazos", "Sentadillas profundas", "Mountain Climbers", "Plancha abdominal", "Hollow Body"],
