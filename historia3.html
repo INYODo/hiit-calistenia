@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lato:ital,wght@1,300;1,700&display=swap" rel="stylesheet">
+    <style>
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .font-lato { font-family: 'Lato', sans-serif; }
+    </style>
+</head>
+<body class="bg-stone-900 flex justify-center items-center min-h-screen">
+
+    <div id="story" class="relative w-[540px] h-[960px] overflow-hidden bg-black shadow-2xl border border-white/10">
+        
+        <img src="imagen/dojo-clean.png" class="absolute inset-0 w-full h-full object-cover opacity-70">
+
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90"></div>
+
+        <div class="absolute top-20 left-0 right-0 px-10 text-center">
+            <h2 class="font-oswald text-4xl text-white italic uppercase tracking-tighter leading-none mb-4">
+                Viernes 20:00hs
+            </h2>
+            <div class="h-[2px] w-20 bg-red-600 mx-auto mb-4"></div>
+            <p class="font-lato text-xl text-stone-300 italic">
+                Zen Stretching Dinámico
+            </p>
+        </div>
+
+        <div class="absolute inset-0 flex items-center justify-center px-12 text-center">
+            <p class="font-lato text-2xl text-white italic leading-relaxed">
+                "Cupos limitados para garantizar la <span class="text-red-500 font-bold">corrección técnica</span> personalizada."
+            </p>
+        </div>
+
+        <div class="absolute bottom-20 left-0 right-0 px-8">
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center">
+                <p class="font-lato text-stone-200 text-lg mb-4 italic">
+                    ¿Tenés alguna duda sobre la recuperación miofascial?
+                </p>
+                <div class="bg-white/20 rounded-lg py-3">
+                    <span class="text-white/60 font-lato italic">Te leo acá 👇</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
