@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIIT + Calistenia | Gastón Burgos - Espacio INYO</title>
+    <title>Calistenia Progresiva & Salud Femenina +30 | Gastón Burgos - Espacio INYO</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -11,51 +11,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Renglón 20: Tipografías Patrón INYO */
-        h1, 
-        h2, 
-        h3, 
-        h4, 
-        .brand-font { 
+        /* Tipografías Patrón INYO */
+        h1, h2, h3, h4, .brand-font { 
             font-family: 'Oswald', sans-serif; 
             text-transform: uppercase; 
         }
         
         body { 
             font-family: 'Lato', sans-serif; 
-            background-color: #0c0a09; 
-            color: #e7e5e4; 
+            background-color: #12100f; 
+            color: #f3f0ed; 
             line-height: 1.8; 
         }
         
-        /* Renglón 38: Estilos Visuales del Hero */
-        .hero-hiit { 
+        /* Paleta Sofisticada Rose Gold / Terracota / Piedra */
+        .hero-calistenia-fem { 
             background: linear-gradient(
-                rgba(0,0,0,0.85), 
-                rgba(12,10,9,1)
+                rgba(18, 16, 15, 0.82), 
+                rgba(18, 16, 15, 0.98)
             ), 
-            url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1470&q=80'); 
+            url('imagenes/hero-calistenia-femenina.png'); 
             background-size: cover; 
             background-position: center; 
-            min-height: 100vh;
+            min-height: 90vh;
         }
 
-        @keyframes pulse-glow {
+        @keyframes pulse-soft {
             0%, 100% { 
-                text-shadow: 0 0 10px rgba(239, 68, 68, 0.5); 
-                opacity: 0.8; 
+                text-shadow: 0 0 10px rgba(194, 89, 63, 0.4); 
+                opacity: 0.85; 
             }
             50% { 
-                text-shadow: 0 0 25px rgba(239, 68, 68, 1); 
+                text-shadow: 0 0 20px rgba(194, 89, 63, 0.8); 
                 opacity: 1; 
             }
         }
         
-        .animate-glow { 
-            animation: pulse-glow 3s infinite; 
+        .animate-soft-glow { 
+            animation: pulse-soft 3.5s infinite; 
         }
 
-        /* Renglón 65: Control del Menú Lateral */
+        /* Control del Menú Lateral */
         #menu-toggle:checked ~ #side-menu { 
             transform: translateX(0); 
         }
@@ -69,56 +65,49 @@
             width: 100%; 
             max-width: 600px; 
             margin: auto; 
-            height: 450px; 
-            filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.15));
+            height: 420px; 
+            filter: drop-shadow(0 0 20px rgba(194, 89, 63, 0.12));
         }
 
-        /* Renglón 85: Pestañas de Impacto */
         .active-tab { 
-            border-bottom: 4px solid #ef4444; 
-            color: #ef4444; 
-            text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+            border-bottom: 3px solid #c2593f; 
+            color: #c2593f; 
+            text-shadow: 0 0 12px rgba(194, 89, 63, 0.3);
         }
         
         .inactive-tab { 
-            border-bottom: 4px solid rgba(255,255,255,0.05); 
-            color: #57534e; 
+            border-bottom: 3px solid rgba(255,255,255,0.05); 
+            color: #78716c; 
         }
 
-        /* Renglón 100: Tarjetas Dark Premium */
+        /* Tarjetas Premium Soft */
         .card-inyo {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s ease;
         }
 
         .card-inyo:hover {
-            border-color: rgba(239, 68, 68, 0.5);
-            background: rgba(239, 68, 68, 0.05);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-color: rgba(194, 89, 63, 0.4);
+            background: rgba(194, 89, 63, 0.04);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes pulse-red {
-            0% { 
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); 
-            }
-            70% { 
-                box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); 
-            }
-            100% { 
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); 
-            }
+        @keyframes pulse-terracota {
+            0% { box-shadow: 0 0 0 0 rgba(194, 89, 63, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(194, 89, 63, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(194, 89, 63, 0); }
         }
         
-        .animate-pulse-red { 
-            animation: pulse-red 2s infinite; 
+        .animate-pulse-terracota { 
+            animation: pulse-terracota 2s infinite; 
         }
 
         .fade-in { 
             opacity: 0; 
-            transform: translateY(30px); 
-            transition: all 1s ease-out; 
+            transform: translateY(25px); 
+            transition: all 0.8s ease-out; 
         }
         
         .fade-in.visible { 
@@ -126,630 +115,545 @@
             transform: translateY(0); 
         }
         
-        /* Renglón 145: Scrollbar Personalizado */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0c0a09;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ef4444;
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #12100f; }
+        ::-webkit-scrollbar-thumb { background: #c2593f; border-radius: 10px; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
     
+    <!-- Audio Ambiental Zen / Intro -->
     <audio id="bgMusic" loop>
         <source src="audio/introthexx.mp3" type="audio/mpeg">
     </audio>
 
     <input type="checkbox" id="menu-toggle" class="hidden">
     
-    <label for="menu-toggle" class="fixed top-8 left-8 z-50 cursor-pointer bg-white/5 backdrop-blur-xl p-4 rounded-sm border border-white/10 hover:bg-red-600 transition-all duration-500 text-white shadow-2xl">
+    <!-- Botón Menú Hamburguesa -->
+    <label for="menu-toggle" class="fixed top-8 left-8 z-50 cursor-pointer bg-stone-900/80 backdrop-blur-xl p-4 rounded-sm border border-stone-800 hover:border-[#c2593f] transition-all duration-300 text-white shadow-2xl">
         <div class="w-7 h-0.5 bg-current mb-2 transition"></div>
         <div class="w-7 h-0.5 bg-current mb-2 transition"></div>
         <div class="w-7 h-0.5 bg-current transition"></div>
     </label>
 
-    <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/90 backdrop-blur-md z-40 hidden"></label>
+    <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 hidden"></label>
 
-    <nav id="side-menu" class="fixed top-0 left-0 h-full w-80 bg-[#0c0a09] z-50 shadow-2xl transform -translate-x-full transition-transform duration-500 ease-in-out p-12 flex flex-col border-r border-white/5">
-        <label for="menu-toggle" class="absolute top-8 right-8 cursor-pointer text-stone-600 text-2xl hover:text-white transition">
+    <!-- Menú Desplegable Conectado al Ecosistema -->
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-80 bg-[#12100f] z-50 shadow-2xl transform -translate-x-full transition-transform duration-500 ease-in-out p-12 flex flex-col border-r border-stone-800">
+        <label for="menu-toggle" class="absolute top-8 right-8 cursor-pointer text-stone-500 text-2xl hover:text-white transition">
             <i class="fas fa-times"></i>
         </label>
-        <div class="mt-16 italic">
-            <p class="text-[11px] uppercase tracking-[0.4em] text-red-600 mb-10 font-bold border-b border-white/5 pb-4 text-center">
+        <div class="mt-12 italic">
+            <p class="text-[11px] uppercase tracking-[0.4em] text-[#c2593f] mb-10 font-bold border-b border-stone-800 pb-4 text-center">
                 Espacio INYO ☯️
             </p>
-            <ul class="space-y-8 text-xs uppercase tracking-[0.25em] font-semibold text-stone-400">
-                <li><a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-500 transition">Masaje Japonés</a></li>
-                <li><a href="#" class="text-white font-bold border-l-4 border-red-600 pl-4">HIIT Calistenia</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-500 transition">Clases de Yoga</a></li>
-                <li><a href="https://inyodo.github.io/Coaching-/index.html" class="hover:text-red-500 transition">Coaching Online</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-500 transition">Zen Stretching</a></li>
+            <ul class="space-y-7 text-xs uppercase tracking-[0.25em] font-semibold text-stone-400">
+                <li><a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-[#c2593f] transition">Masaje Japonés</a></li>
+                <li><a href="#" class="text-white font-bold border-l-4 border-[#c2593f] pl-4">Calistenia Femenina</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-[#c2593f] transition">Clases de Yoga</a></li>
+                <li><a href="https://inyodo.github.io/Coaching-/index.html" class="hover:text-[#c2593f] transition">Coaching Online</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-[#c2593f] transition">Zen Stretching</a></li>
                 <li>
-                    <a href="https://inyodo.github.io/Qigong/" class="block hover:text-red-500 transition">
-                        Qigong <span class="text-[10px] text-stone-600 block font-normal lowercase tracking-[0.1em] mt-1">Salud & Tai Chi</span>
+                    <a href="https://inyodo.github.io/Qigong/" class="block hover:text-[#c2593f] transition">
+                        Qigong <span class="text-[10px] text-stone-500 block font-normal lowercase tracking-[0.1em] mt-1">Salud & Tai Chi</span>
                     </a>
                 </li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-red-500 transition">Artes Marciales</a></li>
-                <li><a href="https://inyodo.github.io/chamanismo/" class="hover:text-red-500 transition">Chamanismo</a></li>
-                <li><a href="https://inyodo.github.io/Acupuntura/index.html" class="hover:text-red-500 transition">Acupuntura</a></li>
-                <li><a href="https://inyodo.github.io/stretching-belengonzalez/" class="block hover:text-red-500 transition text-red-500 font-bold">INYO Stretching</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-[#c2593f] transition">Artes Marciales</a></li>
+                <li><a href="https://inyodo.github.io/chamanismo/" class="hover:text-[#c2593f] transition">Chamanismo</a></li>
+                <li><a href="https://inyodo.github.io/Acupuntura/index.html" class="hover:text-[#c2593f] transition">Acupuntura</a></li>
+                <li><a href="https://inyodo.github.io/stretching-belengonzalez/" class="block hover:text-[#c2593f] transition text-[#c2593f] font-bold">INYO Stretching</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 hero-hiit relative overflow-hidden text-white">
-        
-        <div class="z-10 fade-in visible">
+    <!-- Header Hero: Orientado a Mujeres +30 -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 hero-calistenia-fem relative overflow-hidden text-white">
+        <div class="z-10 fade-in visible max-w-5xl mx-auto space-y-6">
             
-            <p class="text-red-600 text-sm tracking-[0.6em] mb-6 font-bold uppercase italic animate-glow">
-                High Intensity Interval Training
+            <p class="text-[#c2593f] text-xs md:text-sm tracking-[0.5em] font-bold uppercase italic animate-soft-glow">
+                Calistenia Progresiva • Salud & Dominio Corporal +30
             </p>
             
-            <h1 class="text-7xl md:text-[10rem] font-bold mb-6 tracking-tighter italic uppercase leading-none">
-                HIIT +<br>CALISTENIA
+            <h1 class="text-5xl md:text-8xl font-bold tracking-tighter italic uppercase leading-tight">
+                Reconecta con<br>Tu Fuerza Real
             </h1>
             
-            <h2 class="text-3xl md:text-5xl text-stone-400 font-light mb-12 italic uppercase tracking-[0.2em]">
-                Despierta tu poder
+            <h2 class="text-xl md:text-3xl text-stone-300 font-light italic uppercase tracking-[0.2em] max-w-3xl mx-auto">
+                El método definitivo para mujeres que buscan resultados sin romper su cuerpo.
             </h2>
             
-            <div class="w-40 h-1 bg-red-600 mx-auto my-10 shadow-[0_0_15px_rgba(239,68,68,0.8)]"></div>
+            <div class="w-32 h-1 bg-[#c2593f] mx-auto my-6 shadow-[0_0_15px_rgba(194,89,63,0.6)]"></div>
             
-            <p class="text-xl md:text-2xl text-stone-500 max-w-4xl mx-auto font-light italic leading-relaxed px-4">
-                "Ciencia, Biomecánica y Máximo Rendimiento. Domina tu cuerpo, transforma tu vida."
+            <p class="text-base md:text-lg text-stone-300 max-w-3xl mx-auto font-light italic leading-relaxed px-4">
+                ¿Gimnasios fríos, rutinas genéricas, Pilates o CrossFit sin adaptación? Diseñamos un entrenamiento guiado profesionalmente por <strong>Gastón Burgos</strong> que respeta tus articulaciones, tu suelo pélvico, tu estado post-parto y tus ciclos femeninos.
             </p>
             
-            <button onclick="document.getElementById('formula').scrollIntoView({behavior:'smooth'})" class="mt-16 bg-red-600 text-white px-16 py-6 uppercase font-bold text-[11px] tracking-[0.3em] hover:bg-red-700 transition-all shadow-[0_15px_30px_rgba(239,68,68,0.3)] italic">
-                Descubrir Método
-            </button>
+            <div class="pt-6">
+                <button onclick="document.getElementById('simulador').scrollIntoView({behavior:'smooth'})" class="bg-[#c2593f] text-white px-12 py-5 uppercase font-bold text-xs tracking-[0.3em] hover:bg-[#a84a32] transition-all shadow-2xl italic border border-[#d96d53]">
+                    Evaluar Mi Perfil Físico
+                </button>
+            </div>
             
         </div>
-        
     </header>
 
-    <section class="py-20 bg-[#0c0a09] border-b border-white/5 flex justify-center items-center px-6">
-        <div class="max-w-md w-full text-center">
-            <h3 class="text-3xl font-bold mb-4 tracking-tighter italic text-white uppercase">Nuestro Método en Acción</h3>
-            <p class="text-stone-500 text-xs tracking-[0.3em] font-bold uppercase mb-8">Ejercicios progresivos y control corporal</p>
+    <!-- Sección Video Explicativo Institucional (Alumnas Ejercitando) -->
+    <section class="py-20 bg-[#12100f] border-b border-stone-800/80 flex justify-center items-center px-6">
+        <div class="max-w-md w-full text-center space-y-4">
+            <h3 class="text-3xl font-bold tracking-tighter italic text-white uppercase">Nuestras Clases en Acción</h3>
+            <p class="text-[#c2593f] text-xs tracking-[0.3em] font-bold uppercase">Progresión real, técnica cuidada & comunidad</p>
             
-            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] aspect-[9/16] w-full max-w-[320px] mx-auto">
-                <iframe class="w-full h-full" src="https://www.youtube.com/embed/Il9yMPwSV4k" title="Método Espacio INYO - HIIT y Calistenia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="relative rounded-2xl overflow-hidden border border-stone-800 shadow-2xl aspect-[9/16] w-full max-w-[320px] mx-auto">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/Il9yMPwSV4k" title="Método Espacio INYO - Calistenia Femenina en Acción" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             
-            <p class="text-stone-600 text-[10px] uppercase tracking-widest mt-8">Seguinos en nuestro canal para ver más progresiones</p>
+            <p class="text-stone-500 text-[10px] uppercase tracking-widest pt-4">Atención personalizada y grupos reducidos en Lanús Oeste Centro</p>
         </div>
     </section>
-   
-    <section id="formula" class="py-40 bg-[#0c0a09] text-white relative overflow-hidden">
-        
-        <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Sección Bloque de Enfoque Biomecánico e Imágenes PNG -->
+    <section id="formula" class="py-28 bg-[#181514] text-white relative">
+        <div class="container mx-auto px-6 max-w-6xl">
             
-            <div class="text-center mb-24">
+            <div class="text-center mb-20 space-y-4">
+                <p class="text-[#c2593f] text-xs font-bold uppercase tracking-[0.4em]">Respuesta Integral para la Mujer</p>
+                <h2 class="text-4xl md:text-6xl font-bold italic tracking-tight">¿POR QUÉ NUESTRA CALISTENIA ES DIFERENTE?</h2>
+                <div class="w-20 h-0.5 bg-[#c2593f] mx-auto"></div>
+                <p class="text-stone-400 max-w-3xl mx-auto italic font-light text-base leading-relaxed">
+                    Comprendemos los desafíos físicos reales de las mujeres a partir de los 30 años. No imponemos cargas desmedidas; adaptamos la biomecánica a tu estado actual.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
-                <h2 class="text-6xl font-bold mb-6 italic tracking-tight">
-                    ¿POR QUÉ ESTA FÓRMULA?
+                <!-- Tarjeta 1: Evaluación de Diástasis Abdominal -->
+                <div class="card-inyo p-8 rounded-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 rounded-sm overflow-hidden mb-6 border border-stone-800 bg-stone-900">
+                            <img src="imagenes/diastasis-evaluacion.png" alt="Evaluación Diagnóstica de Diástasis Abdominal" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold text-[#c2593f] uppercase italic">Diástasis & Core</h3>
+                        <p class="text-xs text-stone-400 italic font-light mt-2 leading-relaxed">
+                            Diagnóstico palpatorio de la pared abdominal post-parto. Ejercicios seleccionados para favorecer la aproximación de rectos sin sobrepresión.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Cuidado Articular y Lesiones -->
+                <div class="card-inyo p-8 rounded-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 rounded-sm overflow-hidden mb-6 border border-stone-800 bg-stone-900">
+                            <img src="imagenes/salud-articular.png" alt="Adaptación Articular y Progresiones Calistenia" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold text-white uppercase italic">Salud Articular</h3>
+                        <p class="text-xs text-stone-400 italic font-light mt-2 leading-relaxed">
+                            Rango articular protegido en rodillas, hombros y columna. Ajustes inmediatos para hernias discales, protrusiones o desgaste por el tiempo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Gestión de Ciclos Femeninos -->
+                <div class="card-inyo p-8 rounded-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 rounded-sm overflow-hidden mb-6 border border-stone-800 bg-stone-900">
+                            <img src="imagenes/ciclos-femeninos.png" alt="Gestión de Ciclos Menstruales y Fatiga" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold text-[#c2593f] uppercase italic">Ciclos & Hormonas</h3>
+                        <p class="text-xs text-stone-400 italic font-light mt-2 leading-relaxed">
+                            Aprenderás a gestionar la intensidad según las fases de tu ciclo menstrual y tus niveles de fatiga, sabiendo cuándo generar impacto y cuándo regenerar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Suelo Pélvico e Hipopresivos -->
+                <div class="card-inyo p-8 rounded-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-48 rounded-sm overflow-hidden mb-6 border border-stone-800 bg-stone-900">
+                            <img src="imagenes/suelo-pelvico.png" alt="Integración de Suelo Pélvico e Hipopresivos" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <h3 class="text-xl font-bold text-white uppercase italic">Suelo Pélvico</h3>
+                        <p class="text-xs text-stone-400 italic font-light mt-2 leading-relaxed">
+                            Protección activa contra la hiperpulsión. Suma de técnicas respiratorias e hipopresivas para descontracturar y evitar inflamación intraabdominal.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Comparativa de Impacto Gráfico -->
+            <div class="mt-20 grid lg:grid-cols-2 gap-16 items-center bg-[#12100f] p-10 border border-stone-800 rounded-sm">
+                <div class="space-y-6">
+                    <p class="text-[#c2593f] text-xs font-bold uppercase tracking-widest">Método Progresivo vs Tradicional</p>
+                    <h3 class="text-3xl font-bold uppercase italic text-white">Evolución Medible y Segura</h3>
+                    <p class="text-stone-400 text-sm italic font-light leading-relaxed">
+                        A diferencia del gimnasio tradicional que suele sobreatacar las articulaciones, la calistenia adaptada desarrolla masa magra y firmeza muscular cuidando la estructura ósea y post-parto.
+                    </p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="formulaChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SIMULADOR Y EVALUACIÓN DE PERFIL ALUMNO/A -->
+    <section id="simulador" class="py-28 bg-[#12100f] italic text-white border-y border-stone-800">
+        <div class="container mx-auto px-6 max-w-5xl">
+            
+            <div class="text-center mb-16 space-y-3">
+                <span class="bg-[#c2593f]/20 text-[#c2593f] text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-[#c2593f]/30">
+                    Ejemplo Demostrativo de Evaluación
+                </span>
+                <h2 class="text-4xl md:text-6xl font-bold uppercase italic tracking-tight">
+                    Simulador de Perfil de Alumno/a ✨
                 </h2>
-                
-                <p class="text-2xl text-stone-500 max-w-4xl mx-auto italic leading-relaxed font-light">
-                    Analizamos por qué la combinación de HIIT y Calistenia genera resultados superiores a los métodos tradicionales.
-                </p>
-                
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                
-                <div class="space-y-16">
-                    
-                    <div class="flex items-start gap-8 group">
-                        <div class="bg-red-600/10 p-6 rounded-2xl text-red-600 border border-red-600/20 group-hover:bg-red-600/20 transition-all duration-500">
-                            <i class="fa-solid fa-fire text-5xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-4xl mb-3 font-bold uppercase italic text-white tracking-tight">HIIT</h3>
-                            <p class="text-xl text-stone-400 italic font-light leading-relaxed">
-                                Máxima quema calórica y aceleración metabólica optimizada mediante el efecto EPOC de post-combustión.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-8 group">
-                        <div class="bg-stone-800/50 p-6 rounded-2xl text-stone-400 border border-white/5 group-hover:bg-stone-700 transition-all duration-500">
-                            <i class="fa-solid fa-person-running text-5xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-4xl mb-3 font-bold uppercase italic text-white tracking-tight">CALISTENIA</h3>
-                            <p class="text-xl text-stone-400 italic font-light leading-relaxed">
-                                Construye fuerza funcional, dominio corporal y reordena tus patrones biomecánicos naturales.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-[#1a1716] to-[#0c0a09] p-12 rounded-3xl shadow-2xl border border-red-600/30 relative group overflow-hidden">
-                        <div class="absolute -right-10 -top-10 text-9xl text-red-600/5 group-hover:text-red-600/10 transition-all">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-                        <h3 class="text-red-500 text-5xl mb-4 font-bold italic uppercase tracking-tighter">
-                            RESULTADOS 3X
-                        </h3>
-                        <p class="text-2xl italic leading-relaxed text-stone-300 font-light">
-                            La combinación definitiva para tonificar, ganar potencia y mejorar tu salud integral de forma medible.
-                        </p>
-                    </div>
-                    
-                </div>
-
-                <div class="flex justify-center items-center">
-                    <div class="chart-container">
-                        <canvas id="formulaChart"></canvas>
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div>
-        
-    </section>
-
-    <section id="impacto-total" class="py-40 bg-[#110f0e] text-white border-y border-white/5">
-        
-        <div class="container mx-auto px-6">
-            
-            <div class="text-center mb-20">
-                <h2 class="text-6xl font-bold mb-6 italic tracking-tight">IMPACTO TOTAL</h2>
-                <p class="text-2xl text-stone-500 italic font-light max-w-3xl mx-auto">
-                    Explora la transformación integral que el método Gastón Burgos genera en tu organismo.
+                <p class="text-stone-400 max-w-2xl mx-auto italic font-light text-sm">
+                    Ingresá tus datos para observar un ejemplo aproximado de cómo el profesional estructura tu adaptación.
                 </p>
             </div>
-
-            <div class="flex justify-center mb-16 border-b border-white/5 max-w-lg mx-auto">
-                <button id="btn-physical" onclick="switchBenefit('physical')" class="w-1/2 py-6 text-2xl font-bold active-tab transition-all uppercase italic tracking-widest">
-                    FÍSICO
-                </button>
-                <button id="btn-mental" onclick="switchBenefit('mental')" class="w-1/2 py-6 text-2xl font-bold inactive-tab transition-all uppercase italic tracking-widest">
-                    MENTAL
-                </button>
-            </div>
-
-            <div class="max-w-7xl mx-auto min-h-[450px] transition-all duration-700" id="benefit-content">
-                </div>
             
-        </div>
-        
-    </section>
-
-    <section id="metodo-fases" class="py-40 bg-[#0c0a09] text-white">
-        
-        <div class="container mx-auto px-6 max-w-5xl">
-            
-            <h2 class="text-6xl text-center font-bold mb-32 italic uppercase tracking-tighter">
-                EL MÉTODO EN 3 FASES
-            </h2>
-            
-            <div class="relative">
+            <div class="bg-[#181514] p-8 md:p-14 rounded-sm shadow-2xl border border-stone-800 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#c2593f] to-transparent"></div>
                 
-                <div class="absolute left-10 md:left-1/2 top-0 bottom-0 w-px bg-white/10 transform md:-translate-x-1/2"></div>
-
-                <div class="relative flex flex-col md:flex-row items-center mb-32 group">
-                    <div class="flex-1 md:text-right md:pr-24 pl-28 md:pl-0">
-                        <h3 class="text-4xl text-red-600 font-bold italic mb-3 uppercase tracking-tight">1. INICIAL</h3>
-                        <p class="text-xl text-stone-400 italic font-light">
-                            Activación neuro-muscular, movilidad balística y preparación del sistema nervioso central.
-                        </p>
-                    </div>
-                    <div class="absolute left-4 md:left-1/2 w-20 h-20 bg-[#0c0a09] rounded-full border border-red-600/50 z-10 flex items-center justify-center text-red-600 text-2xl font-bold transform md:-translate-x-1/2 shadow-[0_0_25px_rgba(239,68,68,0.4)] group-hover:scale-110 transition-transform">
-                        01
-                    </div>
-                    <div class="flex-1 hidden md:block"></div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center mb-32 group">
-                    <div class="flex-1 hidden md:block"></div>
-                    <div class="absolute left-4 md:left-1/2 w-20 h-20 bg-red-600 rounded-full border border-white/20 z-10 flex items-center justify-center text-white text-2xl font-bold transform md:-translate-x-1/2 shadow-2xl group-hover:scale-110 transition-transform">
-                        02
-                    </div>
-                    <div class="flex-1 pl-28 md:pl-24">
-                        <h3 class="text-4xl text-white font-bold italic mb-3 uppercase tracking-tight">2. TÉCNICA + HIIT</h3>
-                        <p class="text-xl text-stone-400 italic font-light">
-                            Bloques de calistenia técnica seguidos de intervalos de máxima intensidad metabólica controlada.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center group">
-                    <div class="flex-1 md:text-right md:pr-24 pl-28 md:pl-0">
-                        <h3 class="text-4xl text-red-600 font-bold italic mb-3 uppercase tracking-tight">3. FINAL</h3>
-                        <p class="text-xl text-stone-400 italic font-light">
-                            Stretching estático profundo, recuperación de fibra muscular y vuelta a la calma Zen.
-                        </p>
-                    </div>
-                    <div class="absolute left-4 md:left-1/2 w-20 h-20 bg-[#0c0a09] rounded-full border border-red-600/50 z-10 flex items-center justify-center text-red-600 text-2xl font-bold transform md:-translate-x-1/2 shadow-[0_0_25px_rgba(239,68,68,0.4)] group-hover:scale-110 transition-transform">
-                        03
-                    </div>
-                    <div class="flex-1 hidden md:block"></div>
-                </div>
-                
-            </div>
-            
-        </div>
-        
-    </section>
-<section class="py-24 bg-[#0c0a09] border-t border-white/5 relative overflow-hidden">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="bg-gradient-to-r from-red-950/20 to-transparent p-12 border-l-4 border-red-600 relative group transition-all duration-700 hover:bg-red-950/30">
-                <div class="absolute right-10 top-1/2 -translate-y-1/2 text-8xl text-white/5 group-hover:text-red-600/10 transition-all hidden md:block">
-                    <i class="fa-solid fa-kit-medical"></i>
-                </div>
-                
-                <h3 class="text-3xl md:text-4xl font-bold mb-6 italic uppercase tracking-tighter text-white font-oswald">
-                    ¿Entrenaste duro esta semana? <span class="text-red-600">Reset de Fibras.</span>
-                </h3>
-                
-                <p class="text-xl text-stone-400 mb-8 italic font-light leading-relaxed max-w-3xl">
-                    El rendimiento real sucede en la recuperación. Todos los **Viernes 20:00hs** fusionamos Zen Stretching con ingeniería deportiva para eliminar la fatiga acumulada.
-                </p>
-
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-                    <div class="flex items-center gap-3 text-stone-500 text-sm uppercase font-bold tracking-widest italic">
-                        <i class="fa-solid fa-roller-coaster text-red-600"></i> Foam Rolling
-                    </div>
-                    <div class="flex items-center gap-3 text-stone-500 text-sm uppercase font-bold tracking-widest italic">
-                        <i class="fa-solid fa-arrows-up-down-left-right text-red-600"></i> Movilidad Fascial
-                    </div>
-                    <div class="flex items-center gap-3 text-stone-500 text-sm uppercase font-bold tracking-widest italic">
-                        <i class="fa-solid fa-battery-full text-red-600"></i> Recarga Vital
-                    </div>
-                </div>
-
-                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" 
-                   class="inline-block border-b-2 border-red-600 pb-2 text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:text-red-500 transition-all italic">
-                    Explorar Zen Dinámico <i class="fa-solid fa-arrow-right ml-2 text-[8px]"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section id="simulador" class="py-40 bg-[#110f0e] italic text-white border-y border-white/5">
-        
-        <div class="container mx-auto px-6 max-w-5xl">
-            
-            <h2 class="text-6xl text-center mb-6 font-bold uppercase italic tracking-tighter">
-                Asistente Express ✨
-            </h2>
-            
-            <p class="text-center text-stone-600 mb-20 italic font-light text-xl">
-                Configura tu sesión personalizada bajo el estándar de Espacio INYO.
-            </p>
-            
-            <div class="bg-[#0c0a09] p-16 rounded-3xl shadow-2xl border border-white/5 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50"></div>
-                
-                <div class="grid md:grid-cols-3 gap-12 mb-16">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
                     
+                    <!-- Campo 1: Impedimento Físico Concreto -->
                     <div class="flex flex-col">
-                        <label class="text-[11px] font-bold uppercase text-red-600 mb-4 tracking-[0.3em]">Duración</label>
-                        <select id="input-time" class="p-5 border border-white/10 rounded-sm bg-stone-900 text-white font-bold text-base focus:border-red-600 transition-all outline-none">
+                        <label class="text-[10px] font-bold uppercase text-[#c2593f] mb-2 tracking-widest">Impedimento Físico</label>
+                        <select id="input-impedimento" class="p-4 border border-stone-800 rounded-sm bg-stone-900 text-white font-bold text-xs focus:border-[#c2593f] outline-none">
+                            <option value="articular">Rango Articular (Rodilla / Hombro / Cadera)</option>
+                            <option value="columna">Columna (Hernia / Protrusión / Limitación)</option>
+                            <option value="abdominal">Abdominal (Post-parto / Diástasis / Hernia)</option>
+                            <option value="pelvico">Suelo Pélvico (Inflamación / Presión)</option>
+                            <option value="ninguno" selected>Ningún impedimento (que conozca)</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo 2: Duración de Sesión -->
+                    <div class="flex flex-col">
+                        <label class="text-[10px] font-bold uppercase text-stone-400 mb-2 tracking-widest">Duración Disponibilidad</label>
+                        <select id="input-time" class="p-4 border border-stone-800 rounded-sm bg-stone-900 text-white font-bold text-xs focus:border-[#c2593f] outline-none">
                             <option value="15">15 Minutos</option>
                             <option value="30" selected>30 Minutos</option>
                             <option value="45">45 Minutos</option>
                         </select>
                     </div>
                     
+                    <!-- Campo 3: Equipamiento -->
                     <div class="flex flex-col">
-                        <label class="text-[11px] font-bold uppercase text-stone-500 mb-4 tracking-[0.3em]">Equipamiento</label>
-                        <select id="input-equip" class="p-5 border border-white/10 rounded-sm bg-stone-900 text-white font-bold text-base focus:border-red-600 transition-all outline-none">
-                            <option value="suelo">Solo Suelo</option>
-                            <option value="barra">Barra / Pared</option>
+                        <label class="text-[10px] font-bold uppercase text-stone-400 mb-2 tracking-widest">Equipamiento Disponible</label>
+                        <select id="input-equip" class="p-4 border border-stone-800 rounded-sm bg-stone-900 text-white font-bold text-xs focus:border-[#c2593f] outline-none">
+                            <option value="suelo">Sin equipamiento (Solo suelo)</option>
+                            <option value="pared">Pared / Banco apoyado</option>
+                            <option value="articular_portal" disabled>Impedimento Articular (Exclusivo Portal Alumnas)</option>
                         </select>
                     </div>
                     
+                    <!-- Campo 4: Objetivo -->
                     <div class="flex flex-col">
-                        <label class="text-[11px] font-bold uppercase text-stone-500 mb-4 tracking-[0.3em]">Objetivo</label>
-                        <select id="input-focus" class="p-5 border border-white/10 rounded-sm bg-stone-900 text-white font-bold text-base focus:border-red-600 transition-all outline-none">
-                            <option value="fuerza">Fuerza Calistenia</option>
-                            <option value="quemar">Quemar (HIIT)</option>
+                        <label class="text-[10px] font-bold uppercase text-stone-400 mb-2 tracking-widest">Objetivo Principal</label>
+                        <select id="input-focus" class="p-4 border border-stone-800 rounded-sm bg-stone-900 text-white font-bold text-xs focus:border-[#c2593f] outline-none">
+                            <option value="fuerza">Fuerza Calistenia Adaptada</option>
+                            <option value="quemar">Quemar Grasa / Metabolismo</option>
+                            <option value="hipertrofia">Hipertrofia (Masa Magra Muscular)</option>
+                            <option value="estres">Control de Estrés y Fatiga</option>
+                            <option value="cardio">Mantenimiento Cardiovascular</option>
                         </select>
                     </div>
                 </div>
 
-                <button onclick="generateRoutine()" class="w-full bg-red-600 text-white py-8 rounded-sm font-bold text-2xl hover:bg-red-700 transition-all tracking-[0.4em] shadow-[0_20px_40px_rgba(239,68,68,0.25)] uppercase italic">
-                    GENERAR SESIÓN
+                <button onclick="generateRoutine()" class="w-full bg-[#c2593f] text-white py-5 rounded-sm font-bold text-sm hover:bg-[#a84a32] transition-all tracking-[0.3em] uppercase italic border border-[#d96d53] shadow-xl">
+                    Generar Evaluación de Ejemplo
                 </button>
 
-                <div id="routine-output" class="hidden mt-20 p-12 bg-white/5 border-l-4 border-red-600 shadow-inner">
-                    <div id="routine-content" class="space-y-16"></div>
+                <!-- Output del Simulador con Enganche al Portal -->
+                <div id="routine-output" class="hidden mt-12 p-8 bg-stone-900/90 border-l-4 border-[#c2593f] shadow-2xl space-y-8">
+                    <div id="routine-content" class="space-y-8"></div>
+                    
+                    <div class="pt-6 border-t border-stone-800 text-center space-y-4">
+                        <p class="text-xs text-stone-300 font-light">
+                            🔒 <strong>Nota importante:</strong> Esta es solo una sugerencia demostrativa. Para profundizar en tu diagnóstico, obtener la grilla completa de <strong>ejercicios permitidos vs. prohibidos</strong> y acceder al seguimiento individual con Gastón Burgos, el sistema te conectará con el **Portal de Alumnas**, exclusivo para miembros activos de los planes mensuales.
+                        </p>
+                        <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Prob%C3%A9%20el%20Simulador%20en%20la%20web%20y%20quisiera%20solicitar%20una%20entrevista%20personal%20para%20evaluar%20mi%20perfil%20f%C3%ADsico%20e%20ingresar%20al%20plan." target="_blank" class="inline-block bg-white text-stone-900 px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-stone-200 transition italic">
+                            Solicitar Entrevista Personal con Gastón
+                        </a>
+                    </div>
                 </div>
                 
             </div>
             
         </div>
-        
     </section>
 
-    <section id="packs-horarios" class="py-32 bg-[#0c0a09] text-white italic">
-        <div class="container mx-auto px-6 max-w-7xl">
+    <!-- GRILLA HORARIA SENCILLA Y PRÁCTICA -->
+    <section id="packs-horarios" class="py-28 bg-[#181514] text-white italic">
+        <div class="container mx-auto px-6 max-w-6xl space-y-16">
             
-            <h2 class="text-5xl md:text-6xl text-center mb-24 font-bold uppercase italic tracking-tighter">
-                Modalidades y Grilla
-            </h2>
-            
-            <div class="border-l-4 border-red-600/40 pl-8 md:pl-16 mb-32">
-                <h3 class="text-4xl md:text-5xl font-bold mb-8 italic uppercase tracking-tight text-white">
-                    Entrenamiento Presencial
-                </h3>
-                <p class="text-stone-500 text-xl md:text-2xl mb-16 italic font-light max-w-4xl leading-relaxed">
-                    Sede Lanús Oeste Centro. Clases personalizadas donde la corrección técnica directa garantiza resultados reales y evita lesiones.
+            <div class="text-center space-y-3">
+                <p class="text-[#c2593f] text-xs font-bold uppercase tracking-[0.4em]">Sede Lanús Oeste Centro</p>
+                <h2 class="text-4xl md:text-6xl font-bold uppercase italic tracking-tight">Grilla Horaria Informativa</h2>
+                <div class="w-20 h-0.5 bg-[#c2593f] mx-auto"></div>
+                <p class="text-stone-400 text-sm max-w-xl mx-auto font-light">
+                    Módulos reducidos de atención personalizada para garantizar corrección técnica constante.
                 </p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <div class="relative group bg-white/5 border border-white/10 p-8 text-center rounded-sm hover:border-red-600/50 transition-all duration-500">
-                        <p class="text-stone-600 text-[10px] uppercase font-bold mb-4 italic tracking-[0.4em] group-hover:text-red-500 transition-colors">Lun - Mié - Vie</p>
-                        <p class="text-white text-3xl font-bold italic uppercase mb-6">08:30 HS</p>
-                        
-                        <div class="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="text-[9px] text-red-500 font-bold uppercase mb-2 tracking-widest">Seleccioná tu Plan:</p>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20los%20lunes%2C%20mi%C3%A9rcoles%20y%20viernes%20a%20las%20*08:30hs*%20con%20el%20*Plan%20Core%20(2x)*.%20Entiendo%20que%20el%20valor%20es%20$55.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Core 2x $55.000</a>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20los%20lunes%2C%20mi%C3%A9rcoles%20y%20viernes%20a%20las%20*08:30hs*%20con%20el%20*Plan%20Power%20(3x)*.%20Entiendo%20que%20el%20valor%20es%20$60.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Power 3x $60.000</a>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20los%20lunes%2C%20mi%C3%A9rcoles%20y%20viernes%20a%20las%20*08:30hs*%20con%20el%20*Plan%20Pro%20Elite%20(5x)*.%20Entiendo%20que%20el%20valor%20es%20$80.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all text-red-500">Elite 5x $80.000</a>
-                        </div>
-                    </div>
+            </div>
 
-                    <div class="relative group bg-white/5 border border-red-600/30 p-8 text-center rounded-sm hover:border-red-600/50 transition-all duration-500 shadow-[0_0_20px_rgba(239,68,68,0.05)]">
-                        <p class="text-red-500 text-[10px] uppercase font-bold mb-4 italic tracking-[0.4em]">Mar - Jue</p>
-                        <p class="text-white text-3xl font-bold italic uppercase mb-6">13:30 HS</p>
-                        
-                        <div class="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="text-[9px] text-red-500 font-bold uppercase mb-2 tracking-widest">Seleccioná tu Plan:</p>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20los%20martes%20y%20jueves%20a%20las%20*13:30hs*%20con%20el%20*Plan%20Core%20(2x)*.%20Entiendo%20que%20el%20valor%20es%20$55.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Core 2x $55.000</a>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20los%20martes%20y%20jueves%20a%20las%20*13:30hs*%20con%20el%20*Plan%20Power%20(3x)*.%20Entiendo%20que%20el%20valor%20es%20$60.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Power 3x $60.000</a>
-                        </div>
-                    </div>
-                    
-                    <div class="relative group bg-white/5 border border-white/10 p-8 text-center rounded-sm hover:border-red-600/50 transition-all duration-500">
-                        <p class="text-stone-600 text-[10px] uppercase font-bold mb-4 italic tracking-[0.4em] group-hover:text-red-500 transition-colors">Lun - Mar - Jue</p>
-                        <p class="text-white text-3xl font-bold italic uppercase mb-6">18:00 HS</p>
-                        
-                        <div class="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="text-[9px] text-red-500 font-bold uppercase mb-2 tracking-widest">Seleccioná tu Plan:</p>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20las%20*18:00hs*%20con%20el%20*Plan%20Core%20(2x)*.%20Entiendo%20que%20el%20valor%20es%20$55.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Core 2x $55.000</a>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20las%20*18:00hs*%20con%20el%20*Plan%20Power%20(3x)*.%20Entiendo%20que%20el%20valor%20es%20$60.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Power 3x $60.000</a>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20las%20*18:00hs*%20con%20el%20*Plan%20Pro%20Elite%20(5x)*.%20Entiendo%20que%20el%20valor%20es%20$80.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all text-red-500">Elite 5x $80.000</a>
-                        </div>
-                    </div>
-                    
-                    <div class="relative group bg-white/5 border border-white/10 p-8 text-center rounded-sm hover:border-red-600/50 transition-all duration-500">
-                        <p class="text-stone-600 text-[10px] uppercase font-bold mb-4 italic tracking-[0.4em] group-hover:text-red-500 transition-colors">Miércoles - Viernes</p>
-                        <p class="text-white text-3xl font-bold italic uppercase mb-6">19:00 HS</p>
-                        
-                        <div class="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="text-[9px] text-red-500 font-bold uppercase mb-2 tracking-widest">Seleccioná tu Plan:</p>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20los%20mi%C3%A9rcoles%20y%20viernes%20a%20las%20*19:00hs*%20con%20el%20*Plan%20Core%20(2x)*.%20Entiendo%20que%20el%20valor%20es%20$55.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Core 2x $55.000</a>
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20asegurar%20mi%20cupo%20en%20el%20turno%20de%20los%20mi%C3%A9rcoles%20y%20viernes%20a%20las%20*19:00hs*%20con%20el%20*Plan%20Power%20(3x)*.%20Entiendo%20que%20el%20valor%20es%20$60.000%20mensual.%20Muchas%20gracias!" class="block bg-stone-900 border border-white/10 py-2 text-[8px] font-bold uppercase hover:bg-red-600 transition-all">Power 3x $60.000</a>
-                        </div>
-                    </div>
-                    
+            <!-- Grilla de Turnos Informativa -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-stone-900/80 border border-stone-800 p-6 text-center rounded-sm hover:border-[#c2593f]/50 transition-all">
+                    <p class="text-[#c2593f] text-[10px] uppercase font-bold mb-2 tracking-widest">Lun - Mié - Vie</p>
+                    <p class="text-white text-2xl font-bold italic uppercase mb-2">08:30 HS</p>
+                    <p class="text-[10px] text-stone-500 uppercase">Calistenia Progresiva</p>
+                </div>
+
+                <div class="bg-stone-900/80 border-2 border-[#c2593f] p-6 text-center rounded-sm shadow-xl relative">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#c2593f] text-white px-3 py-0.5 text-[8px] font-bold uppercase tracking-widest">Nuevo Turno</span>
+                    <p class="text-[#c2593f] text-[10px] uppercase font-bold mb-2 tracking-widest">Lun - Mié - Vie</p>
+                    <p class="text-white text-2xl font-bold italic uppercase mb-2">10:00 HS</p>
+                    <p class="text-[10px] text-stone-400 uppercase">Calistenia Progresiva</p>
+                </div>
+
+                <div class="bg-stone-900/80 border border-stone-800 p-6 text-center rounded-sm hover:border-[#c2593f]/50 transition-all">
+                    <p class="text-[#c2593f] text-[10px] uppercase font-bold mb-2 tracking-widest">Lun - Mar - Jue</p>
+                    <p class="text-white text-2xl font-bold italic uppercase mb-2">18:00 HS</p>
+                    <p class="text-[10px] text-stone-500 uppercase">Calistenia Progresiva</p>
+                </div>
+
+                <div class="bg-stone-900/80 border border-stone-800 p-6 text-center rounded-sm hover:border-[#c2593f]/50 transition-all">
+                    <p class="text-[#c2593f] text-[10px] uppercase font-bold mb-2 tracking-widest">Miércoles - Viernes</p>
+                    <p class="text-white text-2xl font-bold italic uppercase mb-2">19:00 HS</p>
+                    <p class="text-[10px] text-stone-500 uppercase">Calistenia Progresiva</p>
+                </div>
+
+            </div>
+
+            <!-- Bloque Actividades Complementarias de Viernes -->
+            <div class="grid md:grid-cols-2 gap-8 pt-8">
+                <div class="bg-stone-900/60 p-8 border-l-4 border-[#c2593f] space-y-3">
+                    <p class="text-xs font-bold text-[#c2593f] uppercase tracking-widest">Viernes 10:30 HS</p>
+                    <h3 class="text-xl font-bold text-white uppercase">Stretching Consciente</h3>
+                    <p class="text-xs text-stone-400 font-light">Movilidad suave, alineación del eje postural y relajación profunda para articulaciones sobrecargadas.</p>
+                </div>
+
+                <div class="bg-stone-900/60 p-8 border-l-4 border-amber-600 space-y-3">
+                    <p class="text-xs font-bold text-amber-500 uppercase tracking-widest">Viernes 20:00 HS</p>
+                    <h3 class="text-xl font-bold text-white uppercase">Zen Stretching Dinámico</h3>
+                    <p class="text-xs text-stone-400 font-light">Reset miofascial con foam rolling y recuperación de fibras tras la semana de entrenamiento.</p>
                 </div>
             </div>
 
-            <!-- ==========================================================================
-                 SECCIÓN DE RESEÑAS VERIFICADAS GOOGLE MAPS (5 ESTRELLAS)
-                 ========================================================================== -->
-            <div class="my-32">
-                <div class="text-center mb-16">
-                    <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-2.5 rounded-full mb-6 shadow-xl">
-                        <i class="fab fa-google text-red-500 text-lg"></i>
-                        <span class="text-xs uppercase font-bold tracking-[0.2em] text-stone-200">Reseñas Verificadas • 5.0 ★★★★★</span>
+            <!-- SECCIÓN RESEÑAS VERIFICADAS GOOGLE MAPS -->
+            <div class="pt-16 border-t border-stone-800">
+                <div class="text-center mb-12 space-y-3">
+                    <div class="inline-flex items-center gap-2 bg-stone-900 border border-stone-800 px-5 py-2 rounded-full">
+                        <i class="fab fa-google text-[#c2593f] text-sm"></i>
+                        <span class="text-[11px] uppercase font-bold tracking-widest text-stone-300">Reseñas Verificadas • 5.0 ★★★★★</span>
                     </div>
-                    <h3 class="text-4xl md:text-5xl font-bold uppercase italic text-white tracking-tight">Experiencias de Alumnos</h3>
-                    <p class="text-stone-500 text-sm md:text-base italic font-light mt-3 max-w-2xl mx-auto">Opiniones reales publicadas directamente en nuestro perfil oficial de Google Maps.</p>
+                    <h3 class="text-3xl font-bold uppercase italic text-white">Experiencias de Alumnas</h3>
+                    <p class="text-stone-500 text-xs italic font-light">Opiniones reales expresadas en nuestro perfil oficial de Google Maps.</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8 italic">
-                    <!-- Reseña 1 -->
-                    <div class="card-inyo p-8 rounded-sm flex flex-col justify-between border border-white/10 relative group">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-1 text-amber-400 text-sm">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-stone-300 text-sm font-light leading-relaxed">
-                                "Excelente espacio de entrenamiento. El trabajo personalizado y la corrección técnica constante hacen que cada clase rinda al máximo sin riesgo de lesiones."
-                            </p>
+                    <div class="card-inyo p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-stone-500 tracking-widest">Alumno Verificado</span>
-                            <a href="https://goo.gl/maps/NENMPPUnGzz3vZZY9" target="_blank" class="text-red-500 text-[10px] uppercase font-bold tracking-widest hover:text-white transition-colors flex items-center gap-1.5">
-                                Google Maps <i class="fas fa-external-link-alt text-[8px]"></i>
-                            </a>
-                        </div>
+                        <p class="text-stone-300 text-xs font-light leading-relaxed">
+                            "Buscaba un lugar donde entrenar sin sentir dolor de rodillas. Gastón te corrige cada movimiento y adapta todo a lo que tu cuerpo puede dar ese día. Excelente ambiente."
+                        </p>
+                        <p class="text-[9px] uppercase text-stone-500 font-bold border-t border-stone-800/60 pt-3">Alumna Verificada • Google Maps</p>
                     </div>
 
-                    <!-- Reseña 2 -->
-                    <div class="card-inyo p-8 rounded-sm flex flex-col justify-between border border-white/10 relative group">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-1 text-amber-400 text-sm">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-stone-300 text-sm font-light leading-relaxed">
-                                "El ambiente de superación y respeto en Espacio INYO es increíble. Gastón te guía con profesionalismo valorando las posibilidades reales de cada uno."
-                            </p>
+                    <div class="card-inyo p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-stone-500 tracking-widest">Alumno Verificado</span>
-                            <a href="https://goo.gl/maps/5yudVPH89T3SDjEXA" target="_blank" class="text-red-500 text-[10px] uppercase font-bold tracking-widest hover:text-white transition-colors flex items-center gap-1.5">
-                                Google Maps <i class="fas fa-external-link-alt text-[8px]"></i>
-                            </a>
-                        </div>
+                        <p class="text-stone-300 text-xs font-light leading-relaxed">
+                            "Después de mi segundo embarazo sentía que no podía hacer abdominales comunes. Con la calistenia adaptada e hipopresivos mejoré la postura y recuperé el tono sin molestias."
+                        </p>
+                        <p class="text-[9px] uppercase text-stone-500 font-bold border-t border-stone-800/60 pt-3">Alumna Verificada • Google Maps</p>
                     </div>
 
-                    <!-- Reseña 3 -->
-                    <div class="card-inyo p-8 rounded-sm flex flex-col justify-between border border-white/10 relative group">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-1 text-amber-400 text-sm">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-stone-300 text-sm font-light leading-relaxed">
-                                "Súper recomendable. La combinación de HIIT y Calistenia te cambia la energía y la postura corporal desde las primeras semanas de práctica."
-                            </p>
+                    <div class="card-inyo p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
-                            <span class="text-[10px] uppercase font-bold text-stone-500 tracking-widest">Alumno Verificado</span>
-                            <a href="https://goo.gl/maps/aLELNFqh5GPR2JDc9" target="_blank" class="text-red-500 text-[10px] uppercase font-bold tracking-widest hover:text-white transition-colors flex items-center gap-1.5">
-                                Google Maps <i class="fas fa-external-link-alt text-[8px]"></i>
-                            </a>
-                        </div>
+                        <p class="text-stone-300 text-xs font-light leading-relaxed">
+                            "Súper recomendable para las que tenemos más de 40 y pasamos por mil gimnasios sin encontrar constancia. Acá el trato es sumamente humano y personalizado."
+                        </p>
+                        <p class="text-[9px] uppercase text-stone-500 font-bold border-t border-stone-800/60 pt-3">Alumna Verificada • Google Maps</p>
                     </div>
                 </div>
             </div>
 
-            <h2 class="text-5xl md:text-6xl text-center mt-32 mb-20 font-bold uppercase italic tracking-tighter">
-                Aranceles y Planes Mensuales
-            </h2>
-            
-            <div class="grid md:grid-cols-3 gap-10 items-stretch italic">
+            <!-- ARANCELES Y PLANES MENSUALES -->
+            <div class="pt-16">
+                <h2 class="text-4xl md:text-5xl text-center mb-16 font-bold uppercase italic tracking-tight">
+                    Planes Mensuales
+                </h2>
                 
-                <div class="p-10 border border-white/10 bg-white/5 flex flex-col hover:border-red-600/40 transition-all duration-500">
-                    <h3 class="text-stone-600 font-bold mb-6 uppercase text-[11px] italic tracking-[0.3em]">Plan Core (2X)</h3>
-                    <div class="text-5xl font-bold mb-4 italic text-white">$55.000</div>
-                    <p class="text-red-600 text-xs font-bold uppercase mb-12 italic tracking-wider">2 veces por semana (8 clases al mes)</p>
-                    <ul class="text-sm space-y-6 mb-16 flex-grow text-stone-500 italic font-light">
-                        <li>• Clases Presenciales</li>
-                        <li>• 1 Clase Zen Stretching Mensual</li>
-                        <li>• Planificación Técnica</li>
-                    </ul>
-                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20inscribirme%20en%20el%20*Plan%20Core%20(2x)*%20de%20HIIT%20+%20Calistenia.%20Entiendo%20que%20el%20valor%20es%20$55.000%20mensual.%20Muchas%20gracias!" 
-                       class="block border border-red-900/50 py-5 text-center text-[10px] font-bold uppercase hover:bg-red-900 transition-all italic tracking-widest">Inscribirme</a>
-                </div>
+                <div class="grid md:grid-cols-3 gap-8 items-stretch italic">
+                    
+                    <!-- Plan Core 2X -->
+                    <div class="p-8 border border-stone-800 bg-stone-900/50 flex flex-col justify-between hover:border-[#c2593f]/50 transition-all">
+                        <div class="space-y-4">
+                            <h3 class="text-stone-500 font-bold uppercase text-xs tracking-widest">Plan Core (2X)</h3>
+                            <div class="text-5xl font-bold italic text-white">$55.000</div>
+                            <p class="text-[#c2593f] text-xs font-bold uppercase tracking-wider">2 veces por semana (8 clases al mes)</p>
+                            <ul class="text-xs space-y-4 text-stone-400 font-light border-t border-stone-800 pt-6">
+                                <li>• Clases Presenciales Guiadas</li>
+                                <li>• 1 Clase Zen Stretching Mensual</li>
+                                <li>• Adaptación Biomecánica Continua</li>
+                            </ul>
+                        </div>
+                        <div class="pt-8">
+                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Core%20(2x)*%20de%20Calistenia%20Femenina%20($55.000).%20Quisiera%20coordinar%20mi%20entrevista%20y%20clase%20de%20prueba." class="block border border-stone-700 py-4 text-center text-[10px] font-bold uppercase hover:bg-[#c2593f] hover:border-[#c2593f] transition-all tracking-widest">Inscribirme</a>
+                        </div>
+                    </div>
 
-                <div class="p-10 border-4 border-red-600 bg-red-600/5 shadow-2xl flex flex-col relative transform md:scale-105 z-10 italic">
-                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-red-600 px-8 py-1.5 text-[10px] font-bold uppercase italic shadow-2xl tracking-[0.2em]">Más Elegido</div>
-                    <h3 class="text-white font-bold mb-6 uppercase text-[11px] italic tracking-[0.3em]">Plan Power (3X)</h3>
-                    <div class="text-6xl font-bold mb-4 italic text-white">$60.000</div>
-                    <p class="text-red-500 text-xs font-bold uppercase mb-12 italic tracking-wider">3 veces por semana (12 clases al mes)</p>
-                    <ul class="text-sm space-y-6 mb-16 flex-grow font-semibold italic text-white">
-                        <li>• Máximo Rendimiento</li>
-                        <li>• 1 Clase Zen Stretching Mensual</li>
-                        <li>• Seguimiento Biomecánico</li>
-                        <li>• Acceso a Comunidad INYO</li>
-                    </ul>
-                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20inscribirme%20en%20el%20*Plan%20Power%20(3x)*%20de%20HIIT%20+%20Calistenia.%20Entiendo%20que%20el%20valor%20es%20$60.000%20mensual.%20Muchas%20gracias!" 
-                       class="block bg-red-600 text-white py-6 text-center text-[10px] font-bold uppercase hover:bg-red-700 transition shadow-2xl italic tracking-widest">Elegir Plan</a>
-                </div>
+                    <!-- Plan Power 3X (Destacado) -->
+                    <div class="p-8 border-2 border-[#c2593f] bg-[#c2593f]/10 flex flex-col justify-between relative transform md:-translate-y-2 shadow-2xl">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#c2593f] text-white px-6 py-1 text-[9px] font-bold uppercase tracking-widest">Más Elegido</div>
+                        <div class="space-y-4 pt-2">
+                            <h3 class="text-white font-bold uppercase text-xs tracking-widest">Plan Power (3X)</h3>
+                            <div class="text-6xl font-bold italic text-white">$60.000</div>
+                            <p class="text-white text-xs font-bold uppercase tracking-wider">3 veces por semana (12 clases al mes)</p>
+                            <ul class="text-xs space-y-4 font-semibold text-stone-200 border-t border-[#c2593f]/30 pt-6">
+                                <li>• Máxima Constancia y Resultados</li>
+                                <li>• 1 Clase Zen Stretching Mensual</li>
+                                <li>• Evaluación de Perfil & Portal Alumnas</li>
+                                <li>• Asesoría en Gestión de Ciclos</li>
+                            </ul>
+                        </div>
+                        <div class="pt-8">
+                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Power%20(3x)*%20de%20Calistenia%20Femenina%20($60.000).%20Quisiera%20coordinar%20mi%20entrevista%20y%20clase%20de%20prueba." class="block bg-[#c2593f] text-white py-5 text-center text-[10px] font-bold uppercase hover:bg-[#a84a32] transition shadow-2xl tracking-widest">Elegir Plan</a>
+                        </div>
+                    </div>
 
-                <div class="p-10 border border-white/10 bg-white/5 flex flex-col hover:border-red-600/40 transition-all duration-500">
-                    <h3 class="text-stone-600 font-bold mb-6 uppercase text-[11px] italic tracking-[0.3em]">Plan Elite (5X)</h3>
-                    <div class="text-5xl font-bold mb-4 italic text-white">$80.000</div>
-                    <p class="text-red-600 text-xs font-bold uppercase mb-12 italic tracking-wider">5 veces por semana (20 clases al mes)</p>
-                    <ul class="text-sm space-y-6 mb-16 flex-grow text-stone-500 italic font-light">
-                        <li>• Modalidad Híbrida</li>
-                        <li>• 2 Clases Zen Stretching Mensuales</li>
-                        <li>• Asesoría 24/7 vía WhatsApp</li>
-                    </ul>
-                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Por%20favor%2C%20quisiera%20inscribirme%20en%20el%20*Plan%20Pro%20Elite%20(5x)*%20de%20HIIT%20+%20Calistenia.%20Entiendo%20que%20el%20valor%20es%20$80.000%20mensual.%20Muchas%20gracias!" 
-                       class="block border border-red-900/50 py-5 text-center text-[10px] font-bold uppercase hover:bg-red-900 transition-all italic tracking-widest">Inscribirme</a>
+                    <!-- Plan Elite 5X -->
+                    <div class="p-8 border border-stone-800 bg-stone-900/50 flex flex-col justify-between hover:border-[#c2593f]/50 transition-all">
+                        <div class="space-y-4">
+                            <h3 class="text-stone-500 font-bold uppercase text-xs tracking-widest">Plan Elite (5X)</h3>
+                            <div class="text-5xl font-bold italic text-white">$80.000</div>
+                            <p class="text-[#c2593f] text-xs font-bold uppercase tracking-wider">5 veces por semana (20 clases al mes)</p>
+                            <ul class="text-xs space-y-4 text-stone-400 font-light border-t border-stone-800 pt-6">
+                                <li>• Modalidad Híbrida Presencial / Online</li>
+                                <li>• 2 Clases Zen Stretching Mensuales</li>
+                                <li>• Atención 24/7 vía WhatsApp</li>
+                            </ul>
+                        </div>
+                        <div class="pt-8">
+                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Pro%20Elite%20(5x)*%20de%20Calistenia%20Femenina%20($80.000).%20Quisiera%20coordinar%20mi%20entrevista%20y%20clase%20de%20prueba." class="block border border-stone-700 py-4 text-center text-[10px] font-bold uppercase hover:bg-[#c2593f] hover:border-[#c2593f] transition-all tracking-widest">Inscribirme</a>
+                        </div>
+                    </div>
+
                 </div>
-                
             </div>
+
         </div>
-</section>
+    </section>
 
-    <section class="pb-32 pt-16 bg-[#110f0e] text-white italic border-t border-white/5">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="flex flex-col md:flex-row items-center gap-16 md:gap-20 mb-24 border-b border-white/5 pb-24">
-                <img src="imagen/perfil-gaston.png" alt="Gastón Burgos - Instructor" class="w-64 h-64 md:w-72 md:h-72 rounded-full border-4 border-red-600/20 shadow-2xl object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105">
+    <!-- BIO PERFIL PROFESIONAL & CONDICIONES -->
+    <section class="py-24 bg-[#12100f] text-white italic border-t border-stone-800">
+        <div class="container mx-auto px-6 max-w-4xl space-y-16">
+            
+            <div class="flex flex-col md:flex-row items-center gap-12 border-b border-stone-800 pb-16">
+                <img src="imagenes/perfil-gaston.png" alt="Gastón Burgos - Instructor Calistenia" class="w-56 h-56 rounded-full border-4 border-[#c2593f]/30 shadow-2xl object-cover grayscale hover:grayscale-0 transition-all duration-700">
                 
-                <div class="text-center md:text-left">
-                    <h2 class="text-7xl font-bold mb-4 uppercase tracking-tighter">Gastón Burgos</h2>
-                    <h3 class="text-2xl text-red-600 mb-10 uppercase italic font-bold tracking-[0.4em]">Instructor & Terapeuta</h3>
-                    <p class="text-2xl text-stone-400 italic leading-relaxed font-light">
-                        "Mi objetivo es guiar tu entrenamiento valorando tus posibilidades físicas reales para asesorarte de forma profesional y segura."
+                <div class="text-center md:text-left space-y-3">
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tight">Gastón Burgos</h2>
+                    <h3 class="text-lg text-[#c2593f] uppercase italic font-bold tracking-widest">Instructor & Terapeuta</h3>
+                    <p class="text-stone-300 italic font-light text-base leading-relaxed">
+                        "Mi compromiso es acompañar a cada alumna comprendiendo su biología, valorando sus posibilidades reales y cuidando su cuerpo para construir hábitos sostenibles en el tiempo."
                     </p>
                 </div>
-                
             </div>
 
-            <div class="space-y-10">
+            <!-- Acordeones Informativos -->
+            <div class="space-y-6 text-sm">
                 
-                <details class="group bg-stone-900 border border-white/5 rounded-sm overflow-hidden">
-                    <summary class="p-12 cursor-pointer font-bold text-2xl flex justify-between items-center list-none uppercase hover:bg-white/5 transition-colors duration-500">
-                        <span><i class="fa-solid fa-credit-card mr-8 text-red-600"></i> Condiciones de Pago</span>
-                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform duration-500"></i>
+                <details class="group bg-stone-900 border border-stone-800 rounded-sm">
+                    <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none uppercase text-stone-200 hover:text-[#c2593f]">
+                        <span><i class="fa-solid fa-credit-card mr-4 text-[#c2593f]"></i> Condiciones de Pago</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
                     </summary>
-                    <div class="px-12 pb-12 text-stone-500 text-base italic border-t border-white/5 pt-10 leading-loose">
+                    <div class="px-6 pb-6 text-stone-400 font-light border-t border-stone-800 pt-4 leading-relaxed">
                         El abono debe realizarse del 1 al 5 de cada mes de forma anticipada. Se aplicará un recargo administrativo del 20% si se abona fuera de término, y la vacante podrá ser liberada tras la mora para nuevos alumnos en lista de espera.
                     </div>
                 </details>
 
-                <details class="group bg-stone-900 border border-white/5 rounded-sm overflow-hidden">
-                    <summary class="p-12 cursor-pointer font-bold text-2xl flex justify-between items-center list-none uppercase hover:bg-white/5 transition-colors duration-500">
-                        <span><i class="fa-solid fa-rotate-left mr-8 text-red-600"></i> Política de Ausencias</span>
-                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform duration-500"></i>
+                <details class="group bg-stone-900 border border-stone-800 rounded-sm">
+                    <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none uppercase text-stone-200 hover:text-[#c2593f]">
+                        <span><i class="fa-solid fa-rotate-left mr-4 text-[#c2593f]"></i> Política de Ausencias</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
                     </summary>
-                    <div class="px-12 pb-12 text-stone-500 text-base italic border-t border-white/5 pt-10 leading-loose">
+                    <div class="px-6 pb-6 text-stone-400 font-light border-t border-stone-800 pt-4 leading-relaxed">
                         Las clases perdidas podrán recuperarse únicamente dentro del mismo mes abonado, siempre que se coordine previamente con el instructor y haya disponibilidad en otros turnos. Las clases no son acumulables ni transferibles al mes siguiente bajo ningún concepto.
                     </div>
                 </details>
-            <details class="group bg-stone-900 border border-white/5 rounded-sm overflow-hidden">
-                    <summary class="p-12 cursor-pointer font-bold text-2xl flex justify-between items-center list-none uppercase hover:bg-white/5 transition-colors duration-500">
-                        <span><i class="fa-solid fa-plus-circle mr-8 text-red-600"></i> ¿El Zen Dinámico está incluido?</span>
-                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform duration-500"></i>
+
+                <details class="group bg-stone-900 border border-stone-800 rounded-sm">
+                    <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none uppercase text-stone-200 hover:text-[#c2593f]">
+                        <span><i class="fa-solid fa-plus-circle mr-4 text-[#c2593f]"></i> ¿El Zen Dinámico está incluido?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
                     </summary>
-                    <div class="px-12 pb-12 text-stone-500 text-base italic border-t border-white/5 pt-10 leading-loose">
-                        Si bien los planes **Power** y **Elite** incluyen 1 o 2 clases mensuales de cortesía, el entrenamiento de los viernes a las 20:00hs es una actividad complementaria específica. Si deseas realizar el ciclo completo de 4 clases de recuperación miofascial al mes, deberás abonar el arancel correspondiente a la modalidad **Zen Stretching Dinámico**. Consulta por el abono combinado para alumnos de HIIT.
+                    <div class="px-6 pb-6 text-stone-400 font-light border-t border-stone-800 pt-4 leading-relaxed">
+                        Si bien los planes **Power** y **Elite** incluyen 1 o 2 clases mensuales de cortesía, el entrenamiento de los viernes a las 20:00hs es una actividad complementaria específica. Si deseas realizar el ciclo completo de 4 clases de recuperación miofascial al mes, deberás consultar por la modalidad combinada.
                     </div>
-                </details>    
+                </details>
+
             </div>
-            
+
         </div>
-        
     </section>
 
-    <footer class="py-40 bg-black text-center border-t border-white/5 italic">
-        <div class="container mx-auto px-6">
-            <h2 class="text-7xl mb-10 uppercase font-bold text-white tracking-tighter">Espacio INYO ☯️</h2>
-            <p class="text-stone-700 text-xs uppercase tracking-[0.8em] mb-20">Carlos Tejedor 335, Lanús Oeste, Buenos Aires.</p>
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer class="py-24 bg-black text-center border-t border-stone-900 italic">
+        <div class="container mx-auto px-6 space-y-12">
+            <h2 class="text-5xl uppercase font-bold text-white tracking-tight">Espacio INYO ☯️</h2>
+            <p class="text-stone-500 text-xs uppercase tracking-widest">Gdor. Carlos Tejedor 335, Lanús Oeste, Buenos Aires.</p>
 
-            <div class="flex flex-col items-center mb-24 group">
-                <div class="p-4 bg-white/[0.03] border border-white/10 rounded-2xl shadow-2xl transition-all duration-500 group-hover:border-red-600/40 group-hover:bg-red-600/[0.02]">
-                    <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" 
-                         alt="QR WhatsApp Espacio INYO" 
-                         class="w-40 h-40 object-contain grayscale invert opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700">
+            <div class="flex flex-col items-center group">
+                <div class="p-4 bg-white/5 border border-stone-800 rounded-xl transition-all group-hover:border-[#c2593f]/50">
+                    <img src="imagenes/IMG_4931.png" alt="QR WhatsApp Espacio INYO" class="w-32 h-32 object-contain grayscale invert opacity-60 group-hover:opacity-100 transition-all">
                 </div>
-                <p class="mt-6 text-stone-500 text-[10px] uppercase tracking-[0.4em] font-bold group-hover:text-red-500 transition-colors">
+                <p class="mt-4 text-stone-400 text-xs uppercase font-bold tracking-widest group-hover:text-[#c2593f] transition-colors">
                     Consulta por WhatsApp: 11 7619-4825
                 </p>
             </div>
             
-            <div class="border-t border-white/5 pt-20">
-                <h3 class="text-stone-600 text-[10px] font-bold tracking-[0.6em] uppercase mb-12">Ecosistema Inyo</h3>
-                <div class="flex flex-wrap justify-center gap-x-16 gap-y-10 text-stone-500 text-[11px] font-bold tracking-[0.3em] uppercase">
-                    <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Masaje Japonés</a>
-                    <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Clases de Yoga</a>
-                    <a href="https://inyodo.github.io/Coaching-/index.html" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Coaching Online</a>
-                    <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Zen Stretching</a>
-                    <a href="https://inyodo.github.io/stretching-belengonzalez/" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30 text-red-500 font-bold">INYO Stretching</a>
-                    <a href="https://inyodo.github.io/chamanismo/" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Chamanismo</a>
-                    <a href="https://inyodo.github.io/Qigong/" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Qigong (Salud)</a>
-                    <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Artes Marciales</a>
-                    <a href="https://inyodo.github.io/Acupuntura/index.html" class="hover:text-red-600 transition underline underline-offset-[12px] decoration-red-600/30">Acupuntura</a>
+            <div class="border-t border-stone-900 pt-12">
+                <h3 class="text-stone-600 text-[10px] font-bold tracking-widest uppercase mb-8">Ecosistema INYO</h3>
+                <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-stone-400 text-[11px] font-bold tracking-widest uppercase">
+                    <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-[#c2593f] transition underline underline-offset-8">Masaje Japonés</a>
+                    <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-[#c2593f] transition underline underline-offset-8">Clases de Yoga</a>
+                    <a href="https://inyodo.github.io/Coaching-/index.html" class="hover:text-[#c2593f] transition underline underline-offset-8">Coaching Online</a>
+                    <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-[#c2593f] transition underline underline-offset-8">Zen Stretching</a>
+                    <a href="https://inyodo.github.io/stretching-belengonzalez/" class="hover:text-[#c2593f] transition underline underline-offset-8 text-[#c2593f]">INYO Stretching</a>
+                    <a href="https://inyodo.github.io/chamanismo/" class="hover:text-[#c2593f] transition underline underline-offset-8">Chamanismo</a>
+                    <a href="https://inyodo.github.io/Qigong/" class="hover:text-[#c2593f] transition underline underline-offset-8">Qigong (Salud)</a>
+                    <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-[#c2593f] transition underline underline-offset-8">Artes Marciales</a>
+                    <a href="https://inyodo.github.io/Acupuntura/index.html" class="hover:text-[#c2593f] transition underline underline-offset-8">Acupuntura</a>
                 </div>
             </div>
             
-            <p class="mt-40 text-stone-800 text-[11px] uppercase font-bold tracking-[0.5em]">© 2026 ESPACIO INYO - TODOS LOS DERECHOS RESERVADOS</p>
+            <p class="pt-8 text-stone-700 text-[10px] uppercase font-bold tracking-widest">© 2026 ESPACIO INYO - TODOS LOS DERECHOS RESERVADOS</p>
         </div>
     </footer>
 
-    <button onclick="toggleMusic()" id="musicBtn" class="fixed bottom-36 right-10 bg-stone-900/80 backdrop-blur-2xl text-white w-20 h-20 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-all z-50 border border-white/5">
+    <!-- Botón Música Ambiental -->
+    <button onclick="toggleMusic()" id="musicBtn" class="fixed bottom-32 right-8 bg-stone-900/90 backdrop-blur-xl text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-xl hover:scale-110 transition-all z-50 border border-stone-700">
         <i id="musicIcon" class="fas fa-volume-mute"></i>
     </button>
     
-    <a href="https://wa.me/541176194825" class="fixed bottom-12 right-10 bg-[#25d366]/10 backdrop-blur-2xl text-white w-20 h-20 rounded-full shadow-2xl flex items-center justify-center text-4xl hover:bg-[#25d366] hover:scale-110 transition-all z-50 border border-white/10 shadow-[0_0_30px_rgba(37,211,102,0.2)]">
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/541176194825" target="_blank" class="fixed bottom-10 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-all z-50 border border-white/20">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- SCRIPTS JAVASCRIPT Y SIMULADOR -->
     <script>
         const music = document.getElementById('bgMusic');
         const icon = document.getElementById('musicIcon');
@@ -758,222 +662,92 @@
             if (music.paused) { 
                 music.play(); 
                 icon.classList.replace('fa-volume-mute', 'fa-volume-up'); 
-                icon.classList.add('text-red-600'); 
-                document.getElementById('musicBtn').classList.add('animate-pulse-red'); 
-                document.getElementById('musicBtn').style.borderColor = "#ef4444";
-            }
-            else { 
+                icon.classList.add('text-[#c2593f]'); 
+                document.getElementById('musicBtn').classList.add('animate-pulse-terracota'); 
+            } else { 
                 music.pause(); 
                 icon.classList.replace('fa-volume-up', 'fa-volume-mute'); 
-                icon.classList.remove('text-red-600'); 
-                document.getElementById('musicBtn').classList.remove('animate-pulse-red');
-                document.getElementById('musicBtn').style.borderColor = "rgba(255,255,255,0.05)";
+                icon.classList.remove('text-[#c2593f]'); 
+                document.getElementById('musicBtn').classList.remove('animate-pulse-terracota');
             }
         }
 
-        const impacts = {
-            physical: `
-                <div class="grid md:grid-cols-3 gap-12 animate-fade-in italic">
-                    <div class="p-12 card-inyo rounded-sm">
-                        <h4 class="text-red-600 font-bold text-3xl mb-6 italic tracking-tight">Fuerza Sólida</h4>
-                        <p class="text-stone-500 italic text-lg font-light leading-relaxed">Construcción de masa muscular funcional y densidad ósea mediante ejercicios de calistenia adaptados.</p>
-                    </div>
-                    <div class="p-12 card-inyo rounded-sm">
-                        <h4 class="text-red-600 font-bold text-3xl mb-6 italic tracking-tight">Metabolismo</h4>
-                        <p class="text-stone-500 italic text-lg font-light leading-relaxed">Oxidación de grasas optimizada hasta 48 horas post-entrenamiento gracias a la deuda de oxígeno (EPOC).</p>
-                    </div>
-                    <div class="p-12 card-inyo rounded-sm">
-                        <h4 class="text-red-600 font-bold text-3xl mb-6 italic tracking-tight">Energía Vital</h4>
-                        <p class="text-stone-500 italic text-lg font-light leading-relaxed">Incremento drástico del umbral anaeróbico y mejora sustancial de la capacidad pulmonar y cardíaca.</p>
-                    </div>
-                </div>
-            `,
-            mental: `
-                <div class="grid md:grid-cols-3 gap-12 animate-fade-in italic">
-                    <div class="p-12 card-inyo rounded-sm">
-                        <h4 class="text-white font-bold text-3xl mb-6 italic tracking-tight">Control Mental</h4>
-                        <p class="text-stone-500 italic text-lg font-light leading-relaxed">Gestión del estrés y la ansiedad mediante la descarga de alta intensidad y la respiración técnica.</p>
-                    </div>
-                    <div class="p-12 card-inyo rounded-sm">
-                        <h4 class="text-white font-bold text-3xl mb-6 italic tracking-tight">Foco & Postura</h4>
-                        <p class="text-stone-500 italic text-lg font-light leading-relaxed">Reordenamiento de los vicios posturales y fortalecimiento del Core para una presencia más equilibrada.</p>
-                    </div>
-                    <div class="p-12 card-inyo rounded-sm">
-                        <h4 class="text-white font-bold text-3xl mb-6 italic tracking-tight">Disciplina</h4>
-                        <p class="text-stone-500 italic text-lg font-light leading-relaxed">Entorno de superación personal basado en la constancia, el respeto y la superación de límites reales.</p>
-                    </div>
-                </div>
-            `
-        };
-
-        function switchBenefit(type) {
-            const content = document.getElementById('benefit-content');
-            content.style.opacity = '0';
-            setTimeout(() => { 
-                content.innerHTML = impacts[type]; 
-                content.style.opacity = '1'; 
-            }, 400);
-            
-            document.getElementById('btn-physical').className = type === 'physical' ? 
-                'w-1/2 py-6 text-2xl font-bold active-tab transition-all uppercase italic' : 
-                'w-1/2 py-6 text-2xl font-bold inactive-tab transition-all uppercase italic';
-                
-            document.getElementById('btn-mental').className = type === 'mental' ? 
-                'w-1/2 py-6 text-2xl font-bold active-tab transition-all uppercase italic' : 
-                'w-1/2 py-6 text-2xl font-bold inactive-tab transition-all uppercase italic';
-        }
-
-        /* Listado Extenso de Ejercicios (Renglón 835+) */
-        const ex_warmup = [
-            "Cat-cow (Movilidad)", 
-            "Knee lifts (Activación)", 
-            "Warmup roll (Espinal)", 
-            "Apees skaters (Dinámico)", 
-            "Bear walk (Coordinación)", 
-            "Hip circles (Cadera)", 
-            "Down dog to cobra", 
-            "Inchworms (Isquios)", 
-            "Hip raises (Glúteos)", 
-            "Skipping jumps", 
-            "Jumping jacks", 
-            "Superman (Lumbares)", 
-            "Side lunges (Aductores)", 
-            "Assisted lunges", 
-            "Reverse lunges", 
-            "Assisted squats", 
-            "Shoulder Warmup", 
-            "Standing scales", 
-            "Table twists", 
-            "High knees"
-        ];
-        
-        const ex_work_suelo = [
-            "Squats (Sentadillas)", 
-            "Squat lunges", 
-            "Lunges (Estocadas)", 
-            "Squat reverse lunges", 
-            "Cossak squats", 
-            "Hip raises (Power)", 
-            "Leg raises (Core)", 
-            "Knee wipers", 
-            "Leg wipers", 
-            "Crunches (Abdominal)", 
-            "Reverse crunches", 
-            "Corkscrew crunches", 
-            "Arm & leg lifts", 
-            "Inchworms (Pro)", 
-            "Inchworm pushups", 
-            "Pushups (Flexiones)", 
-            "Negative pushups", 
-            "Knee pushups", 
-            "Plank shoulder taps", 
-            "Switch planks", 
-            "Planks (Isométrico)", 
-            "Superman (Full)", 
-            "Ground superman", 
-            "Back extensions", 
-            "Diving pushups", 
-            "Pikes (Hombros)", 
-            "Situps (Completo)", 
-            "Squat jumps (HIIT)", 
-            "Split lunges (Explosivo)", 
-            "Burpees (Full Body)", 
-            "Sprawls (Lucha)", 
-            "Standups", 
-            "Mountain climbers"
-        ];
-        
-        const ex_work_extra = [
-            "Pullups (Dominadas)", 
-            "Archer pullups", 
-            "Chinups (Bíceps)", 
-            "Negative pullups", 
-            "Clapping pullups", 
-            "Typewritter pullups", 
-            "Hanging leg wipers", 
-            "Hanging knee raises", 
-            "Commando pullups", 
-            "One-armed hangs", 
-            "Active hang", 
-            "Passive hang", 
-            "Toes to bar", 
-            "Chest-to-bar", 
-            "Handstand hold", 
-            "Hip taps (Muro)", 
-            "Shoulder taps (Muro)", 
-            "Wall walks", 
-            "Wall squats"
-        ];
-        
-        const ex_cool = [
-            "Down dog (Estiramiento)", 
-            "Cobra (Abdominal)", 
-            "Deep squat hold", 
-            "World’s greatest stretch", 
-            "Triceps stretch", 
-            "Hip stretch (Psoas)", 
-            "Lat stretch (Dorsal)", 
-            "Cow face arms", 
-            "Shoulder stretch", 
-            "Forearms stretch", 
-            "Quad stretch"
-        ];
-
+        /* Lógica del Simulador */
         function generateRoutine() {
+            const impedimento = document.getElementById('input-impedimento').value;
             const time = document.getElementById('input-time').value;
-            const equip = document.getElementById('input-equip').value;
+            const focus = document.getElementById('input-focus').value;
             const output = document.getElementById('routine-output');
             const content = document.getElementById('routine-content');
+            
             output.classList.remove('hidden');
-            
-            let numWork = time == "15" ? 5 : time == "30" ? 10 : 15;
-            const getR = (a, n) => a.sort(() => 0.5 - Math.random()).slice(0, n);
-            let pool = equip === "barra" ? [...ex_work_suelo, ...ex_work_extra] : ex_work_suelo;
-            
+
+            let prohibidos = "";
+            let permitidos = "";
+
+            if (impedimento === "columna") {
+                prohibidos_list = ["Crunches tradicionales", "Jump Squats explosivos", "Burpees no adaptados"];
+                permitidos_list = ["Planchas isométricas alineadas", "Puente de glúteos apoyado", "Wall sit con apoyo lumbar"];
+            } else if (impedimento === "abdominal") {
+                prohibidos_list = ["Situps completos", "Leg raises colgado", "Planchas sobrecargadas"];
+                permitidos_list = ["Inclinación en pared", "Ejercicios de respiración profunda", "Activación suave de transverso"];
+            } else if (impedimento === "pelvico") {
+                prohibidos_list = ["Jumping Jacks intensos", "Estocadas con salto", "Pliometría"];
+                permitidos_list = ["Sentadilla apoyada en banco", "Prensa corporal en pared", "Puente pélvico sostenido"];
+            } else if (impedimento === "articular") {
+                prohibidos_list = ["Sentadilla profunda libre", "Flexiones de brazos cerradas", "Zancadas profundas"];
+                permitidos_list = ["Sentadilla asistida a banco", "Pushups inclinadas en pared/banco", "Extensión isométrica"];
+            } else {
+                prohibidos_list = ["Cargas desmedidas sin técnica previa", "Movimientos bruscos sin entrada en calor"];
+                permitidos_list = ["Sentadilla libre adaptada", "Flexiones de brazos progresivas", "Planchas centrales sostenidas"];
+            }
+
             content.innerHTML = `
-                <div class="border-l-4 border-red-600 pl-10">
-                    <h4 class="text-white font-bold text-2xl mb-6 uppercase italic tracking-widest">A. Calentamiento (5-7 min)</h4>
-                    <ul class="text-stone-500 space-y-4 text-lg italic font-light">
-                        ${getR(ex_warmup, 5).map(ex => `<li>• ${ex}</li>`).join('')}
-                    </ul>
+                <div class="space-y-4">
+                    <p class="text-xs uppercase font-bold text-[#c2593f] tracking-widest">Resultado Muestra de Evaluación (${time} min / ${focus.toUpperCase()}):</p>
+                    <h3 class="text-xl font-bold uppercase text-white">Análisis Biomecánico Preliminar</h3>
                 </div>
-                <div class="border-l-4 border-white/20 pl-10">
-                    <h4 class="text-white font-bold text-2xl mb-6 uppercase italic tracking-widest">B. Bloque Principal HIIT</h4>
-                    <div class="grid md:grid-cols-2 gap-6 text-stone-500 text-lg italic font-light">
-                        ${getR(pool, numWork).map(ex => `<li>• ${ex}</li>`).join('')}
+
+                <div class="grid md:grid-cols-2 gap-6 text-xs">
+                    <div class="bg-red-950/30 p-5 border-l-4 border-red-700 space-y-2">
+                        <h4 class="font-bold text-red-400 uppercase">🚫 Ejercicios a Evitar / Prohibidos:</h4>
+                        <ul class="space-y-1 text-stone-400">
+                            ${prohibidos_list.map(ex => `<li>• ${ex}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="bg-emerald-950/30 p-5 border-l-4 border-emerald-600 space-y-2">
+                        <h4 class="font-bold text-emerald-400 uppercase">✅ Ejercicios Permitidos / Reemplazos:</h4>
+                        <ul class="space-y-1 text-stone-300">
+                            ${permitidos_list.map(ex => `<li>• ${ex}</li>`).join('')}
+                        </ul>
                     </div>
                 </div>
-                <div class="border-l-4 border-red-900 pl-10">
-                    <h4 class="text-white font-bold text-2xl mb-6 uppercase italic tracking-widest">C. Recuperación (5 min)</h4>
-                    <ul class="text-stone-500 space-y-4 text-lg italic font-light">
-                        ${getR(ex_cool, 4).map(ex => `<li>• ${ex}</li>`).join('')}
-                    </ul>
-                </div>
             `;
-            window.scrollTo({ top: document.getElementById('simulador').offsetTop + 150, behavior: 'smooth' });
+
+            window.scrollTo({ top: document.getElementById('simulador').offsetTop + 200, behavior: 'smooth' });
         }
 
+        /* Gráfico Radar Biomecánico */
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('formulaChart').getContext('2d');
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Fuerza', 'Cardio', 'Flexibilidad', 'Mental', 'Tiempo'],
+                    labels: ['Fuerza Progresiva', 'Salud Articular', 'Suelo Pélvico', 'Mental/Estrés', 'Pérdida Grasa'],
                     datasets: [{
-                        label: 'HIIT + Calistenia',
-                        data: [95, 95, 80, 90, 100],
-                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                        borderColor: '#ef4444',
-                        borderWidth: 4,
-                        pointBackgroundColor: '#ef4444',
-                        pointBorderColor: '#fff',
-                        pointHoverRadius: 8
+                        label: 'Calistenia Progresiva INYO',
+                        data: [90, 95, 95, 90, 85],
+                        backgroundColor: 'rgba(194, 89, 63, 0.25)',
+                        borderColor: '#c2593f',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#c2593f'
                     }, {
                         label: 'Gimnasio Convencional',
-                        data: [80, 50, 40, 60, 40],
+                        data: [75, 45, 30, 50, 60],
                         backgroundColor: 'rgba(255, 255, 255, 0.05)',
                         borderColor: 'rgba(255, 255, 255, 0.2)',
-                        borderWidth: 2
+                        borderWidth: 1.5
                     }]
                 },
                 options: {
@@ -981,9 +755,9 @@
                     maintainAspectRatio: false,
                     scales: {
                         r: {
-                            angleLines: { color: 'rgba(255,255,255,0.05)' },
-                            grid: { color: 'rgba(255,255,255,0.05)' },
-                            pointLabels: { color: '#78716c', font: { size: 14, family: 'Oswald', weight: 'bold' } },
+                            angleLines: { color: 'rgba(255,255,255,0.08)' },
+                            grid: { color: 'rgba(255,255,255,0.08)' },
+                            pointLabels: { color: '#a8a29e', font: { size: 11, family: 'Oswald' } },
                             suggestedMin: 0,
                             suggestedMax: 100,
                             ticks: { display: false }
@@ -993,50 +767,18 @@
                         legend: {
                             display: true,
                             position: 'top',
-                            labels: { font: { family: 'Oswald', size: 12 }, color: '#57534e', usePointStyle: true, padding: 30 }
+                            labels: { font: { family: 'Oswald', size: 11 }, color: '#a8a29e', usePointStyle: true }
                         }
                     }
                 }
             });
-            switchBenefit('physical');
         });
-        
+
         const obs = new IntersectionObserver((es) => { 
             es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); 
         }, { threshold: 0.1 });
         
         document.querySelectorAll('.fade-in').forEach(e => obs.observe(e));
     </script>
-
-    <!-- ==========================================================================
-         LLAMADOR FLOTANTE: PASO DE INVIERNO ECOSISTEMA INYO ($160.000)
-         ========================================================================== -->
-    <div id="banner-invierno" class="fixed bottom-0 left-0 right-0 bg-[#0c0a09]/95 backdrop-blur-md border-t border-stone-800 text-white p-4 z-[9999] transform translate-y-0 transition-transform duration-500 ease-in-out italic">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            
-            <!-- Texto del Llamador -->
-            <div class="flex items-center gap-3">
-                <div class="text-xl text-stone-400">❄️</div>
-                <div>
-                    <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-stone-300">Pase Global de Invierno • $160.000</h4>
-                    <p class="text-[11px] text-stone-500 font-light">Membresía única mensual con acceso a Yoga, Calistenia, Zen Stretching y Bujinkan con Gastón y Belén.</p>
-                </div>
-            </div>
-            
-            <!-- Acciones -->
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Vi%20el%20Llamador%20en%20la%20web%20y%20me%20interesa%20inscribirme%20con%20la%20*Membres%C3%ADa%20Global%20de%20Invierno*%20de%20$160.000.%20%C2%BFMe%20podr%C3%ADas%20indicar%20los%20pasos%20para%20asegurar%20mi%20cupo%3F%20%C2%A1Muchas%20gracias!" 
-                   target="_blank" 
-                   class="bg-white text-stone-950 px-5 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-stone-200 transition-all shadow-xl">
-                    Solicitar Pase
-                </a>
-                <!-- Botón de cerrar -->
-                <button onclick="document.getElementById('banner-invierno').style.display='none'" class="text-stone-500 hover:text-white text-xs px-2">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-        </div>
-    </div>
 </body>
 </html>
