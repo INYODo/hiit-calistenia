@@ -113,6 +113,32 @@
             opacity: 1; 
             transform: translateY(0); 
         }
+
+        /* Switcher y Botones de Planes */
+        .plan-toggle-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .plan-toggle-active {
+            background-color: #c2593f !important;
+            color: #ffffff !important;
+            border-color: #c2593f !important;
+            box-shadow: 0 4px 12px rgba(194, 89, 63, 0.25);
+        }
+        .plan-toggle-inactive {
+            background-color: #ffffff !important;
+            color: #57534e !important;
+            border-color: #e7e5e4 !important;
+        }
+
+        /* Modal Flotante */
+        #modalPlanes.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #modalPlanes.show .modal-card {
+            transform: scale(1);
+        }
         
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #fdfbf9; }
@@ -136,6 +162,206 @@
     </label>
 
     <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden"></label>
+
+    <!-- BADGE FLOTANTE DISPARADOR DE PLANES Y CRÉDITOS (NO INVASIVO) -->
+    <div id="floatingPlanesTrigger" class="fixed bottom-8 left-6 z-40 max-w-[280px] sm:max-w-xs bg-stone-900/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl border border-stone-700 transition-all duration-500 transform hover:scale-[1.02]">
+        <button onclick="document.getElementById('floatingPlanesTrigger').style.display='none'" class="absolute top-2.5 right-2.5 text-stone-400 hover:text-white transition-colors text-xs p-1" title="Cerrar">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+        <div class="flex items-center gap-2 mb-1.5">
+            <span class="w-2 h-2 bg-[#c2593f] rounded-full animate-ping"></span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-[#c2593f] font-bold italic">Membresías 2026</span>
+        </div>
+        <h4 class="brand-font text-sm text-white font-bold mb-1 leading-snug">Planes & Combos Recuperación</h4>
+        <p class="text-xs text-stone-300 italic mb-3">
+            Calistenia Progresiva + Créditos de <strong>Zen Stretching Dinámico</strong> con caducidad mensual.
+        </p>
+        <button onclick="openModalPlanes()" class="w-full text-center bg-[#c2593f] text-white py-2 px-3 rounded-lg text-[10px] uppercase font-bold tracking-widest hover:bg-[#a84a32] transition italic shadow-sm">
+            Ver Opciones de Créditos
+        </button>
+    </div>
+
+    <!-- MODAL FLOTANTE INTERACTIVO ESTILO AGENDAPFIT (PLANES Y COMBOS) -->
+    <div id="modalPlanes" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+        <div class="modal-card bg-[#fdfbf9] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl p-6 md:p-10 border border-stone-200 shadow-2xl transform scale-95 transition-all duration-300 italic text-stone-900 relative">
+            
+            <button onclick="closeModalPlanes()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-900 text-xl font-bold p-2" title="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-8 space-y-2">
+                <span class="bg-[#c2593f]/10 text-[#c2593f] text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full border border-[#c2593f]/30">
+                    Sistema de Créditos Mensuales
+                </span>
+                <h3 class="text-3xl md:text-4xl font-bold uppercase tracking-tight text-stone-900">
+                    Planes Base & Combos de Rendimiento
+                </h3>
+                <p class="text-xs text-stone-600 max-w-xl mx-auto">
+                    Seleccioná tu frecuencia de entrenamiento. Los créditos incluyen recuperación miofascial y vencen a los 30 días corridos de forma no acumulable.
+                </p>
+            </div>
+
+            <!-- Filtros de Categoría -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button onclick="filterModalCards('todos')" class="filter-btn text-[10px] uppercase font-bold tracking-widest px-4 py-2 rounded-full border border-[#c2593f] bg-[#c2593f] text-white">Todos</button>
+                <button onclick="filterModalCards('2x')" class="filter-btn text-[10px] uppercase font-bold tracking-widest px-4 py-2 rounded-full border border-stone-300 bg-white text-stone-700 hover:border-[#c2593f]">2x Semana (8 Créditos)</button>
+                <button onclick="filterModalCards('3x')" class="filter-btn text-[10px] uppercase font-bold tracking-widest px-4 py-2 rounded-full border border-stone-300 bg-white text-stone-700 hover:border-[#c2593f]">3x Semana (12 Créditos)</button>
+                <button onclick="filterModalCards('5x')" class="filter-btn text-[10px] uppercase font-bold tracking-widest px-4 py-2 rounded-full border border-stone-300 bg-white text-stone-700 hover:border-[#c2593f]">5x Semana (20 Créditos)</button>
+                <button onclick="filterModalCards('suelta')" class="filter-btn text-[10px] uppercase font-bold tracking-widest px-4 py-2 rounded-full border border-stone-300 bg-white text-stone-700 hover:border-[#c2593f]">Clase Suelta</button>
+            </div>
+
+            <!-- Grilla Modal de Opciones -->
+            <div id="modalCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- 2x Base -->
+                <div class="modal-plan-card card-2x bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-500">Plan Base (2x)</span>
+                            <span class="text-[9px] bg-stone-100 text-stone-700 px-2 py-0.5 rounded font-bold uppercase">8 Créditos Calistenia</span>
+                        </div>
+                        <div class="text-3xl font-bold text-stone-900 mb-2">$55.000 <span class="text-xs text-stone-500 font-light">/mes</span></div>
+                        <p class="text-xs text-stone-600 mb-4">Ideal para comenzar a ordenar la postura y fuerza funcional.</p>
+                        <ul class="text-xs space-y-2 text-stone-600 border-t border-stone-100 pt-3">
+                            <li>• 2 clases semanales guiadas en sala</li>
+                            <li>• <strong>1 clase mensual incluida</strong> de Zen Stretching</li>
+                            <li>• Válido 30 días continuos (no acumulable)</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20Deseo%20inscribirme%20al%20Plan%20Base%202X%20de%20Calistenia%20($55.000)." class="mt-6 block text-center bg-stone-900 hover:bg-[#c2593f] text-white py-3 rounded text-[10px] uppercase font-bold tracking-widest transition">
+                        Elegir Base 2x
+                    </a>
+                </div>
+
+                <!-- 2x Combo Recuperación -->
+                <div class="modal-plan-card card-2x bg-white p-6 rounded-lg border-2 border-[#c2593f] shadow-md flex flex-col justify-between relative">
+                    <span class="absolute -top-3 right-4 bg-[#c2593f] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full shadow">Combo Recomendado</span>
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#c2593f]">Combo Rendimiento (2x)</span>
+                            <span class="text-[9px] bg-amber-50 text-amber-900 border border-amber-200 px-2 py-0.5 rounded font-bold uppercase">8 Calis + 4 Stretching</span>
+                        </div>
+                        <div class="text-3xl font-bold text-stone-900 mb-2">$70.000 <span class="text-xs text-stone-500 font-light">/mes</span></div>
+                        <p class="text-xs text-stone-600 mb-4">Combina fuerza progresiva con descarga semanal completa.</p>
+                        <ul class="text-xs space-y-2 text-stone-700 border-t border-stone-100 pt-3 font-medium">
+                            <li>• 2 clases semanales de Calistenia</li>
+                            <li>• <strong>4 clases mensuales cubiertas</strong> de Zen Stretching Dinámico</li>
+                            <li>• Recuperación miofascial profunda post-esfuerzo</li>
+                            <li>• Créditos vigentes por 30 días no acumulables</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20Deseo%20el%20Combo%20Rendimiento%202X%20(Calistenia%20+%204%20clases%20de%20Stretching%20Din%C3%A1mico)%20por%20$70.000." class="mt-6 block text-center bg-[#c2593f] hover:bg-[#a84a32] text-white py-3 rounded text-[10px] uppercase font-bold tracking-widest transition shadow">
+                        Elegir Combo 2x ($70.000)
+                    </a>
+                </div>
+
+                <!-- 3x Base -->
+                <div class="modal-plan-card card-3x bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-500">Plan Base (3x)</span>
+                            <span class="text-[9px] bg-stone-100 text-stone-700 px-2 py-0.5 rounded font-bold uppercase">12 Créditos Calistenia</span>
+                        </div>
+                        <div class="text-3xl font-bold text-stone-900 mb-2">$60.000 <span class="text-xs text-stone-500 font-light">/mes</span></div>
+                        <p class="text-xs text-stone-600 mb-4">El estímulo óptimo para progresión constante de fuerza.</p>
+                        <ul class="text-xs space-y-2 text-stone-600 border-t border-stone-100 pt-3">
+                            <li>• 3 clases semanales guiadas en sala</li>
+                            <li>• <strong>1 clase mensual incluida</strong> de Zen Stretching</li>
+                            <li>• Válido 30 días continuos (no acumulable)</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20Deseo%20inscribirme%20al%20Plan%20Base%203X%20de%20Calistenia%20($60.000)." class="mt-6 block text-center bg-stone-900 hover:bg-[#c2593f] text-white py-3 rounded text-[10px] uppercase font-bold tracking-widest transition">
+                        Elegir Base 3x
+                    </a>
+                </div>
+
+                <!-- 3x Combo Recuperación -->
+                <div class="modal-plan-card card-3x bg-white p-6 rounded-lg border-2 border-[#c2593f] shadow-md flex flex-col justify-between relative">
+                    <span class="absolute -top-3 right-4 bg-[#c2593f] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full shadow">Más Elegido</span>
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#c2593f]">Combo Rendimiento (3x)</span>
+                            <span class="text-[9px] bg-amber-50 text-amber-900 border border-amber-200 px-2 py-0.5 rounded font-bold uppercase">12 Calis + 4 Stretching</span>
+                        </div>
+                        <div class="text-3xl font-bold text-stone-900 mb-2">$80.000 <span class="text-xs text-stone-500 font-light">/mes</span></div>
+                        <p class="text-xs text-stone-600 mb-4">El equilibrio perfecto de intensidad, volumen y descompresión articular.</p>
+                        <ul class="text-xs space-y-2 text-stone-700 border-t border-stone-100 pt-3 font-medium">
+                            <li>• 3 clases semanales de Calistenia</li>
+                            <li>• <strong>4 clases mensuales cubiertas</strong> de Zen Stretching Dinámico</li>
+                            <li>• Evaluación periódica de control postural</li>
+                            <li>• Créditos vigentes por 30 días no acumulables</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20Deseo%20el%20Combo%20Rendimiento%203X%20(Calistenia%20+%204%20clases%20de%20Stretching%20Din%C3%A1mico)%20por%20$80.000." class="mt-6 block text-center bg-[#c2593f] hover:bg-[#a84a32] text-white py-3 rounded text-[10px] uppercase font-bold tracking-widest transition shadow">
+                        Elegir Combo 3x ($80.000)
+                    </a>
+                </div>
+
+                <!-- 5x Base -->
+                <div class="modal-plan-card card-5x bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-500">Plan Elite (5x)</span>
+                            <span class="text-[9px] bg-stone-100 text-stone-700 px-2 py-0.5 rounded font-bold uppercase">20 Créditos Calistenia</span>
+                        </div>
+                        <div class="text-3xl font-bold text-stone-900 mb-2">$80.000 <span class="text-xs text-stone-500 font-light">/mes</span></div>
+                        <p class="text-xs text-stone-600 mb-4">Atletas o practicantes avanzados que entrenan de lunes a viernes.</p>
+                        <ul class="text-xs space-y-2 text-stone-600 border-t border-stone-100 pt-3">
+                            <li>• 5 clases semanales guiadas</li>
+                            <li>• <strong>2 clases mensuales incluidas</strong> de Zen Stretching</li>
+                            <li>• Válido 30 días continuos (no acumulable)</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20Deseo%20inscribirme%20al%20Plan%20Elite%205X%20de%20Calistenia%20($80.000)." class="mt-6 block text-center bg-stone-900 hover:bg-[#c2593f] text-white py-3 rounded text-[10px] uppercase font-bold tracking-widest transition">
+                        Elegir Base 5x
+                    </a>
+                </div>
+
+                <!-- 5x Combo Recuperación -->
+                <div class="modal-plan-card card-5x bg-white p-6 rounded-lg border-2 border-stone-900 shadow-md flex flex-col justify-between relative">
+                    <span class="absolute -top-3 right-4 bg-stone-900 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full shadow">Pase Total Pro</span>
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-900">Combo Total Elite (5x)</span>
+                            <span class="text-[9px] bg-stone-100 text-stone-900 px-2 py-0.5 rounded font-bold uppercase">20 Calis + 4 Stretching</span>
+                        </div>
+                        <div class="text-3xl font-bold text-stone-900 mb-2">$90.000 <span class="text-xs text-stone-500 font-light">/mes</span></div>
+                        <p class="text-xs text-stone-600 mb-4">Por solo $10.000 de diferencia, cubrís todo el ciclo de recuperación semanal.</p>
+                        <ul class="text-xs space-y-2 text-stone-700 border-t border-stone-100 pt-3 font-medium">
+                            <li>• 5 clases semanales de Calistenia</li>
+                            <li>• <strong>4 clases mensuales cubiertas</strong> de Zen Stretching Dinámico</li>
+                            <li>• Regeneración semanal completa para alta exigencia</li>
+                            <li>• Créditos vigentes por 30 días no acumulables</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20Deseo%20el%20Combo%20Total%20Elite%205X%20(Calistenia%20+%204%20clases%20de%20Stretching%20Din%C3%A1mico)%20por%20$90.000." class="mt-6 block text-center bg-stone-900 hover:bg-[#c2593f] text-white py-3 rounded text-[10px] uppercase font-bold tracking-widest transition shadow">
+                        Elegir Combo 5x ($90.000)
+                    </a>
+                </div>
+
+                <!-- Clase Suelta -->
+                <div class="modal-plan-card card-suelta md:col-span-2 bg-stone-100 p-6 rounded-lg border border-stone-300 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="text-center sm:text-left">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-stone-500">Pase Individual / Ocasional</span>
+                        <h4 class="text-xl font-bold uppercase text-stone-900 mt-1">Clase Suelta de Calistenia</h4>
+                        <p class="text-xs text-stone-600 mt-1">Para quienes no pueden sostener la frecuencia mensual o desean una clase puntual.</p>
+                    </div>
+                    <div class="text-center sm:text-right">
+                        <div class="text-3xl font-bold text-stone-900 mb-2">$20.000</div>
+                        <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20Quisiera%20coordinar%20una%20Clase%20Suelta%20de%20Calistenia%20($20.000)." class="inline-block bg-stone-900 hover:bg-[#c2593f] text-white px-6 py-2.5 rounded text-[10px] uppercase font-bold tracking-widest transition">
+                            Reservar Clase Suelta
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-stone-200 text-center text-[11px] text-stone-500">
+                <i class="fa-solid fa-clock-rotate-left mr-1"></i> <strong>Regla de Créditos:</strong> Todos los paquetes mensuales deben consumirse dentro de los 30 días corridos posteriores al pago. No son acumulables ni transferibles.
+            </div>
+
+        </div>
+    </div>
 
     <!-- Menú Desplegable Conectado al Ecosistema -->
     <nav id="side-menu" class="fixed top-0 left-0 h-full w-80 bg-[#fdfbf9] z-50 shadow-2xl transform -translate-x-full transition-transform duration-500 ease-in-out p-12 flex flex-col border-r border-stone-200">
@@ -508,68 +734,123 @@
                 </div>
             </div>
 
-            <!-- ARANCELES Y PLANES MENSUALES -->
-            <div class="pt-16">
-                <h2 class="text-4xl md:text-5xl text-center mb-16 font-bold uppercase italic tracking-tight text-stone-900">
-                    Planes Mensuales
-                </h2>
+            <!-- ARANCELES Y PLANES MENSUALES INTERACTIVOS (SISTEMA DE CRÉDITOS) -->
+            <div id="planes-mensuales" class="pt-16">
+                <div class="text-center mb-8 space-y-3">
+                    <span class="bg-[#c2593f]/10 text-[#c2593f] text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-[#c2593f]/30">
+                        Inscripciones & Créditos Mensuales
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase italic tracking-tight text-stone-900">
+                        Planes & Combos con Recuperación
+                    </h2>
+                    <p class="text-stone-600 text-xs max-w-2xl mx-auto italic">
+                        Alterná entre los pases base de Calistenia y los combos completos con <strong>4 clases de Zen Stretching Dinámico</strong> incluidas al mes.
+                    </p>
+                </div>
+
+                <!-- Interruptor Interactivo (Selector Modo Base vs Combo) -->
+                <div class="flex justify-center items-center gap-3 mb-12">
+                    <button id="toggle-base-btn" onclick="setPlanMode('base')" class="plan-toggle-btn plan-toggle-inactive px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest border transition-all">
+                        Pases Base (Fuerza)
+                    </button>
+                    <button id="toggle-combo-btn" onclick="setPlanMode('combo')" class="plan-toggle-btn plan-toggle-active px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest border transition-all">
+                        ✨ Combos con Recuperación (4 Dinámicas)
+                    </button>
+                </div>
                 
                 <div class="grid md:grid-cols-3 gap-8 items-stretch italic">
                     
-                    <!-- Plan Core 2X -->
-                    <div class="p-8 border border-stone-200 bg-white flex flex-col justify-between hover:border-[#c2593f]/50 transition-all shadow-md">
+                    <!-- Tarjeta Plan 2X -->
+                    <div class="p-8 border border-stone-200 bg-white flex flex-col justify-between hover:border-[#c2593f]/50 transition-all shadow-md rounded-sm">
                         <div class="space-y-4">
-                            <h3 class="text-stone-500 font-bold uppercase text-xs tracking-widest">Plan Core (2X)</h3>
-                            <div class="text-5xl font-bold italic text-stone-900">$55.000</div>
-                            <p class="text-[#c2593f] text-xs font-bold uppercase tracking-wider">2 veces por semana (8 clases al mes)</p>
-                            <ul class="text-xs space-y-4 text-stone-600 font-light border-t border-stone-100 pt-6">
-                                <li>• Clases Presenciales Guiadas</li>
-                                <li>• 1 Clase Zen Stretching Mensual</li>
-                                <li>• Adaptación Biomecánica Continua</li>
+                            <div class="flex justify-between items-center">
+                                <h3 id="plan-2x-title" class="text-stone-500 font-bold uppercase text-xs tracking-widest">Plan Core (2X)</h3>
+                                <span id="plan-2x-tag" class="text-[9px] bg-[#c2593f]/10 text-[#c2593f] font-bold uppercase px-2 py-0.5 rounded">Combo Recomendado</span>
+                            </div>
+                            <div id="plan-2x-price" class="text-5xl font-bold italic text-stone-900">$70.000</div>
+                            <p id="plan-2x-sub" class="text-[#c2593f] text-xs font-bold uppercase tracking-wider">2x semana Calistenia + 4 Clases Stretching</p>
+                            <ul id="plan-2x-list" class="text-xs space-y-3 text-stone-600 font-light border-t border-stone-100 pt-6">
+                                <li>• 8 clases mensuales de Calistenia Progresiva</li>
+                                <li>• <strong>4 clases mensuales incluidas</strong> de Zen Stretching Dinámico</li>
+                                <li>• Descompresión miofascial semanal obligatoria</li>
+                                <li>• Créditos vigentes por 30 días no acumulables</li>
                             </ul>
                         </div>
                         <div class="pt-8">
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Core%20(2x)*%20de%20Calistenia%20Progresiva%20($55.000).%20Quisiera%20coordinar%20mi%20entrevista%20y%20clase%20de%20prueba." class="block border border-stone-300 py-4 text-center text-[10px] font-bold uppercase hover:bg-[#c2593f] hover:text-white hover:border-[#c2593f] transition-all tracking-widest">Inscribirme</a>
+                            <a id="plan-2x-btn" href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Combo%20Rendimiento%20Core%20(2x%20+%204%20clases%20Stretching)*%20por%20$70.000%20mensuales." class="block border border-stone-300 py-4 text-center text-[10px] font-bold uppercase hover:bg-[#c2593f] hover:text-white hover:border-[#c2593f] transition-all tracking-widest">
+                                Inscribirme al 2x
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Plan Power 3X (Destacado) -->
-                    <div class="p-8 border-2 border-[#c2593f] bg-white flex flex-col justify-between relative transform md:-translate-y-2 shadow-2xl">
+                    <!-- Tarjeta Plan 3X (Destacado) -->
+                    <div class="p-8 border-2 border-[#c2593f] bg-white flex flex-col justify-between relative transform md:-translate-y-2 shadow-2xl rounded-sm">
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#c2593f] text-white px-6 py-1 text-[9px] font-bold uppercase tracking-widest shadow-md">Más Elegido</div>
                         <div class="space-y-4 pt-2">
-                            <h3 class="text-[#c2593f] font-bold uppercase text-xs tracking-widest">Plan Power (3X)</h3>
-                            <div class="text-6xl font-bold italic text-stone-900">$60.000</div>
-                            <p class="text-stone-900 text-xs font-bold uppercase tracking-wider">3 veces por semana (12 clases al mes)</p>
-                            <ul class="text-xs space-y-4 font-semibold text-stone-700 border-t border-stone-100 pt-6">
-                                <li>• Máxima Constancia y Resultados</li>
-                                <li>• 1 Clase Zen Stretching Mensual</li>
-                                <li>• Evaluación de Perfil & Portal Alumnos</li>
-                                <li>• Asesoría en Descompresión Biomecánica</li>
+                            <div class="flex justify-between items-center">
+                                <h3 id="plan-3x-title" class="text-[#c2593f] font-bold uppercase text-xs tracking-widest">Plan Power (3X)</h3>
+                                <span id="plan-3x-tag" class="text-[9px] bg-amber-100 text-amber-900 font-bold uppercase px-2 py-0.5 rounded">Rendimiento Total</span>
+                            </div>
+                            <div id="plan-3x-price" class="text-6xl font-bold italic text-stone-900">$80.000</div>
+                            <p id="plan-3x-sub" class="text-stone-900 text-xs font-bold uppercase tracking-wider">3x semana Calistenia + 4 Clases Stretching</p>
+                            <ul id="plan-3x-list" class="text-xs space-y-3 font-semibold text-stone-700 border-t border-stone-100 pt-6">
+                                <li>• 12 clases mensuales de Calistenia Progresiva</li>
+                                <li>• <strong>4 clases mensuales incluidas</strong> de Zen Stretching Dinámico</li>
+                                <li>• Evaluación de perfil postural & portal alumnos</li>
+                                <li>• Máximo progreso de fuerza y recuperación articular</li>
+                                <li>• Créditos vigentes por 30 días no acumulables</li>
                             </ul>
                         </div>
                         <div class="pt-8">
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Power%20(3x)*%20de%20Calistenia%20Progresiva%20($60.000).%20Quisiera%20coordinar%20mi%20entrevista%20y%20clase%20de%20prueba." class="block bg-[#c2593f] text-white py-5 text-center text-[10px] font-bold uppercase hover:bg-[#a84a32] transition shadow-2xl tracking-widest">Elegir Plan</a>
+                            <a id="plan-3x-btn" href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Combo%20Rendimiento%20Power%20(3x%20+%204%20clases%20Stretching)*%20por%20$80.000%20mensuales." class="block bg-[#c2593f] text-white py-5 text-center text-[10px] font-bold uppercase hover:bg-[#a84a32] transition shadow-2xl tracking-widest">
+                                Elegir Combo 3x
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Plan Elite 5X -->
-                    <div class="p-8 border border-stone-200 bg-white flex flex-col justify-between hover:border-[#c2593f]/50 transition-all shadow-md">
+                    <!-- Tarjeta Plan 5X -->
+                    <div class="p-8 border border-stone-200 bg-white flex flex-col justify-between hover:border-[#c2593f]/50 transition-all shadow-md rounded-sm">
                         <div class="space-y-4">
-                            <h3 class="text-stone-500 font-bold uppercase text-xs tracking-widest">Plan Elite (5X)</h3>
-                            <div class="text-5xl font-bold italic text-stone-900">$80.000</div>
-                            <p class="text-[#c2593f] text-xs font-bold uppercase tracking-wider">5 veces por semana (20 clases al mes)</p>
-                            <ul class="text-xs space-y-4 text-stone-600 font-light border-t border-stone-100 pt-6">
-                                <li>• Modalidad Híbrida Presencial / Online</li>
-                                <li>• 2 Clases Zen Stretching Mensuales</li>
-                                <li>• Atención 24/7 vía WhatsApp</li>
+                            <div class="flex justify-between items-center">
+                                <h3 id="plan-5x-title" class="text-stone-500 font-bold uppercase text-xs tracking-widest">Plan Pro Elite (5X)</h3>
+                                <span id="plan-5x-tag" class="text-[9px] bg-stone-100 text-stone-700 font-bold uppercase px-2 py-0.5 rounded">Pase Completo</span>
+                            </div>
+                            <div id="plan-5x-price" class="text-5xl font-bold italic text-stone-900">$90.000</div>
+                            <p id="plan-5x-sub" class="text-[#c2593f] text-xs font-bold uppercase tracking-wider">5x semana Calistenia + 4 Clases Stretching</p>
+                            <ul id="plan-5x-list" class="text-xs space-y-3 text-stone-600 font-light border-t border-stone-100 pt-6">
+                                <li>• 20 clases mensuales de Calistenia Progresiva</li>
+                                <li>• <strong>4 clases mensuales cubiertas</strong> de Zen Stretching Dinámico</li>
+                                <li>• Asistencia y supervisión técnica constante</li>
+                                <li>• Créditos vigentes por 30 días no acumulables</li>
                             </ul>
                         </div>
                         <div class="pt-8">
-                            <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Pro%20Elite%20(5x)*%20de%20Calistenia%20Progresiva%20($80.000).%20Quisiera%20coordinar%20mi%20entrevista%20y%20clase%20de%20prueba." class="block border border-stone-300 py-4 text-center text-[10px] font-bold uppercase hover:bg-[#c2593f] hover:text-white hover:border-[#c2593f] transition-all tracking-widest">Inscribirme</a>
+                            <a id="plan-5x-btn" href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Combo%20Total%20Elite%20(5x%20+%204%20clases%20Stretching)*%20por%20$90.000%20mensuales." class="block border border-stone-300 py-4 text-center text-[10px] font-bold uppercase hover:bg-[#c2593f] hover:text-white hover:border-[#c2593f] transition-all tracking-widest">
+                                Inscribirme al 5x
+                            </a>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Banner Informativo: Pase Suelto & Términos de Créditos -->
+                <div class="mt-12 bg-white border border-stone-200 p-8 rounded-sm shadow-sm flex flex-col md:flex-row justify-between items-center gap-6 italic">
+                    <div class="space-y-1 text-center md:text-left">
+                        <span class="text-[10px] uppercase tracking-widest text-[#c2593f] font-bold">Modalidad Sin Abono Mensual</span>
+                        <h4 class="text-2xl font-bold text-stone-900 uppercase">Clase Suelta / Pase Individual</h4>
+                        <p class="text-xs text-stone-600">Acceso a una sesión individual guiada con evaluación técnica previa.</p>
+                        <p class="text-[11px] text-stone-500 pt-1">
+                            ⚠️ <strong>Vigencia de Créditos:</strong> Todos los planes mensuales tienen caducidad estricta de 30 días corridos desde el primer uso. No son acumulables.
+                        </p>
+                    </div>
+                    <div class="text-center md:text-right shrink-0">
+                        <div class="text-4xl font-bold text-stone-900 mb-3">$20.000</div>
+                        <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Deseo%20coordinar%20una%20*Clase%20Suelta*%20de%20Calistenia%20Progresiva%20($20.000)." class="inline-block bg-stone-900 hover:bg-[#c2593f] text-white px-8 py-3 text-[10px] uppercase font-bold tracking-widest transition rounded-sm">
+                            Reservar Clase Suelta
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -607,11 +888,11 @@
 
                 <details class="group bg-white border border-stone-200 rounded-sm shadow-sm">
                     <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none uppercase text-stone-800 hover:text-[#c2593f]">
-                        <span><i class="fa-solid fa-rotate-left mr-4 text-[#c2593f]"></i> Política de Ausencias</span>
+                        <span><i class="fa-solid fa-rotate-left mr-4 text-[#c2593f]"></i> Política de Ausencias & Caducidad de Créditos</span>
                         <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <div class="px-6 pb-6 text-stone-600 font-light border-t border-stone-100 pt-4 leading-relaxed">
-                        Las clases perdidas podrán recuperarse únicamente dentro del mismo mes abonado, siempre que se coordine previamente con el instructor y haya disponibilidad en otros turnos. Las clases no son acumulables ni transferibles al mes siguiente bajo ningún concepto.
+                        Las clases perdidas podrán recuperarse únicamente dentro de los 30 días corridos del mes abonado, siempre que se coordine previamente con el instructor y haya disponibilidad en otros turnos. Los créditos y clases no son acumulables ni transferibles al mes siguiente bajo ningún concepto.
                     </div>
                 </details>
 
@@ -621,7 +902,7 @@
                         <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <div class="px-6 pb-6 text-stone-600 font-light border-t border-stone-100 pt-4 leading-relaxed">
-                        Si bien los planes **Power** y **Elite** incluyen 1 o 2 clases mensuales de cortesía, el entrenamiento de los viernes a las 20:00hs es una actividad complementaria específica. Si deseas realizar el ciclo completo de 4 clases de recuperación miofascial al mes, deberás consultar por la modalidad combinada.
+                        Los planes **Base** incluyen 1 o 2 clases mensuales de cortesía. Para acceder al ciclo completo de 4 clases de recuperación miofascial al mes (los viernes a las 20:00 hs), contás con los <strong>Combos Rendimiento</strong> (2x por $70.000, 3x por $80.000 y 5x por $90.000), garantizando recuperación activa sin costos extra por clase suelta.
                     </div>
                 </details>
 
@@ -692,6 +973,152 @@
                 icon.classList.replace('fa-volume-up', 'fa-volume-mute'); 
                 icon.classList.remove('text-[#c2593f]'); 
                 document.getElementById('musicBtn').classList.remove('animate-pulse-terracota');
+            }
+        }
+
+        /* Control Modal Flotante de Planes */
+        function openModalPlanes() {
+            const modal = document.getElementById('modalPlanes');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModalPlanes() {
+            const modal = document.getElementById('modalPlanes');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal al clickear afuera
+        document.getElementById('modalPlanes').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModalPlanes();
+            }
+        });
+
+        /* Filtro de Tarjetas en Modal */
+        function filterModalCards(type) {
+            const cards = document.querySelectorAll('.modal-plan-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-[#c2593f]', 'text-white', 'border-[#c2593f]');
+                btn.classList.add('bg-white', 'text-stone-700', 'border-stone-300');
+            });
+            event.target.classList.remove('bg-white', 'text-stone-700', 'border-stone-300');
+            event.target.classList.add('bg-[#c2593f]', 'text-white', 'border-[#c2593f]');
+
+            cards.forEach(card => {
+                if (type === 'todos') {
+                    card.style.display = card.classList.contains('card-suelta') ? 'flex' : 'flex';
+                } else if (type === 'suelta') {
+                    card.style.display = card.classList.contains('card-suelta') ? 'flex' : 'none';
+                } else if (card.classList.contains(`card-${type}`)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        /* Lógica del Switcher en Sección de Precios */
+        let currentPlanMode = 'combo'; // Inicia en combo por defecto
+
+        function setPlanMode(mode) {
+            currentPlanMode = mode;
+            const btnBase = document.getElementById('toggle-base-btn');
+            const btnCombo = document.getElementById('toggle-combo-btn');
+
+            if (mode === 'combo') {
+                btnCombo.classList.add('plan-toggle-active');
+                btnCombo.classList.remove('plan-toggle-inactive');
+                btnBase.classList.add('plan-toggle-inactive');
+                btnBase.classList.remove('plan-toggle-active');
+
+                // Actualizar 2X
+                document.getElementById('plan-2x-title').innerText = "Plan Core + Recuperación (2X)";
+                document.getElementById('plan-2x-tag').innerText = "Combo Recomendado";
+                document.getElementById('plan-2x-price').innerText = "$70.000";
+                document.getElementById('plan-2x-sub').innerText = "2x Calistenia + 4 Clases Stretching Dinámico";
+                document.getElementById('plan-2x-list').innerHTML = `
+                    <li>• 8 clases mensuales de Calistenia Progresiva</li>
+                    <li>• <strong>4 clases mensuales cubiertas</strong> de Zen Stretching Dinámico</li>
+                    <li>• Descompresión miofascial semanal obligatoria</li>
+                    <li>• Créditos vigentes por 30 días no acumulables</li>
+                `;
+                document.getElementById('plan-2x-btn').href = "https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Combo%20Rendimiento%20Core%20(2x%20+%204%20clases%20Stretching)*%20por%20$70.000%20mensuales.";
+
+                // Actualizar 3X
+                document.getElementById('plan-3x-title').innerText = "Plan Power + Recuperación (3X)";
+                document.getElementById('plan-3x-tag').innerText = "Rendimiento Total";
+                document.getElementById('plan-3x-price').innerText = "$80.000";
+                document.getElementById('plan-3x-sub').innerText = "3x Calistenia + 4 Clases Stretching Dinámico";
+                document.getElementById('plan-3x-list').innerHTML = `
+                    <li>• 12 clases mensuales de Calistenia Progresiva</li>
+                    <li>• <strong>4 clases mensuales cubiertas</strong> de Zen Stretching Dinámico</li>
+                    <li>• Evaluación de perfil postural & portal alumnos</li>
+                    <li>• Máximo progreso de fuerza y recuperación articular</li>
+                    <li>• Créditos vigentes por 30 días no acumulables</li>
+                `;
+                document.getElementById('plan-3x-btn').href = "https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Combo%20Rendimiento%20Power%20(3x%20+%204%20clases%20Stretching)*%20por%20$80.000%20mensuales.";
+
+                // Actualizar 5X
+                document.getElementById('plan-5x-title').innerText = "Plan Pro Elite Total (5X)";
+                document.getElementById('plan-5x-tag').innerText = "Pase Completo";
+                document.getElementById('plan-5x-price').innerText = "$90.000";
+                document.getElementById('plan-5x-sub').innerText = "5x Calistenia + 4 Clases Stretching Dinámico";
+                document.getElementById('plan-5x-list').innerHTML = `
+                    <li>• 20 clases mensuales de Calistenia Progresiva</li>
+                    <li>• <strong>4 clases mensuales cubiertas</strong> de Zen Stretching Dinámico</li>
+                    <li>• Asistencia y supervisión técnica constante</li>
+                    <li>• Créditos vigentes por 30 días no acumulables</li>
+                `;
+                document.getElementById('plan-5x-btn').href = "https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Combo%20Total%20Elite%20(5x%20+%204%20clases%20Stretching)*%20por%20$90.000%20mensuales.";
+
+            } else {
+                btnBase.classList.add('plan-toggle-active');
+                btnBase.classList.remove('plan-toggle-inactive');
+                btnCombo.classList.add('plan-toggle-inactive');
+                btnCombo.classList.remove('plan-toggle-active');
+
+                // Modo Base 2X
+                document.getElementById('plan-2x-title').innerText = "Plan Core Base (2X)";
+                document.getElementById('plan-2x-tag').innerText = "Fuerza Base";
+                document.getElementById('plan-2x-price').innerText = "$55.000";
+                document.getElementById('plan-2x-sub').innerText = "2 veces por semana (8 clases al mes)";
+                document.getElementById('plan-2x-list').innerHTML = `
+                    <li>• 8 clases mensuales de Calistenia Progresiva</li>
+                    <li>• <strong>1 clase mensual incluida</strong> de Zen Stretching</li>
+                    <li>• Adaptación biomecánica continua</li>
+                    <li>• Créditos vigentes por 30 días no acumulables</li>
+                `;
+                document.getElementById('plan-2x-btn').href = "https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Core%20Base%20(2x)*%20de%20Calistenia%20Progresiva%20($55.000).";
+
+                // Modo Base 3X
+                document.getElementById('plan-3x-title').innerText = "Plan Power Base (3X)";
+                document.getElementById('plan-3x-tag').innerText = "Frecuencia Óptima";
+                document.getElementById('plan-3x-price').innerText = "$60.000";
+                document.getElementById('plan-3x-sub').innerText = "3 veces por semana (12 clases al mes)";
+                document.getElementById('plan-3x-list').innerHTML = `
+                    <li>• 12 clases mensuales de Calistenia Progresiva</li>
+                    <li>• <strong>1 clase mensual incluida</strong> de Zen Stretching</li>
+                    <li>• Evaluación de perfil & portal alumnos</li>
+                    <li>• Créditos vigentes por 30 días no acumulables</li>
+                `;
+                document.getElementById('plan-3x-btn').href = "https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Power%20Base%20(3x)*%20de%20Calistenia%20Progresiva%20($60.000).";
+
+                // Modo Base 5X
+                document.getElementById('plan-5x-title').innerText = "Plan Elite Base (5X)";
+                document.getElementById('plan-5x-tag').innerText = "Alta Frecuencia";
+                document.getElementById('plan-5x-price').innerText = "$80.000";
+                document.getElementById('plan-5x-sub').innerText = "5 veces por semana (20 clases al mes)";
+                document.getElementById('plan-5x-list').innerHTML = `
+                    <li>• 20 clases mensuales de Calistenia Progresiva</li>
+                    <li>• <strong>2 clases mensuales incluidas</strong> de Zen Stretching</li>
+                    <li>• Asistencia y seguimiento continuo</li>
+                    <li>• Créditos vigentes por 30 días no acumulables</li>
+                `;
+                document.getElementById('plan-5x-btn').href = "https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20inscribirme%20en%20el%20*Plan%20Pro%20Elite%20Base%20(5x)*%20de%20Calistenia%20Progresiva%20($80.000).";
             }
         }
 
